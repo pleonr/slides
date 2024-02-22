@@ -1,0 +1,14 @@
+a  {
+    text-decoration: none!important;
+    /*color: green;*/
+}
+
+.slidev-layout a {
+    border-bottom-width: 0px;
+    border-color: currentColor;
+    border-style: none;
+}
+
+.slidev-layout {
+    column-gap: 20px;
+}
