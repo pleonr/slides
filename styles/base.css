@@ -12,3 +12,7 @@ a  {
 .slidev-layout {
     column-gap: 20px;
 }
+
+:root {
+  --slidev-code-font-size: 16px;
+ }
