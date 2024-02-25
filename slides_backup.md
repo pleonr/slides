@@ -449,3 +449,5 @@ to <span class="font-medium underline">gain access</span> to sensitive informati
 </v-click>
 
 colorSchema: light
+
+<!--<img class="m-auto -z-5 left-0 top-0 right-0 bottom-0 max-w-full max-h-full absolute" src="/syn1.png"/>-->
