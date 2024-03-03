@@ -451,3 +451,30 @@ to <span class="font-medium underline">gain access</span> to sensitive informati
 colorSchema: light
 
 <!--<img class="m-auto -z-5 left-0 top-0 right-0 bottom-0 max-w-full max-h-full absolute" src="/syn1.png"/>-->
+
+
+
+---
+layout: two-cols-header
+---
+
+This spans bothaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+::left::
+
+# Left
+
+This shows on the left
+
+::right::
+
+# Right
+
+This shows on the right
+
+
+---
+layout: two-cols
+---
+
+::right::

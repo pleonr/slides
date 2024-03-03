@@ -6,7 +6,7 @@ highlighter: shiki
 mdc: true
 drawings:
   persist: false
-title: Tópicos Especiais em Desenvolvimento de Software II
+title: NodeJs
 image: /side-logo.png
 selectable: true
 colorSchema: dark
@@ -17,7 +17,7 @@ export:
   withClicks: false
 ---
 <br><br>
-# Tópicos Especiais em Desenvolvimento de Software II
+# NodeJs
 <br><br>
 ##### Pablo Leon Rodrigues
 
@@ -41,6 +41,124 @@ export:
 <Toc maxDepth="2"></Toc>
 
 ---
-layout: image-right
-image: /Sir_Tim_Berners-Lee.jpg
+
+## Introdução ao Node.js
+
+Node.js é um ambiente de tempo de execução JavaScript de código aberto e multi plataforma .
+É uma ferramenta popular para quase qualquer tipo de projeto!
+
+O Node.js executa o mecanismo JavaScript V8, o núcleo do Google Chrome, fora do navegador.
+
+Um aplicativo Node.js é executado em um único processo, sem criar um novo thread para cada
+solicitação. 
+
+O node possibilita criar código para o servidor usando a mesma linguagem(JavaScript) utilizada no lad do cliente.
+
+https://nodejs.org/pt-br/about/ 
+
 ---
+layout: two-cols
+---
+
+## Hello World!
+
+- Criar pasta para a api node e entra nela 
+  - mkdir minhaapi
+  - cd minhaapi
+  - npm init > seguir default
+  - indicar nome do entry point > `server.js`
+
+Isso vai criar o `package.json`
+  - criar o arquivo `server.js`
+  - `console.log("Hello World");`
+
+::right::
+
+```json
+{
+  "name": "minhaapi",
+  "version": "1.0.0",
+  "description": "projedo TEDII",
+  "main": "server.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "GPL 3.0"
+}
+```
+<br>
+
+Execute o programa com `node server.js`
+
+---
+layout: two-cols
+---
+
+## NPM
+
+O NPM[(*Node Package Manager*)](https://www.npmjs.com){style="color: grey"} é uma biblioteca para compartilhar código e um gerenciador de 
+dependências.
+
+```json
+{
+  "name" : "foo",
+  "version" : "1.2.3",
+  "description" : "A package",
+  "main" : "foo.js",
+  "keywords" : ["foo", "fool", "foolish"],
+  "author" : "John Doe",
+  "licence" : "ISC"
+}
+```
+
+::right::
+
+O comando para instalar um package é o `--install` ele vai fazer download do package e suas dependências na pasta
+`node_modules`, e adicionar esse package no arquivo `package.json` dentro da propriedade `dependencies`.
+
+O parâmetro `--save-dev` vai salvar o package em `devDependencies` para ser usado apenas no ambiente de desenvolvimento.
+
+O parâmetro `--save-optional` vai salvar o package em `optionalDependencies` não sendo exclusivamente necessária para 
+a execução.
+
+O parâmetro `--no-save` é auto-explicativo.
+
+---
+layout: two-cols
+---
+
+## Iniciando o projeto
+
+Vamos instalar 3 dependências para o sistema:
+
+- [Express:](https://expressjs.com/pt-br/){style="color: grey"}
+  - `npm install express --save`
+- [Nodemon:](https://nodemon.io/){style="color: grey"}
+  - `npm install nodemon --save-dev`
+- [Cors:](http://expressjs.com/en/resources/middleware/cors.html){style="color: grey"}
+  - `npm install cors --save`
+
+Para instalar esse projeto pela primeira vez, ao executar `npm install` o `npm` vai instalar todas as dependências que
+estiverem salvas no `package.json`.
+
+::right::
+
+```json
+{
+  "name": "detranupf",
+  "version": "1.0.0",
+  "description": "projedo TEDII",
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.1.0"
+  }
+}
+```
