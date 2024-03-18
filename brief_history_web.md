@@ -3,6 +3,7 @@ layout: image-right
 theme: default
 class: text-center
 highlighter: shiki
+download: true
 mdc: true
 drawings:
   persist: false
@@ -411,7 +412,7 @@ Se existir folha de estilos, é realizado o *parsing* do CSS sendo criado o CSSO
 Tokenization, o parser recebe os bytes, converte em caracteres, depois tokens, depois nodes e depois
 eles são conectados no CSSOM.
 
-![](cssom.jpeg)
+![](/cssom.jpeg)
 
 ---
 layout: two-cols
@@ -448,7 +449,7 @@ Apesar de Javascript ser uma linguagem interpretada e não precisar de compilaç
 Após todo o processo visto anteriormente o navegador processa todo o conteúdo gerado e organiza o layout para ser
 renderizado. 
 
-![](layouttree.png)
+![](/layouttree.png)
 
 
 

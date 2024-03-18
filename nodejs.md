@@ -514,6 +514,7 @@ app.delete("/items/:id", (req, res) => {
 
 ![](/delete.png)
 
+---
 
 
 

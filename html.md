@@ -309,9 +309,11 @@ Não apenas recursos obtidos via protocolo HTTP podem ser informados no atributo
   </head>
   <body>
     <p>Blog 
-      <a href="https://www.leon.dev.br/">
-        Leon</a>
+      <a href="www.leon.dev.br">Leon</a>
+      <a href="#teste">Leon</a>
+      <a href="./doc.pdf">Leon</a>
     </p>
+    <div id="teste"></div>
   </body>
 </html>
 ```
