@@ -224,6 +224,7 @@ url: /tags2.html
 - `<code>`: Aplicado para conteúdo que representa trechos de código de programas de computador
 - `<span>`: Utilizado para demarcar um trecho de conteúdo para alguma finalidade específica.
 A tag, em si, não adiciona semântica ao conteúdo
+- `<b>` e `<i>`: bold e italic
 
 
 ---
@@ -449,7 +450,7 @@ url: /table3.html
 
 ---
 
-## Estruturando conteúdo
+## Web Semântica
 
 <br>
 
@@ -469,6 +470,12 @@ layout: iframe
 url: /page_content.html
 ---
 
+
+---
+
+<img class="m-auto -z-5 left-0 top-0 right-0 bottom-0 max-w-full max-h-full absolute" src="/semantic.png"/>
+
+---
 
 https://whatwg.org/
 
