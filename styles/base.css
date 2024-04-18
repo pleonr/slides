@@ -1,6 +1,20 @@
 a  {
     text-decoration: none!important;
-    /*color: green;*/
+    color: DodgerBlue;
+}
+
+a.social {
+    color: white;
+}
+
+.titulo {
+    color: #04AA6D;
+    font-size: larger;
+    font-family: Cantarell, sans-serif;
+}
+
+iframe {
+    background-color: white;
 }
 
 .slidev-layout a {
@@ -16,3 +30,13 @@ a  {
 :root {
   --slidev-code-font-size: 16px;
  }
+
+.flex-box-item {
+    margin: 5px;
+    border-radius: 5px;
+    height:50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

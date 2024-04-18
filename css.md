@@ -16,29 +16,30 @@ export:
   dark: false
   withClicks: false
 ---
+<br><br><br><br><br>
+<span class="titulo">CSS</span>
 <br><br>
-# CSS
-<br><br>
-##### Pablo Leon Rodrigues
+Pablo Leon Rodrigues
 
 <div class="abs-br m-6 opacity-50 display: flex">
-	<a href="https://github.com/pleonr" target="_blank" >
+	<a class="social" href="https://github.com/pleonr" target="_blank" >
     	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4.44c-.32-.07-.33-.68-.33-.89l.01-2.47c0-.84-.29-1.39-.61-1.67c2.01-.22 4.11-.97 4.11-4.44c0-.98-.35-1.79-.92-2.42c.09-.22.4-1.14-.09-2.38c0 0-.76-.23-2.48.93c-.72-.2-1.48-.3-2.25-.31c-.76.01-1.54.11-2.25.31c-1.72-1.16-2.48-.93-2.48-.93c-.49 1.24-.18 2.16-.09 2.38c-.57.63-.92 1.44-.92 2.42c0 3.47 2.1 4.22 4.1 4.47c-.26.2-.49.6-.57 1.18c-.52.23-1.82.63-2.62-.75c0 0-.48-.86-1.38-.93c0 0-.88 0-.06.55c0 0 .59.28 1 1.32c0 0 .52 1.75 3.03 1.21l.01 1.53c0 .21-.02.82-.34.89H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="currentColor"/></svg>
     </a>
-    <a href="mailto:pablo.leonrodrigues@gmail.com" target="_blank" >
+    <a class="social" href="mailto:pablo.leonrodrigues@gmail.com" target="_blank" >
     	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1.4 3.5h11.2c.77 0 1.4.62 1.4 1.4v8.2a1.4 1.4 0 0 1-1.4 1.4H6.4c-.77 0-1.4-.63-1.4-1.4V7.9c0-.78.62-1.4 1.4-1.4M6 8v2l6 4l6-4V8l-6 4z"/></svg>
     </a>
-    <a href="https://www.linkedin.com/in/pablo-leon-rodrigues-9b47a824/" target="_blank" >
+    <a class="social" href="https://www.linkedin.com/in/pablo-leon-rodrigues-9b47a824/" target="_blank" >
     	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
     </a>
-    <a href="https://leon.dev.br" target="_blank" >
+    <a class="social" href="https://leon.dev.br" target="_blank" >
     	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M8.95 13.4H6.58a5.5 5.5 0 0 1 0-2.8h2.37a11.56 11.56 0 0 0-.1 1.4a11.56 11.56 0 0 0 .1 1.4M7.16 9.2H9.2a12.06 12.06 0 0 1 .98-2.49A5.55 5.55 0 0 0 7.16 9.2m9.68 0a5.59 5.59 0 0 0-3.03-2.49a10.95 10.95 0 0 1 .97 2.49M12 17.57a9.5 9.5 0 0 0 1.34-2.77h-2.68A9.5 9.5 0 0 0 12 17.57m0-11.15a9.53 9.53 0 0 0-1.34 2.78h2.68A9.53 9.53 0 0 0 12 6.42M7.16 14.8a5.61 5.61 0 0 0 3.02 2.49a12.06 12.06 0 0 1-.98-2.49M21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2m-2 7a7 7 0 1 0-7 7a7 7 0 0 0 7-7m-3.85 0a11.56 11.56 0 0 1-.1 1.4h2.37a5.5 5.5 0 0 0 0-2.8h-2.37a11.56 11.56 0 0 1 .1 1.4m-1.34 5.29a5.62 5.62 0 0 0 3.03-2.49h-2.06a10.95 10.95 0 0 1-.97 2.49m-3.45-6.69a8.81 8.81 0 0 0 0 2.8h3.28a10.3 10.3 0 0 0 .11-1.4a10.21 10.21 0 0 0-.11-1.4Z"/></svg>
     </a>
 </div>
 
 ---
 
-<Toc maxDepth="2"></Toc>
+<Toc columns="3" maxDepth="3"></Toc>
+
 
 ---
 layout: two-cols-header
@@ -171,10 +172,19 @@ na `<head>`.
   </head>
 </html>
 ```
+---
+
+## Ordem de Relevância
 
 Em caso de mais de uma forma ser utilizada simultaneamente, a prioridade fica com as propriedades inline, seguidas 
 daquelas definidas para o documento na tag `<style>` e, por último, as regras oriundas dos arquivos incorporados via 
 `<link>`.
+
+<br>
+
+* Estilos definidos `inline`
+* Estilos definidos na página `<style>`
+* Estilos definidos em arquivos externos `<link>`
 
 ---
 layout: two-cols
@@ -432,6 +442,15 @@ div:not(.oculto) {
     background-color:red;
 }
 ```
+<br>
+
+## Prioridade por ordem
+
+O estilo definido com `id` possuí prioridade, seguido pela `classe` e por último por elemento.
+
+* Estilo definido com `id` = `#page { background-color: grey; }` 
+* Estilo definido com `class` `.page { background-color: blue; }`
+* Estilo definido com `elemento` `body { background-color: red; }`
 
 ---
 
@@ -474,21 +493,24 @@ do layout, pois eles são dimensionados proporcionalmente em relação ao ambien
 layout: two-cols
 ---
 
-### Porcentagem (%)
+**Porcentagem (%)**
+
 Unidade relativa as proporções do elemento pai.
 
 ```css
 width: 50%;
 ```
 
-### Em (em)
+**Em (em)**
+
 Unidade relativa ao tamanho da fonte do elemento pai.
 
 ```css
 font-size: 1.2em;
 ```
 
-### Rem (rem)
+**Rem (rem)**
+
 REM define o tamanho relativo à fonte do elemento raiz (normalmente o elemento `<html>`).
 ```css
 margin-left: 2rem;  
@@ -496,7 +518,8 @@ margin-left: 2rem;
 
 ::right::
 
-### Viewport Width (vw) e Viewport Height (vh)
+**Viewport Width (vw) e Viewport Height (vh)**
+
 Referem-se à largura e altura da janela de visualização do navegador, respectivamente.
 
 ```css
@@ -504,7 +527,8 @@ width: 50vw;
 height: 80vh;
 ```
 
-### Viewport Minimum (vmin) e Viewport Maximum (vmax)
+**Viewport Minimum (vmin) e Viewport Maximum (vmax)**
+
 Referem-se à menor ou maior dimensão da janela de visualização do navegador (largura ou altura), respectivamente.
 
 ```css
@@ -836,28 +860,584 @@ body {
 
 https://fonts.googleapis.com/css?family=Sofia
 
+---
+layout: two-cols
+---
+
+## Tabelas
+
+```html
+<table id="customers">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+```
+
+::right::
+
+```css
+#customers {
+ font-family: Arial, Helvetica, sans-serif;
+ border-collapse: collapse;
+ width: 100%;
+}
+#customers td, #customers th {
+ border: 1px solid #ddd;
+ padding: 8px;
+}
+#customers tr:nth-child(even){
+    background-color: #f2f2f2;}
+#customers tr:hover {
+    background-color: #ddd;}
+#customers th {
+ padding-top: 12px;
+ padding-bottom: 12px;
+ text-align: left;
+ background-color: #04AA6D;
+ color: white;}
+```
+
+---
+layout: iframe
+url: /tables.html
+---
+
+---
+layout: two-cols
+---
+
+## Box model
+
+O modelo de caixa CSS é um conceito fundamental no desenvolvimento web que determina como os elementos HTML são 
+exibidos e posicionados em uma página web. Essencialmente, ele divide cada elemento em uma caixa retangular 
+com quatro componentes principais:
+
+- Conteúdo(*content*): Esta é a área central onde reside o conteúdo real do elemento, como texto, imagens ou formulários. 
+Você pode estilizar o conteúdo com propriedades como cor de fundo ou estilos de fonte.
+
+::right::
+
+- Preenchimento(*padding*): Esta é uma área transparente que adiciona espaço ao redor do conteúdo. O preenchimento cria
+um buffer entre o conteúdo e a borda. 
+- Borda(*border*): Esta é a linha externa decorativa que envolve o conteúdo e o preenchimento. Você pode controlar o 
+estilo da borda (sólida, tracejada, pontilhada), espessura e cor. 
+- Margem(*margin*): É a área transparente fora da borda que cria um espaçamento entre o elemento e os demais elementos 
+da página. As margens permitem melhor organização e capacidade de resposta nos layouts.
+
+---
+layout: iframe-right
+url: /box-model.html
+---
+
+```css
+div {
+    width: 320px;
+    height: 50px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
+```
+
+O modelo de caixa CSS é essencialmente uma caixa que envolve cada elemento HTML. Consiste em: bordas, preenchimento, 
+margens e o conteúdo real.
+
+---
+layout: two-cols
+---
+
+A largura total de um elemento(tew) usamos
+
+$$
+tew = \begin{cases}
+width \\
++ leftPadding \\
++ rightPadding \\
++ leftBorder \\
++ rightBorder
+\end{cases}
+$$
+
+```
+  320px (width of content area)
++ 20px (left padding + right padding)
++ 10px (left border + right border)
+= 350px (total element width)
+```
+::right::
+
+Para calcular a altura total do elemento(tel) usamos  
+
+$$
+tel = \begin{cases}
+height \\
++ topPadding \\
++ bottomPadding \\
++ topBorder \\
++ bottomBorder
+\end{cases}
+$$
+
+```
+  50px (height of content area)
++ 20px (top padding + bottom padding)
++ 10px (top border + bottom border)
+= 80px (total height)
+```
+
+---
+layout: iframe-right
+url: /pos-static.html
+---
+
+## Posicionamento
+
+O posicionamento CSS refere-se a como você controla o posicionamento dos elementos em uma página da web, 
+independentemente do fluxo normal do documento. Por padrão, os elementos aparecem um após o outro na ordem em que 
+são escritos no código HTML.
+
+### **Estático** - *static*
+Este é o posicionamento padrão para todos os elementos. Os elementos são posicionados de acordo com o fluxo normal 
+do documento, o que significa que aparecem um após o outro na ordem em que são escritos no código HTML. 
+
+```css
+div.static {
+    position: static;
+    border: 3px solid #73AD21;
+}
+```
+
+---
+layout: iframe-right
+url: /pos-relative.html
+---
+
+### **Relativo** - *relative*
+
+Elementos com posicionamento relativo permanecem em sua posição normal no fluxo, mas você pode deslocá-los 
+usando propriedades como `top`, `right`, `bottom`, e `left`. Estas propriedades movem o elemento em relação à 
+sua posição original sem afetar o layout de outros elementos. 
+
+```css
+div.relative {
+    position: relative;
+    left: 30px;
+    border: 3px solid #73AD21;
+}
+```
+
+---
+layout: iframe-right
+url: /pos-absolute.html
+---
+
+### **Absoluto** - *absolute*
+
+Os elementos posicionados de forma absoluta são removidos do fluxo normal do documento e posicionados 
+em relação ao seu ancestral posicionado mais próximo (geralmente um elemento pai com posicionamento relativo ou 
+absoluto, ou a janela de visualização se nenhum ancestral estiver posicionado). Sua posição é determinada usando as 
+propriedades `top`, `right`, `bottom`, e `left` em relação ao bloco que o contém. 
+
+```css
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+}
+```
+
+---
+layout: iframe-right
+url: /pos-fixed.html
+---
+
+### **Fixo** - *fixed*
+
+Os elementos posicionados fixos são semelhantes aos elementos posicionados de forma absoluta, mas são
+posicionados em relação à janela de visualização e não ao bloco que os contém. Isso significa que eles permanecem 
+no lugar mesmo quando a página é rolada. O posicionamento fixo é útil para elementos que você deseja que permaneçam 
+visíveis na tela o tempo todo, como barras de navegação ou menus laterais. 
+
+```css
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
+```
+
+---
+layout: iframe-right
+url: /pos-stick.html
+---
+
+### **Grudento** - *stick*:
+
+O posicionamento fixo combina aspectos de posicionamento relativo e fixo. Os elementos com posicionamento 
+fixo são inicialmente posicionados em relação à sua posição normal no fluxo, mas aderem à borda do bloco que os contém 
+quando rolados além de um determinado ponto. O posicionamento fixo é útil para elementos que você deseja que
+permaneçam visíveis até que sejam rolados, como cabeçalhos de coluna em uma tabela.
+
+```css
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #cae8ca;
+    border: 2px solid #4CAF50;
+}
+```
+
+---
+
+## Display
+
+A propriedade `display` especifica como o comportamento exibição do elemento. Dentre os possíveis comportamentos estão.
+
+| `display`    | Descrição                                                                                                                 |
+|--------------|---------------------------------------------------------------------------------------------------------------------------|
+| `inline`:    | Exibe um elemento como um elemento embutido (como `<span>`). Quaisquer propriedades de altura e largura não terão efeito. |
+| `block`:     | Exibe um elemento como um elemento de bloco (como `<p>`). Ele começa em uma nova linha e ocupa toda a largura             | 
+| `contents`:  | Faz o contêiner desaparecer, tornando os elementos filhos filhos do elemento no próximo nível acima no DOM                | 
+| `flex`:      | Exibe um elemento como um flex container em nível de bloco                                                                | 
+| `grid`:      | Exibe um elemento como um bloco- contêiner de grade de nível                                                              |
+| `none`:      | Remove o elemento completamente do DOM                                                                                    |
+	
+---
+
+## Flexbox
+
+Flexbox, também conhecido como CSS Flexible Box Layout, é um modelo amplamente utilizado para criar layouts 
+em páginas da web. Oferece uma maneira mais eficiente de organizar e distribuir elementos em um `container`,
+especialmente quando se trata de design responsivo e elementos com dimensões desconhecidas ou dinâmicas.
+
+O Flexbox funciona estabelecendo um elemento contêiner utilizando `display: flex` que abriga elementos filhos (flex items). 
+Esses itens flexíveis são dispostos ao longo de um único eixo (uma linha ou coluna), com propriedades
+controlando seu alinhamento, distribuição de espaço e comportamento de redimensionamento.
+
+- Flexibilidade: organize facilmente os elementos horizontal ou verticalmente e ajuste seu tamanho com base no espaço 
+disponível. 
+- Capacidade de resposta: os layouts Flexbox se adaptam bem a diferentes tamanhos de tela, tornando suas páginas da 
+web responsivas.
+- Alinhamento: controle preciso sobre como os elementos são alinhados dentro do contêiner, tanto horizontal quanto
+verticalmente. 
+- Espaçamento: Gerencie a distribuição do espaço entre os elementos, permitindo espaços uniformes ou alocação flexível.
+
+---
+layout: two-cols
+---
+
+Para pensar no flex-box, podemos imaginar que num contêiner os elementos vão ser posicionados 
+em eixos `cross` e `main`. 
+
+![](/flex-box.png)
 
 
+::right::
+
+Um elemento que recebe a propriedade `display: flex;` é chamado de `flex container`. E pode receber várias outras 
+definições.
+
+Dentre elas temos:
+
+### `flex-direction`
+
+A direção onde os elementos vão ser alinhados é a `row` da esquerda para a direita e de cima
+para baixo, mas podemos alterar o comportamento para `column` utilizando a propriedade <br>
+`flex-direction: column;`
+
+---
+layout: two-cols
+---
+
+#### `flex-wrap`
+
+Por padrão, os flex items vão todos tentar se encaixar em uma só linha, usando `flex-wrap`podemos permitir 
+que os ítens quebrem para uma linha seguinte conforme for necessário.
+
+- `nowrap` (padrão): todos os flex items ficarão em uma só linha
+- `wrap`: os flex items vão quebrar em múltiplas linhas, de cima para baixo
+- `wrap-reverse`: os flex items vão quebrar em múltiplas linhas de baixo para cima
+
+<div style="display: flex; flex-wrap: wrap; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #73AD21;">4</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">5</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">6</div>
+    <div class="flex-box-item" style="background-color: #73AD21;">7</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">8</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">9</div>
+</div>
+
+::right::
+
+#### `flex-flow`
+
+A propriedade `flex-flow` é uma propriedade shorthand (uma mesma declaração inclui vários valores relacionados a mais 
+de uma propriedade) que inclui flex-direction e flex-wrap. E determina quais serão os eixos pricipal e transversal do 
+container. O valor padrão é `row nowrap`.
+
+```css
+.flex-container {
+    flex-flow: row nowrap 
+        | row wrap
+        | column nowrap
+        | column wrap;
+  }
+```
+
+---
+layout: two-cols
+---
+
+### `justify-content`
+
+Podemos alinhar os elementos dentro do container na direção do eixo principal utilizando `justify-content`;
+
+#### `flex-start`
+
+Alinha da esquerda para a direita no main axis. 
+
+<div style="display: flex; justify-content: flex-start; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<br>
+
+#### `flex-end`
+Alinha da direita para a esquerda no main axis.
+
+<div style="display: flex; justify-content: flex-end; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+::right::
+
+#### `center`
+
+Alinha os elementos no centro do main axis.
+
+<div style="display: flex; justify-content: center; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<br>
+
+#### `space-between`
+
+Alinha os elementos deixando espaços iguais entre eles main axis.
+
+<div style="display: flex; justify-content: space-between; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+---
+layout: two-cols
+---
+
+<style>
+    .item {
+        margin: 5px;
+        border-radius: 5px; 
+        height:50px; 
+        width: 50px;
+    }
+</style>
+
+#### `space-around`
+
+Alinha os elementos deixando um espaço tanto antes quando depois do elemento.
+
+<div style="display: flex; justify-content: space-around; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<br>
+
+#### `space-evenly`
+
+Alinha os elementos deixando um espaço igual entre todos os elementos
+
+<div style="display: flex; justify-content: space-evenly; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+::right::
+
+Também existem duas palavras-chave adicionais que você pode usar em conjunto com estes valores: `safe` e `unsafe`. 
+Safe garante que, independente da forma que você faça esse tipo de posicionamento, não seja possível "empurrar" um 
+elemento e fazer com que ele seja renderizado para fora da tela (por exemplo, acima do topo), de uma forma que faça 
+com que o conteúdo seja impossível de movimentar com a rolagem da tela (o CSS chama isso de "perda de dados").
+
+---
+layout: two-cols
+---
+
+### `align-items`
+
+E também podemos alinhar os elementos dentro do container na direção do `cross-axis` utilizando `align-items`.
+
+#### `flex-start`
+
+<div style="display: flex; height:100px; align-items: flex-start; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<br>
+
+#### `flex-end`
+
+<div style="display: flex; height:100px; align-items: flex-end; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+::right::
+
+### `center`
+
+<div style="display: flex; height:100px; align-items: center; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<br>
+
+- stretch (padrão): estica os ítens para preencher o container, respeitando o min-width/max-width).
+- flex-start/ start / self-start: ítens são posicionados no início do eixo transversal. A diferença entre eles
+é sutil e diz respeito às regras de flex-direction ou writing-mode.
+- center: ítens são centralizados no eixo transversal.
+- baseline: ítens são alinhados de acordo com suas baselines.
+
+---
+layout: two-cols
+---
+
+### `flex-item`
+
+Propriedades que podem ser adicionadas a um item dentro de um `flex-container`.
+
+#### `flex-grow`
+
+Utilizado para fazer um `flex-item` "crescer" se houver espaço disponível.
+
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex-grow: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+#### `flex-basis`
+
+Server para sobrescrever o valor de `width` de um elemento.
+
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex-basis: 70px; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+::right::
+
+#### `flex-shrink`
+
+Determina o quanto um elemento vai "encolher" para comportar mais elementos. Se definido como 0, o elemento não vai ser
+alterado.
+
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex-shrink: 5; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+</div>
+<br>
+
+#### `flex`
+
+Usado para particionar o container e utilizar o espaço entre os elementos.
+
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
+<br>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 2; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
+
+---
+layout: two-cols
+---
+
+#### `align-self`
+
+Essa propriedade sobrescreve o valor do align-item do `flex-container` apenas para esse `flex-item`.
 
 
+<div style="display: flex; height: 340px; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="align-self: center; flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 2; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
 
+::right::
 
+#### `order`
 
+Modifica a ordem onde um elemento vai aparecer, recebendo uma unidade como parâmetro. O valor default para cada
+`flex-item` é 0.
 
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="order: 2; flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+A utilização dessa propriedade não é recomendada, pois altera a ordem de renderização de forma arbitrária
 
 
 ---
@@ -879,3 +1459,13 @@ https://www.w3schools.com/csSref/default.asp
 https://www.tutorialrepublic.com/css-tutorial
 
 https://www.nngroup.com/articles/serif-vs-sans-serif-fonts-hd-screens/#toc-screen-typography-for-online-reading-1
+
+https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
+
+https://www.w3schools.com/cssref/playdemo.php?filename=playcss_display&preval=inline
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+https://www.w3schools.com/css/css_website_layout.asp
+
+https://www.alura.com.br/artigos/css-guia-do-flexbox
