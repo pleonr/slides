@@ -144,11 +144,9 @@ Para instalar o Nextjs:
 npm install -g nextjs
 ```
 
-Para criar o projeto com Next.js podemos usar o generator:
+<br>
 
-```shell
-npx create-next-app client
-```
+![](/next-app.png)
 
 ::right::
 
@@ -429,13 +427,74 @@ argumento será chamado.
 }
 ```
 
+---
+layout: two-cols
+---
 
+### SPA
 
+Uma das características do REACT é a possibilidade de criar SPA(**Single Page Applications**)
 
+Usando o pages router, cada página criada dentro da pasta pages, vai redirecionar para uma url de acordo com o nome do 
+arquivo. Porém essa navegação envolve o load normal das páginas.
 
+Por exemplo a página `listarPessoas.tsx` vai refletir com a url `localhost:3000/listarPessoas` e a página default
+`index.tsx` é associada a url `localhost:3000/`.
 
+::right::
 
+#### Router
 
+Diversas libs podem ser usadas para gerênciar as rotas de páginas, uma delas é o
+[`react-router-dom`](https://reactrouter.com/en/main). 
+
+Para instalar 
+
+```shell
+npm install react-router-dom
+```
+
+Para configurar o router no projeto next precisamos alterar a estrutura da aplicação.
+
+---
+
+#### _app.tsx
+
+```jsx
+import "@/styles/globals.css"
+import {AppProps} from 'next/app'
+import {useEffect, useState} from 'react'
+
+function App({Component, pageProps}: AppProps) {
+  const [render, setRender] = useState(false)
+  useEffect(() => setRender(true), [])
+  return render ? <Component {...pageProps} /> : null
+}
+export default App
+```
+
+---
+
+#### index.tsx
+
+```jsx
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import ListarPessoas from "@/pages/listarPessoas";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export default function Home() {
+  return (
+      <Router>
+          <main className="container">
+              <Routes>
+                  <Route path="/" element={<h1>Home</h1>}/>
+                  <Route path="/listarPessoas" element={<ListarPessoas/>}/>
+              </Routes>
+          </main>
+      </Router>
+  );
+}
+```
 
 
 

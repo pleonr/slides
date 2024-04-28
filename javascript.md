@@ -482,7 +482,7 @@ let cars = cars.at(2);
 
 <br>
 
-- `push`: Adiciona items ao array
+- `push`: Adiciona um item ao array
 - `pop`: Remove o último elemento do array
 
 <br>
