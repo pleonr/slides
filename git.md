@@ -184,26 +184,73 @@ layout: two-cols
 
 ## git branch
 
-O git trabalha com `branch` ou seja ramificações de repositórios. Uma branch é um ponteiro móvel leve para um commit.
-As branchs são usadas para desenvolver recursos, corrigir bugs ou experimentar novas ideias isoladamente de outros 
+Uma branch é um ponteiro móvel leve para um commit. As branchs são usadas para desenvolver recursos, corrigir bugs ou experimentar novas ideias isoladamente de outros 
 trabalhos realizados no mesmo repositório.
 
 Você pode criar uma nova branch usando o comando `git branch branch-name`. Isso cria um novo ponteiro para o
-commit atual.
-
-Qualquer nome pode ser utilizado, mas é uma boa prática indicar a utilidade da branch em seu nome, facilitando 
+commit atual. Qualquer nome pode ser utilizado, mas é uma boa prática indicar a utilidade da branch em seu nome, facilitando 
 a identificação e mantendo o repositório organizado.
+
+Você pode mudar para um branch diferente usando `git checkout -b branch-name` ou o comando mais recente
+`git switch branch-name`.
+
+Para listar as branchs utilize `git branch -r`.
 
 ::right::
 
-Você pode mudar para um branch diferente usando `git checkout branch-name` ou o comando mais recente
-`git switch branch-name`.
+Para compartilhar essa branch e manter um histórico precisamos envia-lá para o repositório remoto.
+
+```shell
+git push origin branch-name
+ou
+git push --set-upstream origin branch-name
+```
+
+Depois que seu trabalho em um branch for concluído, você poderá efetuar o `merge` usando `git merge branch-name`.
+Em ambientes colaborativos o comum é criar um `pull request` onde o código será avaliado e só então mergeado.
+
+Quando uma ramificação não for mais necessária, você poderá excluí-la usando `git branch -d branch-name`
+para ramificações que foram mescladas ou `git branch -D branch-name` para forçar a exclusão.
+
+---
+layout: two-cols
+---
+
+<br>
+<br>
+<br>
 
 
+```shell    
+git checkout main
+git branch feature-new
+git checkout feature-new
+git add .
+git commit -m "new feature"
+git checkout main
+git merge feature-new
+git branch -d feature-new
+```
+
+::right::
+
+<br>
+<br>
+<br>
+<br>
 
 
-
-
+```mermaid
+gitGraph
+    commit
+    branch feature-new
+    checkout feature-new
+    commit
+    checkout main
+    merge feature-new
+    commit
+    
+```
 
 
 
