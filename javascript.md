@@ -1,5 +1,5 @@
 ---
-layout: image-right
+src: ./cover.md
 theme: default
 class: text-center
 highlighter: shiki
@@ -10,35 +10,16 @@ image: /side-logo.png
 selectable: true
 colorSchema: dark
 title: Javascript
+author: Pablo Leon Rodrigues
 export:
   format: pdf
   timeout: 30000
-  dark: false
   withClicks: false
 ---
-<br><br><br><br><br>
-<span class="titulo">Javascript</span>
-<br><br>
-Pablo Leon Rodrigues
-
-<div class="abs-br m-6 opacity-50 display: flex">
-	<a class="social" href="https://github.com/pleonr" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4.44c-.32-.07-.33-.68-.33-.89l.01-2.47c0-.84-.29-1.39-.61-1.67c2.01-.22 4.11-.97 4.11-4.44c0-.98-.35-1.79-.92-2.42c.09-.22.4-1.14-.09-2.38c0 0-.76-.23-2.48.93c-.72-.2-1.48-.3-2.25-.31c-.76.01-1.54.11-2.25.31c-1.72-1.16-2.48-.93-2.48-.93c-.49 1.24-.18 2.16-.09 2.38c-.57.63-.92 1.44-.92 2.42c0 3.47 2.1 4.22 4.1 4.47c-.26.2-.49.6-.57 1.18c-.52.23-1.82.63-2.62-.75c0 0-.48-.86-1.38-.93c0 0-.88 0-.06.55c0 0 .59.28 1 1.32c0 0 .52 1.75 3.03 1.21l.01 1.53c0 .21-.02.82-.34.89H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="currentColor"/></svg>
-    </a>
-    <a class="social" href="mailto:pablo.leonrodrigues@gmail.com" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1.4 3.5h11.2c.77 0 1.4.62 1.4 1.4v8.2a1.4 1.4 0 0 1-1.4 1.4H6.4c-.77 0-1.4-.63-1.4-1.4V7.9c0-.78.62-1.4 1.4-1.4M6 8v2l6 4l6-4V8l-6 4z"/></svg>
-    </a>
-    <a class="social" href="https://www.linkedin.com/in/pablo-leon-rodrigues-9b47a824/" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
-    </a>
-    <a class="social" href="https://leon.dev.br" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M8.95 13.4H6.58a5.5 5.5 0 0 1 0-2.8h2.37a11.56 11.56 0 0 0-.1 1.4a11.56 11.56 0 0 0 .1 1.4M7.16 9.2H9.2a12.06 12.06 0 0 1 .98-2.49A5.55 5.55 0 0 0 7.16 9.2m9.68 0a5.59 5.59 0 0 0-3.03-2.49a10.95 10.95 0 0 1 .97 2.49M12 17.57a9.5 9.5 0 0 0 1.34-2.77h-2.68A9.5 9.5 0 0 0 12 17.57m0-11.15a9.53 9.53 0 0 0-1.34 2.78h2.68A9.53 9.53 0 0 0 12 6.42M7.16 14.8a5.61 5.61 0 0 0 3.02 2.49a12.06 12.06 0 0 1-.98-2.49M21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2m-2 7a7 7 0 1 0-7 7a7 7 0 0 0 7-7m-3.85 0a11.56 11.56 0 0 1-.1 1.4h2.37a5.5 5.5 0 0 0 0-2.8h-2.37a11.56 11.56 0 0 1 .1 1.4m-1.34 5.29a5.62 5.62 0 0 0 3.03-2.49h-2.06a10.95 10.95 0 0 1-.97 2.49m-3.45-6.69a8.81 8.81 0 0 0 0 2.8h3.28a10.3 10.3 0 0 0 .11-1.4a10.21 10.21 0 0 0-.11-1.4Z"/></svg>
-    </a>
-</div>
 
 ---
 
-<Toc columns="1" maxDepth="3"></Toc>
+<Toc columns="2" maxDepth="3"></Toc>
 
 ---
 
@@ -229,15 +210,17 @@ vai apagar todo o HTML. CUIDADO!
 <h2>My First Web Page</h2>
 <p>My first paragraph.</p>
 
-<p>Never call document.write after the document has finished loading.
+<p>Never call document.write after 
+  the document has finished loading.
 It will overwrite the whole document.</p>
-
-<button onclick="docwrite()">click aqui</button>
+<button onclick="docwrite()">
+  click aqui</button>
 
 <script>
-function docwrite() {document.write(5 + 6);}
+function docwrite() {
+    document.write(5 + 6);
+}
 </script>
-
 </body>
 </html> 
 
@@ -256,6 +239,36 @@ function docwrite() {document.write(5 + 6);}
 | export   | extends   | false      | final    | throw    | throws     | transient    | true      |
 | finally  | float     | for        | function | try      | typeof     | var          | void      |
 | goto     | if        | implements | import   | volatile | while      | with         | yield     |
+
+---
+layout: two-cols
+---
+
+| Operador | Descrição                 |
+|----------|---------------------------|
+| `==`     | Mesmo valor               |
+| `===`    | Mesmo valor e tipo        |
+| `!=`     | Diferente                 |
+| `!==`    | Diferente em valor e tipo |
+| `<`      | Menor que                 |
+| `>`      | Maior que                 |
+| `<=`     | Menor ou igual a          |
+| `>=`     | Maior ou igual a          |
+
+::right::
+
+
+| Operador | Descrição     |
+|----------|---------------|
+| `+`      | Adição        |
+| `-`      | Subtração     |
+| `*`      | Multiplicação |
+| `/`      | Divisão       |
+| `**`     | Exponencial   |
+| `%`      | Módulo        |
+| `++`     | Incrementar   |
+| `--`     | Decrementar   |
+
 
 ---
 layout: two-cols
@@ -341,50 +354,184 @@ let falso = !true;
 layout: two-cols
 ---
 
-## Loops
-
-- `while` é utilizado para executar enquanto uma condição for verdadeira.
-- `for` possui 3 parâmetros, inicialização, condição e pós-execução.
-- `do while` executa um bloco e depois confere uma condição para repetir o bloco.
-- `foreach` é um loop para percorrer arrays.
+### if-else
 
 <br>
 
-- foreach
-```js
-const array1 = ['a', 'b', 'c'];
+```javascript
+let hour = 19
 
-array1.forEach(
-    (element) => console.log(element)
-);
+if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+
+console.log(greeting);
 ```
 
 ::right::
 
-- `while`
-```js
+<br>
+<img src="/flutter-11.svg" class="m-auto rounded " />
+
+---
+layout: two-cols
+---
+
+### if-else-if
+
+<br>
+
+```javascript
+void main() {
+  let isWeekend = true;
+  let weather = "rainy";
+
+  if (isWeekend) {
+    if (weather == "sunny") {
+      print("Sol");
+    } else if (weather == "rainy"){
+      print("Chuva");
+    } else {
+       print("Nevando");
+    }
+  }
+}
+```
+
+::right::
+
+<img src="/flutter-12.svg" class="h-115  m-auto rounded " />
+
+---
+layout: two-cols
+---
+
+### switch
+
+O getDay() é um método que retorna o dia da semana entre 0 e 6.
+
+```javascript
+switch (new Date().getDay()) {
+  case 6:
+    text = "Hoje é sábado";
+    break;
+  case 0:
+    text = "Hoje é domingo";
+    break;
+  default:
+    text = "Dia de semana";
+}
+```
+
+::right::
+
+<img src="/flutter-13.svg" class="h-115  m-auto rounded " />
+
+---
+layout: two-cols
+---
+
+### for
+
+`for` possui 3 parâmetros, inicialização, condição e pós-execução.
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+```
+
+::right::
+
+<img src="/flutter-16.svg" class="h-115  m-auto rounded " />
+
+---
+layout: two-cols
+---
+
+### For in array
+
+```javascript
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x + "<br>";
+}
+```
+
+<br>
+
+### For in object
+
+```javascript
+const person = {name:"John", sn:"Doe"};
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
+```
+
+::right::
+
+### Foreach
+
+O método `forEach()` chama uma função (uma função de retorno de chamada) uma vez para cada elemento do array.
+
+```javascript
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value;
+}
+```
+
+---
+layout: two-cols
+---
+
+### while
+
+`while` é utilizado para executar enquanto uma condição for verdadeira.
+
+```javascript
 let i = 0;
 while (i < 5) {
-    console.log("la");
-    i++;
+  console.log("bla");
+  i++;
 }
 ```
 
-- `for`
-```js
-for(let i=0; i < 5; i++) {
-    console.log(i);
-}
-```
+::right::
 
-- `do while`
-```js
+<img src="/flutter-14.svg" class="h-115  m-auto rounded " />
+
+---
+layout: two-cols
+---
+
+### do while
+
+`do while` executa um bloco e depois confere uma condição para repetir o bloco.
+
+```javascript
 let x = 0;
 do {
-    console.log(x)
-    x++;
+  console.log(x)
+  x++;
 } while (x < 5);
 ```
+
+::right::
+
+<img src="/flutter-15.svg" class="h-115  m-auto rounded " />
+
 
 ---
 layout: two-cols
@@ -492,6 +639,451 @@ cars.push('Oroch');
 cars.pop();
 ```
 
+---
+layout: two-cols
+---
+
+## HTML DOM
+
+Quando uma página é carregada o browser cria um DOM(**Document Object Model**) que acessamos usando o objeto `document`.
+
+![](/htmltree.gif)
+
+::right::
+
+O javascript possuí métodos para manipular o DOM do browser. Para isso precisamos encontrar os elementos dentro 
+do `document`, podemos usar as funções.
+
+- Encontrar elemento usando `id`
+
+  `document.getElementById(id)`	
+- Encontrar elemento usando `class`
+
+  `document.getElementsByClassName(name)`
+- Encontrar elemento usando `tag`
+
+  `document.getElementsByTagName(name)`
+
+---
+layout: two-cols
+---
+
+### Mudando elementos
+
+- Altera o conteúdo de um elemento
+  - `element.innerHTML = new content`
+- Altera o valor de um atributo
+  - `element.attribute = new value`
+- Altera o valor de um estilo
+  - `element.style.property = new style`
+- setAttribute
+  - `element.setAttribute(attribute, value)`
+
+::right::
+
+### Adicionar ou Remover
+
+- Cria elemento `hmtl` 
+  - `document.createElement(element)`
+- Remover `html` elemento
+  - `document.removeChild(element)`
+- Adicionar elemento `html`
+  - document.appendChild(element)
+- Remover elemento `html`
+  - `document.replaceChild(new, old)`
+
+---
+
+## DOM Events
+
+Usando javascript podemos reagir a eventos como clicar em um elemento ou click do mouse, load de uma página, mouse 
+por cima de um elemento, alteração de um input field ou envio de um formulário.
+
+```javascript
+<h1 onclick="changeText(this)">Click on this text!</h1>
+<script>
+  function changeText(id) {
+  id.innerHTML = "Ooops!";
+}
+</script>
+```
+
+### `onload` e `onunload`
+
+O envento `onload` ocorre quando a página é carregada, e `onunload` é chamado ao sair de uma página. 
+`<body onload="checkCookies()">`
+
+### `oninput`
+
+Evento disparado quando o usuário insere dados. `<input type="text" id="fname" oninput="upperCase()">`
+
+---
+
+### `onchange`
+
+Evento que acorre ao modificar o valor de um elemento. `<input type="text" id="fname" onchange="upperCase()">`
+
+### `onmouseover` e `onmouseout`
+
+Evento que ocorre quando o mouse do usuário vai para cima ou saí de um evento. 
+
+```javascript
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+Mouse Over Me</div>
+
+<script>
+function mOver(obj) {
+  obj.innerHTML = "Thank You"
+}
+function mOut(obj) {
+  obj.innerHTML = "Mouse Over Me"
+}
+</script>
+```
+
+---
+
+### `onmousedown`, `onmouseup` e `onclick`
+
+Os eventos onmousedown, onmouseup e onclick fazem parte de um clique do mouse. Primeiro, quando um botão do mouse é 
+clicado, o evento onmousedown é acionado, depois, quando o botão do mouse é liberado, o evento onmouseup é acionado e,
+finalmente, quando o clique do mouse é concluído, o evento onclick é acionado.
+
+```javascript
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+Click Me</div>
+<script>
+function mDown(obj) {
+  obj.style.backgroundColor = "#1ec5e5";
+  obj.innerHTML = "Release Me";
+}
+function mUp(obj) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="Thank You";
+}
+</script>
+```
+
+---
+
+```javascript
+<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">
+Mouse over this text</h1>
+```
+
+<br>
+
+```javascript
+const element = document.getElementById("intro");
+const element = document.getElementsByTagName("p");
+const x = document.getElementsByClassName("intro");
+const x = document.querySelectorAll("p.intro");
+```
+
+<br>
+
+```javascript
+<body onload="mymessage()">
+<h1>JavaScript HTML Events</h1>
+<h2>The onload Attribute</h2>
+```
+
+---
+
+### event listner
+
+O `event listner` permite adicionar eventos a elementos dentro do javascript em tempo de execução.
+
+```javascript
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+element.addEventListener("click", function(){ alert("Hello World!"); });
+
+element.addEventListener("click", myFunction);
+
+function myFunction() {
+  alert ("Hello World!");
+}
+
+window.addEventListener("resize", function(){
+  document.getElementById("demo").innerHTML = sometext;
+});
+
+element.removeEventListener("mousemove", myFunction);
+```
+
+
+---
+
+### Form Validation
+
+```javascript
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" 
+      method="post">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+```
+
+---
+layout: two-cols
+---
+
+## Try Catch
+
+Em JavaScript, o bloco `try...catch` é um mecanismo para tratar erros que podem ocorrer durante a execução 
+do seu código. Ele fornece uma maneira de gerenciar situações inesperadas com elegância e evitar que
+seu programa trave.
+
+```javascript
+try {
+  // Código que pode causar erros
+  console.log(x); // 'x' não foi definido
+} catch (err) {
+  // Trabalhamos com o erro
+  console.error("Erro", err.message);
+}
+```
+
+::right::
+
+<img src="/try-catch.svg" class="h-115  m-auto rounded " />
+<!-- javascript-try-catch-finally.svg -->
+
+---
+
+## Callbacks
+
+Em JavaScript, um retorno de chamada(`callback`) é uma função passada como argumento para outra função.
+Isso permite que a função externa delegue uma tarefa ou ação à função de retorno de chamada, que é
+então invocada em um ponto específico da execução da função externa. 
+Esse padrão é particularmente útil na programação assíncrona, onde uma função 
+pode precisar aguardar a conclusão de outra operação antes de prosseguir.
+
+```javascript
+function logar(some) {
+  console.log("Resultado " + some);
+}
+
+function calcular(num1, num2, funcaoCallback) {
+  let resultado = num1 + num2;
+  funcaoCallback(resultado);
+}
+
+calcular(1, 2, logar);
+```
+
+---
+layout: two-cols
+---
+
+### Timeout
+
+Aqui, `setTimeout` recebe dois argumentos: a função de retorno de chamada (`sayHiAfter3Seconds`) e o atraso
+em milissegundos (3000). Após 3 segundos, o mecanismo JavaScript executará o retorno de chamada,
+imprimindo `Olá!` para o console.
+
+```javascript
+function sayHiAfter3Seconds() {
+  console.log("Hi there!");
+}
+
+setTimeout(sayHiAfter3Seconds, 3000);
+```
+
+::right::
+
+### Interval
+
+A função `setInterval` do javascript determina um callback que vai ser chamado com intervalos definidos, no exemplo 
+abaixo `myFunction` é passado para `setInterval()` como argumento, 1000 é o número de milissegundos entre intervalos,
+então `myFunction()` será chamado a cada segundo.
+
+```javascript
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo")
+          .innerHTML=
+          d.getHours() + ":" +
+          d.getMinutes() + ":" +
+          d.getSeconds();
+}
+```
+
+---
+
+## Promises
+
+As `promises` são uma ferramenta poderosa em JavaScript para lidar com operações assíncronas.
+Eles fornecem uma maneira mais estruturada e limpa de gerenciar a eventual conclusão (ou falha) de uma operação,
+em comparação com funções de retorno de chamada tradicionais.
+
+Uma `promise` é um objeto que representa o resultado eventual de uma operação assíncrona. Existe em um dos três estados:
+
+- **pending**: O estado inicial, indicando que a operação está em andamento. 
+- **fulfilled**: A operação foi concluída com sucesso e a promessa contém o valor resultante. 
+- **rejected**: A operação encontrou um erro e a promessa contém o objeto de erro. 
+
+A `promise` melhora a legibilidade do código, fornecendo uma maneira mais clara de encadear operações assíncronas e 
+lidar com cenários de falha e sucesso. 
+
+Tratamento de erros: as promessas fornecem um local central para tratar erros por meio do método `.catch()`.
+Encadeamento: As promessas podem ser encadeadas usando `.then()` para executar uma sequência de operações 
+assíncronas, uma após a outra.
+
+---
+layout: two-cols
+---
+
+As `promises` são criadas usando o construtor `promise`, que usa uma função executora como argumento.
+
+- **resolve**: Função usada para indicar a conclusão passando o valor resultante.
+- **reject**: Uma função usada para sinalizar um erro, passando o objeto de erro.
+
+```javascript
+const myPromise = new Promise(
+  (resolve, reject) => {
+  // algo assíncrono aqui
+  if (resultado) {
+    resolve("Operation successful!");
+  } else {
+    reject(new Error("Operation failed"));
+  }
+});
+```
+
+::right::
+
+Para lidar com o resultado de uma promessa(*promise*), usamos os métodos `.then()`, `.catch()` e `.finally()`. 
+
+- `.then(onFulfilled, onRejected)`: Anexa retornos de chamada para a resolução (cumprimento ou rejeição) da promise. 
+- `.catch(onRejected)`: Anexa um retorno de chamada apenas para a rejeição da promise. 
+- `.finalmente(onFinally)`: anexa um retorno de chamada invocado quando a promise é cumprida (`fulfilled` ou
+`rejected`), independentemente do resultado.
+
+---
+
+```javascript
+myPromise.then((value) => {
+    console.log(value); // "Operation succeeded!"
+}).catch((error) => {
+    console.error(error); // "Operation failed."
+}).finally(() => {
+    console.log("Operation has been completed.");
+});
+```
+
+<br>
+
+```javascript
+let faultyPromise = new Promise((resolve, reject) => {
+    throw new Error("Something went wrong!");
+});
+
+faultyPromise.catch((error) => {
+    console.error(error.message); // "Something went wrong!"
+});
+```
+
+---
+
+### `async` e `await` 
+
+`async` e `await` são `keywords` utilizadas para trabalhar com métodos assíncronos...
+
+- Funções assíncronas(`async`): as funções declaradas com a palavra-chave async são assíncronas.
+Eles retornam implicitamente uma `promise`.
+- Palavra-chave (`await`): usada em funções assíncronas para esperar até que uma promessa 
+seja resolvida (`fulfilled` ou `rejected`). A palavra-chave await só pode ser usada dentro de funções assíncronas.
+
+<br>
+
+```javascript
+async function fetchData() {
+  await 
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+}
+```
+
+
+---
+
+## Fetch API
+
+A API Fetch é uma maneira moderna de buscar recursos (como dados) de servidores usando JavaScript.
+Ele fornece uma abordagem mais simplificada e baseada em `promises`.
+
+Enviamos então um `request` onde podemos usar os parâmetros:
+
+- url: o URL para o qual a solicitação é enviada.
+- options (opcional): um objeto que contém configurações para a solicitação, como:
+  - method: O método HTTP (por exemplo, "GET", "POST", "PUT", "DELETE").
+  - headers: Um objeto que representa os cabeçalhos a serem enviados com a solicitação.
+  - body: O corpo da solicitação, normalmente usado com métodos como 'POST' ou 'PUT'.
+  - mode: O modo da solicitação (por exemplo, 'cors', 'no-cors', 'same-origin').
+  - credentials: o modo de credenciais (por exemplo, 'omitir', 'mesma origem', 'incluir').
+  Tratamento de respostas
+
+---
+
+A API Fetch retorna um objeto `response` que inclui informações sobre a resposta, como:
+
+- ok: Um booleano que indica se a solicitação foi bem-sucedida (status no intervalo 200-299).
+- status: o código de status HTTP (por exemplo, 200, 404).
+- statusText: A mensagem de status correspondente ao código de status ('OK', 'Não encontrado').
+- headers: Cabeçalhos associados à resposta.
+- body: O corpo da resposta. Os métodos comuns para consumir o corpo são:
+  - response.text(): Lê o corpo como uma string de texto.
+  - response.json(): analisa o corpo como JSON.
+
+```javascript
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => {
+    console.log("Fetched data:", data);
+  })
+  .catch(error => {
+    console.error("Error fetching data:", error);
+  });
+```
+
+---
+
+```html
+<h1>Posts from JSONPlaceholder</h1>
+<ul id="posts-list"></ul>
+
+<script>
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+
+    fetch(url)
+        .then(response => response.json()) // Convert response to JSON
+        .then(data => {
+            const postList = document.getElementById('posts-list');
+
+            data.forEach(post => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Title: ${post.title}`;
+                postList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+```
 
 
 
@@ -501,8 +1093,15 @@ cars.pop();
 
 
 
+---
+
+<img src="/underConstruction.png" class="h-115  m-auto rounded " />
 
 
 
 
 
+
+---
+
+https://www.javascripttutorial.net/

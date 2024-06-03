@@ -3,10 +3,6 @@ a  {
     color: DodgerBlue;
 }
 
-a.social {
-    color: white;
-}
-
 .titulo {
     color: #04AA6D;
     font-size: larger;
@@ -29,6 +25,7 @@ iframe {
 
 :root {
   --slidev-code-font-size: 16px;
+    font-variant-ligatures: none;
  }
 
 .flex-box-item {
@@ -39,4 +36,18 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+html:not(.dark) {
+    /* light mode css here */
+    a.social {
+        color: black;
+    }
+}
+
+html.dark {
+    /* dark mode css here */
+    a.social {
+        color: white;
+    }
 }

@@ -1,5 +1,5 @@
 ---
-layout: image-right
+src: ./cover.md
 theme: default
 class: text-center
 highlighter: shiki
@@ -10,35 +10,16 @@ image: /side-logo.png
 selectable: true
 colorSchema: dark
 title: PERN
+author: Pablo Leon Rodrigues
 export:
   format: pdf
   timeout: 30000
-  dark: false
   withClicks: false
 ---
-<br><br><br><br><br>
-<span class="titulo">PERN</span>
-<br><br>
-Pablo Leon Rodrigues
-
-<div class="abs-br m-6 opacity-50 display: flex">
-	<a class="social" href="https://github.com/pleonr" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4.44c-.32-.07-.33-.68-.33-.89l.01-2.47c0-.84-.29-1.39-.61-1.67c2.01-.22 4.11-.97 4.11-4.44c0-.98-.35-1.79-.92-2.42c.09-.22.4-1.14-.09-2.38c0 0-.76-.23-2.48.93c-.72-.2-1.48-.3-2.25-.31c-.76.01-1.54.11-2.25.31c-1.72-1.16-2.48-.93-2.48-.93c-.49 1.24-.18 2.16-.09 2.38c-.57.63-.92 1.44-.92 2.42c0 3.47 2.1 4.22 4.1 4.47c-.26.2-.49.6-.57 1.18c-.52.23-1.82.63-2.62-.75c0 0-.48-.86-1.38-.93c0 0-.88 0-.06.55c0 0 .59.28 1 1.32c0 0 .52 1.75 3.03 1.21l.01 1.53c0 .21-.02.82-.34.89H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="currentColor"/></svg>
-    </a>
-    <a class="social" href="mailto:pablo.leonrodrigues@gmail.com" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1.4 3.5h11.2c.77 0 1.4.62 1.4 1.4v8.2a1.4 1.4 0 0 1-1.4 1.4H6.4c-.77 0-1.4-.63-1.4-1.4V7.9c0-.78.62-1.4 1.4-1.4M6 8v2l6 4l6-4V8l-6 4z"/></svg>
-    </a>
-    <a class="social" href="https://www.linkedin.com/in/pablo-leon-rodrigues-9b47a824/" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
-    </a>
-    <a class="social" href="https://leon.dev.br" target="_blank" >
-    	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M8.95 13.4H6.58a5.5 5.5 0 0 1 0-2.8h2.37a11.56 11.56 0 0 0-.1 1.4a11.56 11.56 0 0 0 .1 1.4M7.16 9.2H9.2a12.06 12.06 0 0 1 .98-2.49A5.55 5.55 0 0 0 7.16 9.2m9.68 0a5.59 5.59 0 0 0-3.03-2.49a10.95 10.95 0 0 1 .97 2.49M12 17.57a9.5 9.5 0 0 0 1.34-2.77h-2.68A9.5 9.5 0 0 0 12 17.57m0-11.15a9.53 9.53 0 0 0-1.34 2.78h2.68A9.53 9.53 0 0 0 12 6.42M7.16 14.8a5.61 5.61 0 0 0 3.02 2.49a12.06 12.06 0 0 1-.98-2.49M21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2m-2 7a7 7 0 1 0-7 7a7 7 0 0 0 7-7m-3.85 0a11.56 11.56 0 0 1-.1 1.4h2.37a5.5 5.5 0 0 0 0-2.8h-2.37a11.56 11.56 0 0 1 .1 1.4m-1.34 5.29a5.62 5.62 0 0 0 3.03-2.49h-2.06a10.95 10.95 0 0 1-.97 2.49m-3.45-6.69a8.81 8.81 0 0 0 0 2.8h3.28a10.3 10.3 0 0 0 .11-1.4a10.21 10.21 0 0 0-.11-1.4Z"/></svg>
-    </a>
-</div>
 
 ---
 
-<Toc columns="1" maxDepth="3"></Toc>
+<Toc columns="2" maxDepth="3"></Toc>
 
 ---
 
@@ -47,8 +28,8 @@ Pablo Leon Rodrigues
 O PERN stack é uma coleção de quatro tecnologias usadas para construir aplicativos web, PostgreSql, Express, React e 
 Nodejs.
 
-- PostgreSQL{style="color: lightblue;"}: um sistema de gerenciamento de banco de dados relacional de objeto (ORDBMS) de código aberto que oferece 
-suporte a SQL para dados relacionais e JSON para dados não relacionais.
+- PostgreSQL{style="color: lightblue;"}: um sistema de gerenciamento de banco de dados relacional de objeto (ORDBMS) 
+de código aberto que oferece suporte a SQL para dados relacionais e JSON para dados não relacionais.
 - Express.js{style="color: lightyellow;"}: uma estrutura da web JavaScript popular desenvolvida para Node.js que simplifica a construção de 
 aplicativos da web e APIs. 
 - React.js{style="color: thistle;"}: uma biblioteca JavaScript para construir interfaces de usuário dinâmicas. 
@@ -496,15 +477,357 @@ export default function Home() {
 }
 ```
 
+---
+layout: two-cols
+---
+
+## Autenticação
+
+Os dois principais métodos de autenticação na web são através de `sessions` e `tokens`. Cada um tem suas características
+pontos fracos e fortes, como sempre a utilização desses métodos varia conforme com o projeto e o escopo. 
+
+Ou seja `depende`...
+
+### Sessions
+
+O método de **sessions** é o tradicional na web sendo utilizado em diversos tipos de aplicativos... 
+
+Ele consiste em:
+
+::right::
+
+- Usuário faz o login
+- O server cria uma sessão, essa sessão é armazenada em memória no server ou em um banco de dados
+- O server devolve o response do login e com o {session ID}
+- O cliente armazena essa sessão em um cookie no browser
+- O cliente faz uma requisição enviando juntamente o cookie
+- O servidor busca essa sessão para checar se ela é válida
+- Se estiver tudo certo o servidor devolve o response
+
+---
+
+<div class="left-10 top-0 right-0 bottom-20 max-w-full max-h-full absolute">
+
+```mermaid
+sequenceDiagram
+    Actor Cliente
+    Cliente->>+Servidor: Cliente faz login
+    Servidor->>+DB: Servidor cria sessão e armazena
+    Servidor-->>-Cliente: Servidor devolve sessionId
+    Note right of Cliente: Cliente armazena em cookie
+    Cliente->>+Servidor: Cliente envia request com cookie
+    Servidor-->>+DB: Servidor valida session
+    Servidor-->>+Cliente: Servidor devolve response
+```    
+</div>
+
+---
+
+Essa abordagem foi muito utilizada e existe debate entre os prós e cons de utilizar sessões.
+Dentre os cons podemos destacar os dois principais:
+
+#### Segurança: 
+
+O principal ponto de falha de segurança nessa abordagem são os ataques de `cross site request forgery`, 
+[CSRF](https://owasp.org/www-community/attacks/csrf)
+
+Esse tipo de ataque consiste em utilizar uma sessão atualizada em um cookie no navegador da vítima, e enviar um request
+malicioso que usa essa sessão armazenada para fazer alguma ação no servidor verdadeiro.
+
+Se a aplicação for desenvolvida com recursos modernos e frameworks para validação, esse risco diminuí, também é 
+necessária uma boa engenharia social por parte do atacante... 
+
+---
+layout: image
+image: /csrf.webp
+backgroundSize: contain
+---
+
+---
+
+#### Performance issues
+
+O maior problema atual na utilização de sessões é a sessão ser armazenada ou em memória no servidor, ou em um banco de 
+dados, não parece um problema grande né..., mas pense da seguinte forma...
+
+1) cada usuário que faz login cria uma sessão.
+2) a sessão é armazenada
+3) quando um usuário faz qualquer request o server deve:
+   - buscar no banco de dados ou em memória essa sessão e validar se é válida
+4) agora imagine que temos 10 instâncias desse servidor(API) em execução, 
+uma API escalada horizontalmente em um cloud server
+5) e imagine que temos 1 milhão de usuários logados em cada instância e cada usuário vai fazer em média 5 requisições
+
+---
+layout: two-cols
+---
+
+### JWT
+
+Uma alternativa para o uso de sessions é a utilização de tokens, o mais utilizado hoje é o 
+JWT[**Json web token**](https://jwt.io/).
+
+O JWT é um padrão de autenticação definido pela [RFC7519](https://datatracker.ietf.org/doc/html/rfc7519).
+No JWT é utilizado um token Base64 que pode ser usado com par de chaves ou assinatura(public/private).
+
+Usando JWT o servidor não precisa armazenar nada, ele gera o JWT e devolve para o cliente.
+
+::right::
 
 
+<br><br><br>
+
+```mermaid
+sequenceDiagram
+    Actor Cliente
+    Cliente->>+Servidor: Cliente faz login
+    Note right of Servidor: Servidor gera um JWT 
+    Servidor-->>-Cliente: Servidor devolve o JWT
+    Cliente->>+Servidor: Cliente envia request com cookie
+    Note right of Servidor: Servidor valida a signature do JWT 
+    Servidor-->>-Cliente: Servidor devolve response
+```    
+
+---
+
+Um JWT é uma string com três partes separadas por um `.`, as três partes são `header`, `payload`, `signature`.
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSJ9.SnpFarLPRcuEFZ-bnUC-2PLhEAyzgdSYrS4oNcr6v5Q
+
+<br>
+
+<style>
+   .meio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+</style>
+<div class="meio">
+   <pre class="pre">
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+     <span style="color:rgb(178, 111, 0)">└──────────────────┬─────────────────┘</span>
+                      <span style="color:rgb(178, 111, 0)">header</span>
+      eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSJ9.
+     <span style="color:#d63aff">└────────────────────────┬───────────────────────┘</span>
+                           <span style="color:#d63aff">payload</span>
+      SnpFarLPRcuEFZ-bnUC-2PLhEAyzgdSYrS4oNcr6v5Q
+     <span style="color:#00b9f1">└──────────────────────┬────────────────────┘</span>
+                        <span style="color:#00b9f1">signature</span>
+   </pre>
+</div>
+
+---
+
+#### header
+
+Headers é o cabeçalho do token onde passamos basicamente duas informações: o `alg` que informa
+qual algoritmo é usado para criar a assinatura e o `typ` que indica qual o tipo de token.
+
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+#### payload
+
+É onde os dados são armazenados. Pode conter informações como o identificador do usuário, permissões, 
+expiração do token, etc. O JWT é assinado digitalmente, mas isso não é o mesmo que criptografia,
+não é aconselhável utilizar dados sensíveis em um JWT. 
+
+```json
+{
+  "id": "1",
+  "email": "teste@teste.com"
+}
+```
+
+---
+
+#### signature
+
+A assinatura do token (signature) é composta pela codificação do header e do payload somada 
+a uma chave secreta gerada pelo algoritmo especificado no header.
+
+```shell
+HS256SHA256(
+    base64UrlEncode(header) + "." + base64UrlEncode(payload), secret_key)
+```
+
+<br>
+
+Outros atributos que são comuns no `payload` são:
+
+- `sub`: usado para representar o `subject` ou id do usuário
+- `iat`: usado para definir o `inserted at` do token
+- `eat`: usado para definir o `expire at` do token
+
+---
+layout: image
+image: /jwt.png
+backgroundSize: contain
+---
+
+---
+
+```ts
+export const doLogin = async (req: Request, res: Response) => {
+   const { username, password } = req.body
+   if (!username || !password) {
+      return res.status(400).json({ error: 'Username e password são obrigatórios' })
+   }
+   const usuarioRepository = AppDataSource.getRepository(Usuario)
+   try {
+      const usuario = await usuarioRepository.findOneBy({ username: username })
+      if (!usuario) {
+         return res.status(401).json({ error: 'Usuário não encontrado' })
+      }
+      const isPasswordValid = await bcrypt.compare(password, usuario.password)
+      if (!isPasswordValid) {
+         return res.status(401).json({ error: 'Credenciais inválidas' })
+      }
+      return res.status(200).json({ message: 'Login com sucesso' })
+   } catch (error) {
+      console.error('Erro durante login:', error)
+      return res.status(500).json({ error: 'Internal server error' })
+   }
+}
+```
+
+---
+layout: two-cols
+---
+
+Vamos adaptar a api para utilizar jwt. Primeiro precisamos adicionar o jsonwebtoken ao projeto.
+
+```shell
+npm install jsonwebtoken
+npm i --save-dev @types/jsonwebtoken
+```
+
+Agora nosso processo de login ao verificar um usuário no banco, devemos gerar um token para enviar no response,
+esse token vai ser utilizado para autenticar outras requisições.
+
+No método de login vamos importar a lib do jsonwebtoken
+
+```shell
+import jwt from "jsonwebtoken"
+```
+
+::right::
+
+Vamos mudar o trecho após a validação do login adicionando a criação do token e o retorno do mesmo no response
+
+```ts
+const token = jwt.sign({
+   username: username
+}, process.env.TOKEN, { 
+    expiresIn: '1h' 
+})
+
+res.status(200).json({ 
+   auth: true,
+   token: token }).send()
+```
+
+Agora com o token, precisamos de um método para fazer a autenticação desse token.
+
+---
+
+```ts
+import {Request, Response} from "express";
+import jwt from "jsonwebtoken";
+class Authentication {
+    async hasAuthorization(req: Request, res: Response, next: () => void) {
+        const bearerHeader = req.headers.authorization
+        if (!bearerHeader) {
+            res.status(403).json({auth: false, message: 'Nenhum token fornecido.'})
+        }
+        const bearer = bearerHeader.split(' ')[1]
+        jwt.verify(bearer, process.env.TOKEN, function (err, decoded) {
+            if (err) return res.status(500).json({
+                auth: false,
+                message: 'Failed to authenticate token.'
+            });
+            req.params.token = bearer;
+            next();
+        });
+    }
+}
+export default new Authentication()
+```
+
+---
+
+Depois precisamos adicionar a função que criamos para autenticação nas rotas que queremos "proteger".
+
+```ts
+routerUsuario.get("/usuarios/listar", Auth.hasAuthorization ,getUsuarios)
+```
+
+![](/postman-jwt.png)
+
+---
+layout: two-cols
+---
+
+## Testando a API
+
+Para implementarmos testes na API vamos utilizar duas bibliotecas, [Jest](https://jestjs.io/) e 
+[Supertest](https://github.com/ladjs/supertest#readme)
+
+- "Jest é um framework de teste de JavaScript encantador com foco na simplicidade." Jest website
+
+- SuperTest é uma biblioteca de asserções HTTP que permite testar seus servidores HTTP Node.js.
+
+<br>
+
+```shell
+npm install --save-dev jest supertest
+npm i --save-dev @types/jest
+npm i --save-dev @types/supertest
+```
+
+::right::
+
+No `package.json`, vamos adicionar os scripts de testes. E vamos criar uma pasta para armazenar todos os testes, `test`.
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": ["/node_modules/"]
+  }
+}
+```
+
+---
+
+Vamos criar o primeiro arquivo de teste
+
+```javascript
+const request = require('supertest');
+const server = require('./server');
+
+describe('GET /usuarios/listar', () => {
+    it('deve retornar uma lista de usuários', async () => {
+        const response = await request(server).get('/usuarios/listar');
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toBeInstanceOf(Array);
+    });
+});
+```
 
 
 
 
 
 ---
-
 https://www.dio.me/articles/react-componentes-de-classes-x-componentes-funcionais
 
 https://www.freecodecamp.org/portuguese/news/componentes-funcionais-props-e-jsx-em-react-tutorial-de-react-js-para-iniciantes/
@@ -514,3 +837,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 https://axios-http.com/docs/api_intro
 
 https://www.scaler.com/topics/react/virtual-dom-in-react/
+
+https://dev.to/vinibgoulart/how-to-protected-a-route-with-jwt-token-in-react-using-context-api-l38
+
+https://www.atatus.com/blog/cross-site-request-forgery-a-threat-to-open-web-applications/
+
+https://owasp.org/www-community/attacks/csrf
+
+https://jwt.io/
+
+https://www.alura.com.br/artigos/o-que-e-json-web-tokens
