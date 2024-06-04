@@ -785,14 +785,16 @@ Para implementarmos testes na API vamos utilizar duas bibliotecas, [Jest](https:
 <br>
 
 ```shell
-npm install --save-dev jest supertest
+npm install --save-dev jest
+npm install --save-dev supertest ts-jest
 npm i --save-dev @types/jest
 npm i --save-dev @types/supertest
 ```
 
 ::right::
 
-No `package.json`, vamos adicionar os scripts de testes. E vamos criar uma pasta para armazenar todos os testes, `test`.
+No `package.json`, vamos adicionar o script de teste. E vamos criar uma pasta para armazenar todos os 
+testes, `__test__`.
 
 ```json
 {
@@ -801,14 +803,47 @@ No `package.json`, vamos adicionar os scripts de testes. E vamos criar uma pasta
   },
   "jest": {
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns": ["/node_modules/"]
+    "coveragePathIgnorePatterns": 
+      ["/node_modules/"]
   }
 }
 ```
 
 ---
+layout: two-cols
+---
 
-Vamos criar o primeiro arquivo de teste
+Criamos um arquivo na raiz do projeto chamado `jest.config.ts` que vai conter configurações do jest.
+
+````js
+module.exports = {
+    preset: 'ts-jest',
+    testEnvironment: 'node',
+    testMatch: ['<rootDir>/**/*.test.ts'],
+    verbose: true,
+    forceExit: true,
+    clearMocks: true,
+}
+````
+
+::right::
+
+Essa configuração determina que o jest vai utilizar o ts-jest para typescript,
+que o ambiente de teste é um container node, e que vai buscar por todos os arquivos de 
+teste dentro das pastas do projeto que sigam a nomenclatura `*.test.ts`.
+
+O `verbose` é utilizado para "logar" mais informações sobre os testes em execução para facilitar a interpretação do
+resultado. 
+
+O `clearMocks` opção é uma configuração que limpa automaticamente os dados simulados entre cada teste.
+Garantindo que seus testes sejam executados isoladamente e que as afirmações sobre o comportamento simulado
+sejam precisas.
+
+---
+
+O jest cria blocos de teste utilizando o `describe` dentro dele existem quantos casos de teste forem necessários.
+A nomenclatura para nome de arquivos de teste normalmente segue o nome da classe que está sendo testada, seguido de 
+`.test`, por exemplo dentro da pasta `__test__` temos a arquivo `login.test.ts`.
 
 ```javascript
 const request = require('supertest');
@@ -823,6 +858,190 @@ describe('GET /usuarios/listar', () => {
 });
 ```
 
+---
+layout: two-cols
+---
+
+## Adicionando mais segurança
+
+Além de testes e da validação utilizando jwt tokens, existem outras medidas de segurança que podemos adotar para 
+diminuir riscos.
+
+### Restringindo requests
+
+Dependendo do escopo da api podemos restringir a origem das chamadas garantindo que apenas um determinado domínio tenha 
+acesso a api.
+
+Para isso vamos utilizar a lib `CORS` e definir os domínios permitidos, requests externos vão ser bloqueados.
+
+::right::
+
+<br>
+<br>
+
+```js
+const cors = require('cors');
+const app = express();
+const allow = ['https://localhost'];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allow.indexOf(origin) !== -1
+         || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error());
+    }
+  }
+};
+app.use(cors(corsOptions));
+```
+
+<!--
+app.use((err, req, res, next) => {
+   if (err) {
+      res.status(403).json(
+        { message: 'Access forbidden: CORS policy not met' }
+      )
+   } else {
+      next()
+   }
+}) -->
+
+---
+layout: two-cols
+---
+
+### Headers 
+
+Para melhorar a proteção contra Cross-Site Scripting entre outros, podemos utilizar o middleware
+[`helmet`](https://helmetjs.github.io/?ref=escape.tech).
+
+```shell
+npm install helmet
+```
+
+Depois utilizar como middleware no app
+
+```js
+import helmet from "helmet"
+
+const app = express()
+
+
+app.use(helmet())
+```
+
+O helmet seta diversos headers na api para mitigar alguns tipos de ataque.
+
+
+::right::
+
+### Permissões
+
+Uma medida que podemos tomar é definir permissões específicas para a api conforme o acesso do usuário.
+Por exemplo: apenas usuários com permissão de admin podem fazer determinada chamada para a api. Nesse caso verificamos
+as permissões do usuário que fez o request. Isso pode e é normalmente feito no frontend mas também podemos adicionar a 
+validação na api. 
+
+Aqui podemos causar um problema de lentidão ao verificar diversas vezes a permissão do usuário no banco, esse tipo de 
+medida pode causar uma lentidão conforme o tamanho do sistema.
+
+---
+layout: two-cols
+---
+
+### rate limit
+
+Alguns ataques consistem em derrubar a aplicação utilizando força bruta(ddos), nesses casos podemos delimitar a 
+quantidade de requisições por IP. Uma biblioteca que possibilita isso é a `express-rate-limit`.
+
+```shell
+npm install express-rate-limit
+```
+
+::right::
+
+```js
+import rateLimit from 'express-rate-limit'
+
+const limiter = rateLimit({
+   windowMs: 15 * 60 * 1000, 
+   // 15 minutes
+   max: 100, 
+   // Limit to 100 requests by ID
+   standardHeaders: true, 
+   // Return rate limit info in the
+   // `RateLimit-*` headers
+   legacyHeaders: false,
+   // Disable the `X-RateLimit-*`
+   // headers
+})
+
+app.use(limiter)
+```
+
+---
+layout: two-cols
+---
+
+### Sanitization
+
+Uma das mais recomendadas boas práticas em apis é a 
+[sanitização](https://dev.to/gimnathperera/yup-vs-zod-vs-joi-a-comprehensive-comparison-of-javascript-validation-libraries-4mhi) 
+de parâmetros. Existem muitas bibliotecas que ajudam nessa tarefa, aqui vamos usar o `zod`.
+
+```shell
+npm install zod
+```
+
+Com o zod criamos "schemas"(`schema`) onde passamos o body ou parâmetros que queremos validar para um objeto validador.
+
+```ts
+const userSchema = z.object({
+  name: z.string().min(1).required(),
+  email: z.string().email().optional(),
+  password: z.string().min(8).max(100),
+  limit: z.number().int().positive(),
+});
+```
+
+::right::
+
+```ts
+import { z } from 'zod'
+const loginSchema = z.object({
+   username: z.string().min(1).max(20),
+   password: z.string().min(5).max(12),
+})
+const validate = (schema, body) => {
+   try {
+      schema.parse(body);
+      return { 
+          isValid: true,
+         errors: null 
+      }
+   } catch (e) {
+      return { 
+          isValid: false, 
+         errors: e.errors 
+      }
+   }
+}
+```
+
+
+---
+
+Desta forma podemos chamar a função validate conforme o schema utilizado
+```ts
+const { isValid, errors } = validate( userSchema, req.body )
+
+if (!isValid) {
+    return res.status(400).json(
+        { errors }
+    )
+}
+```
 
 
 
@@ -847,3 +1066,9 @@ https://owasp.org/www-community/attacks/csrf
 https://jwt.io/
 
 https://www.alura.com.br/artigos/o-que-e-json-web-tokens
+
+https://dev.to/gimnathperera/yup-vs-zod-vs-joi-a-comprehensive-comparison-of-javascript-validation-libraries-4mhi
+
+https://escape.tech/blog/how-to-secure-express-js-api/
+
+https://medium.com/@developerom/protect-your-rest-apis-in-node-js-253c11a2dfd7
