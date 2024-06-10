@@ -19,7 +19,7 @@ export:
 
 ---
 
-<Toc columns="1" maxDepth="3"></Toc>
+<Toc columns="3" maxDepth="3"></Toc>
 
 ---
 
@@ -1054,10 +1054,48 @@ builder: (context, snapshot) {
   }},)
 ```
 
+---
+layout: two-cols
+---
 
+## Adicionar widgets externos
 
+Podemos adicionar bibliotecas e widgets modificando o pub `pubspec.yaml`
 
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3
+  shared_preferences: ^2.0.6
+```
 
+Aqui podemos especificar a versão escolhida, apontar uma versão mínima ou deixar sem versão 
+para ao rodar o flutter pub get pegar a última versão do repositório.
+
+Outra forma é utilizar o `flutter pub add nomedalib`, que vai buscar a última versão e adicionar ao `pubspec.yaml`
+
+::right::
+
+## Gerando apk
+
+```shell
+flutter clean
+flutter pub get
+flutter build apk
+```
+
+O `flutter clean`, vai remover o conteúdo gerado automáticamente e arquivos temporários, o `pub get` vai atualizar o 
+projeto com as dependências do `pubspec` novamente, enquanto o `build apk` vai compilar o projeto executando o Gradle
+e gerar o executável.
+
+```shell
+Running Gradle task 
+ 'assembleRelease'...45.9s
+✓  Built 
+build/app/outputs/flutter-apk/app.apk
+ (19.6MB).
+```
 
 
 
