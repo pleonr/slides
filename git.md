@@ -252,13 +252,6 @@ gitGraph
     
 ```
 
-
-
-
-
-
-
-
 ---
 layout: image
 image: /github-bitbucket-gitlab.png
@@ -266,3 +259,93 @@ background-size: contain
 ---
 
 ---
+
+
+---
+layout: two-cols
+---
+
+## Github Pages
+
+O [GitHubPages](https://pages.github.com/) são páginas públicas hospedadas e publicadas através do GitHub.
+Ele permite que qualquer usuário hospede uma página web para um repositório ou usuário gratuitamente.
+
+### Crie um repositório
+
+Vá para o GitHub e crie um novo repositório público chamado `nomedeusuário.github.io`, onde nomedeusuário é o seu 
+nome de usuário (ou nome da organização) no GitHub. 
+Se a primeira parte do repositório não corresponder exatamente ao seu nome de usuário, não funcionará!
+então certifique-se de acertar.
+
+::right::
+
+![](/githubpages-1.png)
+
+---
+
+### Clonar o repositório
+
+Vamos clonar esse repositório criado e trabalhar nele...
+
+```shell
+git clone https://github.com/65375/65375.github.io
+```
+
+Dentro dele vamos começar a criar a página que queremos. Adicionando HTML, CSS, Javascript e tudo que trabalhamos 
+durante o semestre. Não esqueça de commitar...
+
+```shell
+git add .
+git commit -m "blog pessoal"
+```
+
+Nesse momento é melhor conferir as configurações do git:
+
+```shell
+git config user.name "65375"
+git config user.email "pabloleon@upf.br"
+```
+
+---
+layout: two-cols
+---
+
+### Push
+
+Agora envie o commit para o repositório do github:
+
+```shell
+git push -u origin main
+```
+
+Aqui talvez seja necessário uma validação extra.. Caso seja necessário inserir o usuário e senha, talvez você encontre
+um erro dizendo que o github não permite alterações utilizando a senha do usuário.
+
+Para resolver isso vamos criar um personal token. Vá até `https://github.com/settings/profile` e procure a opção 
+[`Developer Settings`](https://github.com/settings/apps), provavelmente a última opção no menu lateral.
+
+
+::right::
+
+Aqui vamos criar um token que vai ter permissões atreladas a ele.
+
+![](/githubtoken.png)
+
+<br>
+
+E clique em Generate new Token
+
+---
+layout: two-cols
+---
+
+![](/githubtoken2.png)
+
+
+Aqui podemos definir todas as permissões que queremos atribuir a esse token.
+
+::right::
+
+![](/githubtoken3.png)
+
+Na próxima vez que você tentar fazer push, utilize esse token gerado.

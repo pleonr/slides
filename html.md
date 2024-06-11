@@ -156,7 +156,7 @@ documento e há diferenças entre uma opção e outra.
 
 ---
 layout: iframe-right
-url: /index.html
+url: /index-page.html
 ---
 
 ```html
