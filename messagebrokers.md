@@ -61,7 +61,7 @@ messaging patterns.
 Em 1876 Alexander Graham Bell fez a primeira chamada telefonica e registrou a patente do telefone. E a forma inicial
 era através de uma conexão direta entre cada ponto de telefone para cada outro ponto.
 
-Ou seja para cada ligação entre uma casa e outro precisava de um cabo entre elas, um ano depois em 1978, a confusão 
+Ou seja para cada ligação entre uma casa e outro precisava de um cabo entre elas, um ano depois em 1878, a confusão 
 entre cabos passando por cima de postes, árvores e casas foi uma bagunça.
 
 Para resolver esse problema Grambell utilizou de uma companhia telefonica a primeira desse tipo, onde cada casa era 
