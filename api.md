@@ -9,8 +9,9 @@ drawings:
 image: /side-logo.png
 selectable: true
 colorSchema: dark
-title: Git
+title: API
 author: Pablo Leon Rodrigues
+download: true
 export:
   format: pdf
   timeout: 30000
@@ -28,7 +29,7 @@ export:
 Uma API(*Application programming interface*) é uma forma de comunicação entre computadores e componentes.
 
 Em 1940 os cientistas britânicos Maurice Wilkes e David Wheeler trabalhavam em um sistema de catálogo de bibliotecas 
-de notas, que eram perfuradas para montar um sistema.(punched cards) Hoje em dia tal organização seria chamada de API.
+de notas, que eram perfuradas para montar um sistema(*punched cards*). Hoje em dia tal organização seria chamada de API.
 
 Porém, foi em 1990 que o termo API foi definido como "um conjunto de serviços disponíveis para um programador executar
 determinadas tarefas", foi cunhado por Carl Malamud.
@@ -42,7 +43,7 @@ ideia de uma "interface de programação de aplicativos baseada em rede" que Fie
 
 ## Como funciona?
 
-Imagine duas aplicações comunicando-se através de um garçom em um restaurante. O garçom atua como API, retransmitindo 
+Imagine duas aplicações comunicando-se por um garçom em um restaurante. O garçom atua como API, retransmitindo 
 seu pedido (pedido) para a cozinha (servidor) e trazendo sua comida (resposta). 
 
 - Cliente: O aplicativo que solicita informações ou executa uma ação.
@@ -52,6 +53,90 @@ resposta ao cliente.
 
 A comunicação geralmente acontece através de solicitações HTTP (como GET ou POST) e respostas (contendo dados 
 como JSON ou XML). Pense nisso como uma conversa estruturada com comandos e respostas específicas.
+
+---
+
+## URL
+
+Ao acessar um endereço de uma api utilizamos uma URL(*Uniform resource locator*) para fazer a solicitação essa URL 
+utiliza partes que podemos identificar como "scheme", "authority, domain, path, query".  
+
+<pre class="pre">          <span style="color:rgb(0, 76, 178)">userinfo</span>       <span style="color:rgb(0, 177, 17)">host</span>      <span style="color:rgb(178, 111, 0)">port</span>
+          <span style="color:rgb(0, 76, 178)">┌──┴───┐</span> <span style="color:rgb(0, 177, 17)">┌──────┴──────┐</span> <span style="color:rgb(178, 111, 0)">┌┴┐</span>
+  https://john.doe@api.example.com:123/forum/?tag=networking&amp;order=newest
+  <span style="color:rgb(178, 111, 0)">└─┬─┘</span>   <span style="color:rgb(176, 0, 177)">└─────────────┬────────────┘</span><span style="color:rgb(0, 76, 178)">└──┬──┘</span> <span style="color:rgb(0, 178, 17)">└────────────┬────────────┘</span> <span style="color:rgb(178, 111, 0)">└┬┘</span>
+  <span style="color:rgb(178, 111, 0)">scheme</span>     <span style="color:rgb(176, 0, 177)">authority/domain/host</span>     <span style="color:rgb(0, 76, 178)">path</span>              <span style="color:rgb(0, 178, 17)"><span style="color:rgb(0, 178, 17)">query</span></span>         <span style="color:rgb(178, 111, 0)">fragment</span>
+</pre>
+
+---
+layout: two-cols
+---
+
+### Esquema (*scheme*)
+
+A variável scheme também é chamado de protocol, com APIs da Web e geralmente é http(*HyperText Transfer Protocol*) ou 
+https. Determina o protocolo em que os recursos são transferidos de um servidor para um cliente.
+
+
+### Hosts e domínios
+
+A variável api.example.com é o host do recurso que está sendo solicitado. Essa url vai ser resolvida pelo DNS e vai
+fornecer o endereço de ip para acessar esse servidor. Também pode ser utilizado a autorização(*authority*) e a
+porta(*port*) do serviço. Geralmente apis são executadas em subdomínios como, por exemplo, api.example.com ao invés
+de www.example.com.
+
+::right::
+
+### Caminho (*path*)
+
+O path para o recurso, */forum/* nosso exemplo geralmente representa pastas ou diretórios no servidor.
+Assim como temos pastas ou diretórios em nossos computadores, também temos pastas em servidores para organizar conteúdo.
+
+### Query
+
+Query são os parâmetros que podemos enviar em uma chamada para obter determinado resultado, no nosso exemplo
+utilizamos, *tag=networking&amp;order=newest*.
+
+---
+layout: two-cols
+---
+
+### Endpoints
+
+Quando os programadores "usam" uma API da Web em seus programas, eles normalmente fazem solicitações para enviar ou 
+receber recursos. A documentação da API geralmente lista "endpoints" para essas solicitações, 
+por exemplo: *api.example.com:123/forum/*. Esse é o padrão ou "endpoint" específico da API de acesso a dados da 
+plataforma.
+
+::right::
+
+### Métodos HTTP
+
+Deve ficar claro que as APIs da Web fazem solicitações com padrões repetíveis para servidores. Uma solicitação é
+enviada de um aplicativo de software para outro aplicativo de software que avalia a solicitação e, em seguida, 
+responde devolvendo alguma informação conforme o endpoint e método utilizado.
+
+---
+
+#### GET
+
+GET o método de solicitação é usado ao solicitar uma resposta que fornece um recurso. Utilizado para buscar .
+
+POST
+
+A variável POST O método envia dados com a solicitação. Pode parecer estranho que uma "solicitação" envie dados, mas a ideia é que fazer a solicitação da API é solicitar ao endpoint — o software receptor — que aceite a solicitação e, no caso de um POST, para também aceitar os dados que estão sendo enviados. Os dados enviados normalmente são gravados em um armazenamento de dados, como um banco de dados ou arquivo, para que possam ser salvos.
+
+PUT
+
+A variável PUT o método de solicitação é semelhante a POST como envia dados, mas se os dados que estão sendo enviados já existirem no endpoint, uma PUT atualizará os dados existentes substituindo-os. A POST não atualiza, ele simplesmente envia, então vários POST as solicitações podem criar vários registros dos dados enviados, em vez de atualizar qualquer registro existente.
+
+PATCH
+
+A variável PATCH O método de solicitação é usado para enviar dados que atualizam parte de um registro existente, como quando alteramos nosso endereço atualizando nosso perfil de conta. Com um POST solicitação, um perfil adicional pode ser criado e com uma PUT, o perfil existente pode ser substituído, mas usando o PATCH simplesmente atualizamos a parte relevante do registro existente, como nosso endereço.
+
+DELETE
+
+A variável DELETE o método de solicitação remove um recurso especificado na solicitação, como se clicássemos em um link para excluir totalmente nosso perfil de conta.
 
 ---
 
@@ -121,10 +206,10 @@ identificado por URLs exclusivos.
 - Métodos padrão: usa métodos HTTP como GET, POST, PUT e DELETE para interagir com recursos.
 - Stateless: Cada solicitação contém todas as informações necessárias para o servidor processá-la,
 evitando gerenciamento complexo de sessões.
-- Arquitetura cliente-servidor: Separa claramente clientes (aplicativos que fazem solicitações)
+- Arquitetura cliente-servidor: separa claramente clientes (aplicativos que fazem solicitações)
 e servidores (processamento de solicitações e envio de respostas).
 - Armazenável em cache: as respostas podem ser armazenadas em cache para melhorar o desempenho.
-- Sistema em camadas: Os intermediários podem lidar com solicitações e respostas, adicionando flexibilidade.
+- Sistema em camadas: os intermediários podem lidar com solicitações e respostas, adicionando flexibilidade.
 - Código sob demanda: os servidores podem enviar código executável aos clientes (opcional).
 
 <!--
@@ -164,3 +249,5 @@ https://www.openapis.org/
 https://spec.openapis.org/oas/latest.html
 
 https://editor.swagger.io/
+
+https://experienceleague.adobe.com/pt-br/docs/platform-learn/data-collection/server-api/introduction

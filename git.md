@@ -26,16 +26,11 @@ layout: two-cols
 
 ## Git
 
-Git é um sistema de controle de versionamento criado em 2005 Por Linus Torvalds. Ele é mantido por Junio Hamano.
+Git é um sistema de controle de versionamento [criado](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README) em 7 de Abril de 2005 por [Linus Torvalds](https://github.com/torvalds). 
+Ele é mantido por [Junio Hamano](https://github.com/gitster).
 
-Em 7 de Abril de 2005 Linus Torvalds fez o primeiro
-[commit](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README) 
-do código do git com a mensagem:
+![](/juniohamano.jpeg)
 
-```
-Initial revision of "git", the
- information manager from hell
-```
 ::right::
 
 ![](/Linus.webp)
@@ -256,8 +251,6 @@ gitGraph
 layout: image
 image: /github-bitbucket-gitlab.png
 background-size: contain
----
-
 ---
 
 
