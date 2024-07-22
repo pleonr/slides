@@ -1073,7 +1073,7 @@ fetch('https://api.example.com/data')
     fetch(url)
         .then(response => response.json()) // Convert response to JSON
         .then(data => {
-            const postList = document.getElementById('posts-list');
+            const postList = document.getElementById('_posts-list');
 
             data.forEach(post => {
                 const listItem = document.createElement('li');
