@@ -8,7 +8,6 @@ drawings:
   persist: false
 image: /side-logo.png
 selectable: true
-colorSchema: dark
 title: Flutter
 author: Pablo Leon Rodrigues
 export:
@@ -696,6 +695,45 @@ class MyApp extends StatelessWidget { // widget raiz
 ```
 
 ---
+
+Se tudo ocorreu corretamente, vamos ter um logo similar ao abaixo:
+
+```shell
+➜  colors flutter run          
+Launching lib/main.dart on sdk gphone64 x86 64 in debug mode...
+Running Gradle task 'assembleDebug'...                             15.3s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          692ms
+Syncing files to device sdk gphone64 x86 64...                      69ms
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on sdk gphone64 x86 64 is available at: 
+http://127.0.0.1:34337/y67dqh5Tn7M=/
+The Flutter DevTools debugger and profiler on sdk gphone64 x86 64 is available at:
+ http://127.0.0.1:9101?uri=http://127.0.0.1:34337/y67dqh5Tn7M=/
+```
+
+---
+layout: image-right
+image: /flutter-app.png
+backgroundSize: contain
+---
+
+O resultado é o app ao lado, executando. 
+
+Ao clicar no botão do canto inferior direito o texto da tela deve atualizar.
+
+Para isso a tela possuí um widget statefull que é atualizado toda vez que o state for alterado, sendo que toda vez que 
+o botão é clicado uma função setState é chamada para isso. 
+
+
+---
 layout: two-cols
 ---
 
@@ -736,7 +774,6 @@ layout: image
 image: /flutter-states.png
 background-size: contain
 ---
-
 
 
 ---
@@ -780,61 +817,113 @@ re-inserted into another part of the tree
 like stop animation
 -->
 
+---
+layout: two-cols
+---
+
+## App Cores
+
+Vamos criar um app que pode alterar sua própria cor de tema conforme a escolha do usuário.
+Vamos começar escondendo a flag de debug do sistema, para isso vamos adicionar uma nova propriedade no Material e
+adicionar `debugShowCheckedModeBanner: false,`. Digite `r` no terminal para atualizar a aplicação.
+Adicione também algumas propriedades no widget `appBar`, como o `centerTitle: true`, ou o bloco `style` por exemplo:
+
+```dart
+title: const Text(
+ 'widget.title',
+ style: TextStyle(
+   color: Colors.black,
+   fontSize: 18,
+   fontWeight: FontWeight.bold
+ ),),
+```
+
+::right::
+
+Vamos criar os botões para selecionar as cores.
+
+```dart
+class _MyHomePageState extends 
+State<MyHomePage> {
+  final Map<String, Color> colors = {
+    'blue': Colors.blue,
+    'red': Colors.red,
+    'green': Colors.green,
+    'yellow': Colors.yellow,
+    'purple': Colors.purple,
+    'teal': Colors.teal,
+    'orange': Colors.orange
+  };
+  
+  Color? selectedColor;
+```
+
 
 ---
 layout: two-cols
 ---
 
-### App Cores
+Precisamos de uma função para alterar a cor selecionada.
 
 ```dart
-final Map<String, Color> colors = {
- 'blue': Colors.blue,
- 'red': Colors.red,
- 'green': Colors.green,
- 'yellow': Colors.yellow,
- 'purple': Colors.purple,
- 'teal': Colors.teal,
- 'orange': Colors.orange
-};
+void _setColor(String colorName, 
+   Color color) {
+ setState(() {
+   selectedColor = color;
+ });
+}
 ```
 
-O método `initState` executa ao construir a aplicação 
+E depois na `appBar` precisamos alterar 
 
 ```dart
-@override
-void initState() {
- _getColor();
- super.initState();
-}
+appBar: AppBar(
+  backgroundColor: selectedColor ?? 
+   Colors.black,
 ```
 
 ::right::
 
-No `initState` usamos o `getColor` para buscar a cor selecionada pelo usuário. Na construção do widget tentamos 
-buscar a cor se ela existe nas preferências. `backgroundColor: selectedColor ?? Colors.black,`
 
 ```dart
-children: [
-for (var entry in colors.entries)
-  Container(
-    margin: const EdgeInsets.all(10),
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: entry.value,
-      ),
-      child: Text(''),
-      onPressed: () => _setColor(
-         entry.key, entry.value
-      ),
-    ),
-  ),
-],
+body: Column(
+ crossAxisAlignment: 
+   CrossAxisAlignment.stretch,
+ mainAxisAlignment: 
+   MainAxisAlignment.center,
+ children: [
+   for (var entry in colors.entries)
+     Container(
+       margin: const EdgeInsets.all(10),
+       child: ElevatedButton(
+         style: ElevatedButton.styleFrom(
+           backgroundColor: entry.value,
+           minimumSize: const Size(300, 60),
+         ),
+         child: Text(''),
+         onPressed: () => _setColor(
+            entry.key, entry.value),
+       ),
+     ), ],));
 ```
 
 ---
 
-Usamos o SharedPreferences para armazenar a cor escolhida pelo usuário. 
+### Pub
+
+O comando flutter pub get é usado para gerenciar as dependências do projeto. Quando você executa esse comando,
+o Flutter baixa e instala todas as bibliotecas e pacotes especificados no arquivo pubspec.yaml, que é onde as
+dependências do seu projeto são definidas.
+
+O Flutter lê o arquivo pubspec.yaml para identificar quais pacotes e versões foram especificados como dependências, 
+ao executar o comando `flutter pub add nome_da_lib` o flutter vai instalar a biblioteca `nome_da_lib`, os pacotes 
+que não estão disponíveis na máquina local são baixados do repositório do Dart (https://pub.dev) e armazenados em uma
+pasta chamada `.pub-cache` no seu sistema.
+
+Usamos o SharedPreferences para armazenar a cor escolhida pelo usuário. Para instalar a lib do shared_preferences
+executamos o comando `flutter pub add shared_preferences`.
+
+---
 
 ```dart
   void _setColor(String colorName, Color color) async {
@@ -845,7 +934,6 @@ Usamos o SharedPreferences para armazenar a cor escolhida pelo usuário.
       selectedColor = color;
     });
   }
-
   void _getColor() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? colorName = prefs.getString('color');
@@ -854,6 +942,90 @@ Usamos o SharedPreferences para armazenar a cor escolhida pelo usuário.
     });
   }
 ```
+
+---
+
+## Navegação
+
+Usando o `MaterialPageRoute` podemos navegar entre uma tela e outra. Para isso vamos criar uma pasta para telas, e 
+dentro da mesma as páginas. Crie um novo arquivo .dart e digite o atalho `stless` ou `stful`.
+
+Aqui a navegação é feita utilizando o `push` e `pop` navigator. Esse método é mais utilizado em aplicativos mais simples
+e de menor porte.
+
+```dart
+IconButton(
+  icon: const Icon(Icons.settings),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ConfiguracoesPage()),
+    );
+  },
+),
+```
+
+<!-- 
+body: Center(
+  child: ElevatedButton(
+    onPressed: () {
+      Navigator.pop(context);
+    },
+    child: Text('Go back'),
+  ),
+),
+-->
+---
+
+Podemos utilizar o routes criamos uma estrutura que é similar a uma pilha(*stack*), também chamado de `named routes`
+
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // Define as rotas
+      routes: {
+        '/': (context) => HomePage(), // Página inicial
+        '/second': (context) => SecondPage(), // Página secundária
+      },
+      // Rota inicial
+      initialRoute: '/',
+    );
+  }
+}
+```
+
+<!--
+MaterialApp: O parâmetro routes dentro do MaterialApp define um mapa de rotas. As chaves do mapa são os nomes das
+rotas (por exemplo, '/second'), e os valores são funções que retornam os widgets associados a essas rotas.
+
+InitialRoute: O parâmetro initialRoute define a rota inicial do aplicativo, que será exibida quando ele for iniciado. 
+Nesse caso, é a HomePage.
+
+Navigator.pushNamed: Para navegar para uma rota específica, usa-se o Navigator.pushNamed, passando o nome da rota 
+como argumento. Isso leva o usuário para a página associada a essa rota.
+
+Navigator.pop: Para voltar para a página anterior, o Navigator.pop é utilizado, que remove a rota atual 
+do stack de navegação.
+-->
+
+---
+
+### Context
+
+O `BuildContext` é um conceito utilizado dentro dos widgets do Flutter. Ele é uma referência para a posição na árvore 
+de widgets onde um widget está sendo construído e fornece uma maneira de acessar várias propriedades e métodos 
+relevantes para essa localização.
+
+```dart 
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+``` 
+
+Através dele podemos acessar informações como o tema e a localização do widget. Ele permite que você percorra e 
+manipule a árvore de widgets, acesse widgets herdados e execute operações específicas de contexto, como navegação.
 
 ---
 layout: two-cols
@@ -1055,6 +1227,88 @@ builder: (context, snapshot) {
 ```
 
 ---
+
+## Login
+
+
+---
+
+## Persistência local
+
+Além do sharedPreferences que usamos para armazenar pequenas quantidades de informações pode ser necessário trabalhar
+com um banco de dados mais robusto... Uma opção é a utilização do SqLite através da biblioteca
+[sqflite](https://pub.dev/packages/sqflite).
+
+Vamos começar adicionando as dependências `sqflite` e `path`. 
+
+Depois seguindo uma arquitetura baseada em MVC vamos criar um modelo para os dados persistidos.
+
+---
+layout: two-cols
+---
+
+```dart
+class User {
+  final int? id;
+  final String name;
+  final String email;
+  final String password;
+
+  User({
+   this.id,
+   required this.name,
+   required this.email,
+   required this.password,
+  });
+```
+
+::right::
+
+```dart 
+  Map<String, dynamic> toMap() {
+   return {
+     'id': id,
+     'name': name,
+     'email': email,
+     'password': password,
+   };
+  }
+  
+  factory User.fromMap(
+  Map<String, dynamic> map) {
+    return User(
+      id: map['id'],
+      name: map['name'],
+      email: map['email'],
+      password: map['password'],
+    );
+  }
+}
+````
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 layout: two-cols
 ---
 
@@ -1108,21 +1362,17 @@ build/app/outputs/flutter-apk/app.apk
 
 ---
 
+https://docs.flutter.dev
 
+https://www.youtube.com/@Fireship
 
+https://www.youtube.com/@RobertBrunhage
 
-
-
-
-
-
-
-
-
-
-
+https://www.youtube.com/@FilledStacks
 
 https://flutterparainiciantes.com.br/
+
+https://docs.flutter.dev/ui/design/material
 
 https://docs.flutter.dev/ui/interactivity
 

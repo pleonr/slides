@@ -25,7 +25,7 @@ export:
 
 ## Introdução ao Node.js
 
-Node.js é um ambiente de tempo de execução JavaScript de código aberto e multi plataforma .
+[Node.js](https://nodejs.org/pt-br/about/ ) é um ambiente de tempo de execução JavaScript de código aberto e multi plataforma .
 É uma ferramenta popular para quase qualquer tipo de projeto!
 
 O Node.js executa o mecanismo JavaScript V8, o núcleo do Google Chrome, fora do navegador.
@@ -35,7 +35,11 @@ solicitação.
 
 O node possibilita criar código para o servidor usando a mesma linguagem(JavaScript) utilizada no lad do cliente.
 
-https://nodejs.org/pt-br/about/ 
+O nodejs tem utiliza [package managers](https://nodejs.org/en/download/package-manager) para instalação do node. Além
+de existir binários para os principais SO's e a opção de compilar o código fonte.
+
+O [NVM](https://github.com/nvm-sh/nvm)(*Node version manager*) é um gerenciador de versões do node, possibilitando
+a utilização de diversas versões.
 
 ---
 layout: two-cols
@@ -50,7 +54,7 @@ layout: two-cols
   - indicar nome do entry point > `server.js`
 
 Isso vai criar o `package.json`
-  - criar o arquivo `server.js`
+  - criar o arquivo `index.js`
   - `console.log("Hello World");`
 
 ::right::
@@ -60,7 +64,7 @@ Isso vai criar o `package.json`
   "name": "minhaapi",
   "version": "1.0.0",
   "description": "projeto TEDII",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": ""
   },
@@ -86,7 +90,7 @@ dependências.
   "name" : "foo",
   "version" : "1.2.3",
   "description" : "A package",
-  "main" : "foo.js",
+  "main" : "index.js",
   "keywords" : ["foo", "fool", "foolish"],
   "author" : "John Doe",
   "licence" : "ISC"
@@ -130,9 +134,9 @@ estiverem salvas no `package.json`.
   "name": "detranupf",
   "version": "1.0.0",
   "description": "projedo TEDII",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "",
+    "test": ""
   },
   "author": "",
   "license": "ISC",
@@ -146,11 +150,12 @@ estiverem salvas no `package.json`.
 
 <!--
 O que é CORS?
-CORS significa . Ele nos permite relaxar a segurança aplicada a uma API. Isso é feito contornando os cabeçalhos, 
+CORS é uma lib que funciona como um middleware, ele nos permite "relaxar" a segurança aplicada a uma API.
+Isso é feito contornando os cabeçalhos, 
 que especificam quais podem acessar a API. Cross-Origin Resource SharingAccess-Control-Allow-Originorigins
 
 Em outras palavras, o CORS é um recurso de segurança do navegador que restringe solicitações HTTP de origem cruzada
-com outros servidores e especifica quais domínios acessam seus recursos.
+com outros servidores e específica quais domínios acessam seus recursos.
 -->
 
 ---
@@ -170,7 +175,7 @@ Nodemon é uma lib open source criada para habilitar *hot reload* no código, en
 ```json
 "scripts": {
   "test": "echo ... && exit 1",
-  "dev":"nodemon server.js"
+  "dev":"nodemon index.js"
 },
 ```
 
@@ -186,7 +191,7 @@ Nodemon é uma lib open source criada para habilitar *hot reload* no código, en
 [nodemon] to restart, enter `rs`
 [nodemon] watching path(s): *.*
 [nodemon] watching: js,mjs,cjs,json
-[nodemon] starting `node server.js`
+[nodemon] starting `node index.js`
 ```
 
 ---
@@ -195,7 +200,7 @@ layout: two-cols
 
 ## Express
 
-Express é um web framework para node. Vamos editar o `server.js` para utilizar o express.
+Express é um web framework para node. Vamos editar o `index.js` para utilizar o express.
 
 ```js
 console.log("Server UP");
@@ -238,10 +243,10 @@ Primeiro precisamos dizer ao nosso app json que utilizaremos módulos, para isso
   "name": "detranupf",
   "version": "1.0.0",
   "description": "projedo TEDII",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "",
+    "test": ""
   },
   "author": "",
   "license": "ISC",
@@ -279,49 +284,6 @@ app.listen(port, () => {})
 layout: two-cols
 ---
 
-Vamos organizar melhor nossa aplicação. Crie uma pasta `src` para organizar melhor o código.
-
-Vamos criar um novo arquivo chamado `app.js` que vai ter a lógica de rotas e outras atribuições e deixar o `server.js` 
-apenas como servidor.
-
-![](/project_node.png)
-
-::right::
-
-`app.js`
-```js
-import express from 'express';
-
-const app = express();
-app.get("/", (req, res) => {
-   res.status(200).send("home"); 
-});
-
-export default app;
-```
-
-`server.js`
-```js
-import app from "./src/app.js";
-
-const PORT = 3001;
-app.listen(PORT, () => {
-   console.log("Server UP") 
-});
-```
-
-<!--
-Os ES Modules, também conhecidos como ECMAScript Modules, são uma das principais
-adições ao JavaScript moderno. Esses módulos permitem que os desenvolvedores
-organizem seu código em arquivos separados, tornando o código mais legível, fácil de manter e reutilizável.
-Neste artigo técnico, exploraremos o conceito de ES Modules, como eles funcionam e como usá-los em sua aplicação.
-req e res é um callback function
--->
-
----
-layout: two-cols
----
-
 ## CRUD
 
 CRUD(*Create, Read, Update, Delete*), são as quatro operações básicas de bancos de dados relacionais, porém esse 
@@ -330,7 +292,7 @@ conceito pode ser aplicado a outros tipos de banco de dados.
 CRUD's podem ser utilizados para testar software, ou como base para desenvolvimento, criando as estruturas básicas 
 e depois se aprofundando.
 
-As operações são auto-explicativas...
+As operações são autoexplicativas...
 
 - `Create`: Cria registros
 - `Read`: Lista registros
@@ -345,7 +307,7 @@ As operações são auto-explicativas...
 layout: two-cols
 ---
 
-## List (Read)
+### List (Read)
 
 
 Vamos então buscar mais dados da nossa API, criando uma rota chamada `items`. Vamos criar uma lista em javascript para 
@@ -391,7 +353,7 @@ app.get("/items", (req, res) => {
 layout: two-cols
 ---
 
-## Post (Create)
+### Post (Create)
 
 Agora vamos adicionar um item a nossa lista de items. Para isso precisamos fazer um `post` declarando que iremos enviar
 dados para a API através do `body` da requisição. 
@@ -438,7 +400,7 @@ novamente para JSON.
 layout: two-cols
 ---
 
-## Get (Read)
+### Get (Read)
 
 Para buscar a informação adicionada vamos criar um método `get`
 ```js
@@ -465,7 +427,7 @@ function buscaItem(id) {
 layout: two-cols
 ---
 
-## Update
+### Update
 
 E para alterar um registro? Precisamos identificar qual registro queremos editar.
 
@@ -481,7 +443,7 @@ app.put("/items/:id", (req, res) => {
 
 ::right::
 
-## Delete
+### Delete
 
 Para remover um registro a lógica é muito parecida, precisamos indicar qual registro vai ser removido.
 
@@ -496,24 +458,179 @@ app.delete("/items/:id", (req, res) => {
 ![](/delete.png)
 
 ---
+layout: two-cols
+---
 
+Vamos organizar melhor nossa aplicação. Crie uma pasta `src` para organizar melhor o código.
 
+Vamos criar um novo arquivo chamado `app.js` que vai ter a lógica de rotas e outras atribuições e deixar o `index.js`
+apenas como servidor.
 
+![](/project_node.png)
 
+::right::
 
+`app.js`
+```js
+import express from 'express';
 
+const app = express();
+app.get("/", (req, res) => {
+   res.status(200).send("home"); 
+});
 
+export default app;
+```
 
+`index.js`
+```js
+import app from "./src/app.js";
 
+const PORT = 3001;
+app.listen(PORT, () => {
+   console.log("Server UP") 
+});
+```
 
+<!--
+Os ES Modules, também conhecidos como ECMAScript Modules, são uma das principais adições ao JavaScript moderno. 
+Esses módulos permitem que os desenvolvedores
+organizem seu código em arquivos separados, tornando o código mais legível, fácil de manter e reutilizável.
+Neste artigo técnico, exploraremos o conceito de ES Modules, como eles funcionam e como usá-los em sua aplicação.
+req e res é um callback function
+-->
 
+---
 
+Também vamos criar pastas para separar os endpoints e sua lógica, para isso dentro da pasta de código fonte `src` crie 
+as pastas `controllers` e `routes`. Cada "entidade" ou "feature" do sistema vai ter seu arquivo de controller e rotas.
 
+O controller vai ser responsável por armazenar a lógica de cada endpoint, práticamente todo o código relacionado ao 
+processamento dessa rota.
 
+```js
+/* usuarioController.js */
+import pool from "../db.js";
 
+export const getUsuarios = (req, res) => {
+  try {
+    res.status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Erro ao listar usuarios' });
+  }
+};
 
+```
 
+---
 
+No arquivo de routes(*rotas*) vamos definir o caminho e qual função do controller vai ser chamado.
+
+```js
+/* usuarioRoutes.js */
+import express from 'express';
+import { getUsuarios } from '../controllers/userController.js';
+const router = express.Router();
+
+router.get('/', getUsuarios);
+
+export default router;
+```
+
+---
+
+E no nosso app vamos chamar os arquivos de rotas.
+
+```js
+import express from 'express';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+
+const app = express();
+app.use("/api/usuarios", usuarioRoutes);
+
+export default app;
+```
+
+---
+
+## Persistência em BD
+
+Vamos utilizar o postgres para fazer a persistência dos dados. Nas máquinas do laboratório utilizamos o usuário 
+`postgres` com senha `masterkey`. Lembre que é necessário subir o serviço do postgres no windows.
+
+### Env
+
+Para utilizar credênciais de login em serviços uma prática comum é utilizar variáveis de ambiente para armazenar, 
+login, senha, url entre outras informações sensíveis.
+
+[`Dotenv`](https://www.npmjs.com/package/dotenv) é um módulo de dependência zero que carrega variáveis ambiente de 
+um arquivo `.env` para `process.env.`, armazenando a configuração no ambiente separadamente do código.
+
+```text
+DB_NAME=projeto
+DB_USER=postgres
+DB_PASSWORD=masterkey
+DB_HOST=localhost
+```
+
+---
+
+### Lib PG
+
+A lib [`pg`](https://www.npmjs.com/package/pg), é uma biblioteca para comunicação com o Postgresql.
+
+```javascript
+import pg from 'pg';
+import dotenv from 'dotenv/config.js';
+
+const { Pool } = pg;
+const dbName = process.env.DB_NAME;
+const dbUser = process.env.DB_USER;
+const dbHost = process.env.DB_HOST;
+const dbPassword = process.env.DB_PASSWORD;
+const pool = new Pool({
+    user: dbUser,
+    host: dbHost,
+    database: dbName,
+    password: dbPassword,
+    port: 5432
+});
+export default pool;
+```
+
+---
+
+O pool de conexão do pg mantém um conjunto de conexões abertas e as reutiliza conforme necessário ele “empresta”
+uma conexão e a “libera” automaticamente quando a query é concluída.
+
+```javascript
+import pool from "../db.js";
+export const getTodasPessoas = async (req, res) => {
+    const client = await pool.connect();
+    try {
+        const result = await client.query('SELECT * FROM Pessoa');
+        //const jsonData = result.rows.map(row => ({
+        //    id: row.id,
+        //    name: row.name
+        //}));
+        res.status(200).json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Erro ao buscar pessoas' });
+    } finally {
+        client.release();
+    }
+};
+```
+
+<!-- 
+O uso do pooling otimiza o uso das conexões ao banco, evitando a criação e o fechamento constantes de conexões.
+Manutenção Fácil: A separação da lógica de conexão em um módulo dedicado torna o código mais modular e fácil de atualizar.
+Escalabilidade: Esse padrão facilita a escalabilidade da aplicação conforme a necessidade de gerenciar múltiplas conexões.
+-->
+
+---
 
 
 
