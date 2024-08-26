@@ -1228,7 +1228,32 @@ builder: (context, snapshot) {
 
 ---
 
-## Login
+## Forms
+
+A estrutura do de formulários no flutter é criada dentro de um widget `Form`. Para referênciar esse formulário usamos um
+`GlobalKey` por exemplo `final _formKey = GlobalKey<FormState>();`.
+
+Dentro de cada FormField podemos definir um atributo `validator` onde podemos verificar o value do campo, e em 
+determinado momento podemos verificar o status do form com `_formKey.currentState!.validate()` para validar os campos
+do formulário.
+
+```dart
+child: TextFormField(
+  decoration: const InputDecoration(
+      border: OutlineInputBorder(), labelText: 'Usuário'),
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Usuário é obrigatório';
+    }
+    return null;
+  },
+)),
+```
+
+---
+
+
+
 
 
 ---
@@ -1256,31 +1281,31 @@ class User {
 
   User({
    this.id,
-   required this.name,
-   required this.email,
-   required this.password,
+   this.name,
+   this.email,
+   this.password,
   });
 ```
 
 ::right::
 
 ```dart 
-  Map<String, dynamic> toMap() {
-   return {
-     'id': id,
-     'name': name,
-     'email': email,
-     'password': password,
-   };
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'nome': nome,
+      'email': email,
+      'senha': senha,
+    };
   }
   
-  factory User.fromMap(
-  Map<String, dynamic> map) {
-    return User(
-      id: map['id'],
-      name: map['name'],
-      email: map['email'],
-      password: map['password'],
+  factory Usuario.fromJson
+  (Map<String, dynamic> json) {
+    return Usuario(
+      id: json['id']?.toString(),
+      nome: json['nome'] ?? '',
+      email: json['email'] ?? '',
+      senha: json['senha'] ?? '',
     );
   }
 }

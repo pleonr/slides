@@ -609,7 +609,7 @@ import pool from "../db.js";
 export const getTodasPessoas = async (req, res) => {
     const client = await pool.connect();
     try {
-        const result = await client.query('SELECT * FROM Pessoa');
+        const result = await client.query('SELECT * FROM Usuarios');
         //const jsonData = result.rows.map(row => ({
         //    id: row.id,
         //    name: row.name
@@ -632,6 +632,90 @@ Escalabilidade: Esse padrão facilita a escalabilidade da aplicação conforme a
 
 ---
 
+```js
+export const getUsuario = async (req, res) => {
+try {
+const usuarioId = req.params.id;
+const client = await pool.connect();
+const result = await client.query(`
+            SELECT * FROM Usuarios WHERE id_usuario = $1
+        `, [usuarioId]);
 
+        res.status(200).json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Erro ao buscar pessoas' });
+    }
+};
+```
+
+---
+
+```js
+export const deleteUsuario = async (req, res) => {
+try {
+const usuarioId = req.params.id;
+const client = await pool.connect();
+const result = await client.query(`
+            DELETE FROM Usuarios WHERE id_usuario = $1
+        `, [usuarioId]);
+
+        res.status(200).send('usuario deletado');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Erro ao buscar pessoas' });
+    }
+};
+```
+
+---
+
+```js
+export const postUsuarios = async (req, res) => {
+try {
+  const usuario = req.body;
+  const client = await pool.connect();
+  const result = await client.query(`
+      INSERT INTO Usuarios(id_usuario, nome, email, password)
+      VALUES ($1, $2, $3, $4) RETURNING *
+  `, [
+      usuario.id,
+      usuario.nome,
+      usuario.email,
+      usuario.password
+     ] 
+  );
+  res.status(201).send('Usuário adicionado com sucesso');
+  } catch (err) {
+  console.error(err);
+  res.status(500).json({ message: 'Erro ao buscar pessoas' });
+  }
+};
+```
+
+---
+
+```js
+export const putUsuario = async (req, res) => {
+const id = req.params.id;
+const nome = req.body.nome;
+const client = await pool.connect();
+  try {
+    const result = await client.query(
+    `UPDATE Usuarios SET nome = $2
+     WHERE id_usuario = $1
+     RETURNING *`,
+      [id, nome]
+    );
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: 'Usuário não encontrado' });
+    }
+    res.json(result.rows);
+  } catch (err) {
+      console.error(err);
+      res.status(400).json({ message: 'Erro ao atualizar usuário' });
+  }
+};
+```
 
 
