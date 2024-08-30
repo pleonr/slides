@@ -415,18 +415,182 @@ MyProject
 
 ---
 
-### Migrations
+### RE-criando
 
+Vamos adaptar o projeto typeorm para ser nossa API. Precisamos instalar as dependências e algumas outras configurações.
 
+- `tsconfig.json`: Adicionar `"esModuleInterop": true` talvez, vamos testar. é uma flag para permitir adicionar
+commomjs modules em um projeto com ES6.
+- `npm install`: Instalar os modulos, "cors, dotenv, express" e os tipos "@types/cors, @types/express"
+- Criar o arquivo `.env` e adicionar as credênciais de banco.
+- No `data-source.ts` adicionar o dotenv e usar as variáveis de ambiente `import dotenv from "dotenv"`.
+- O `index.ts` vai ser o nosso servidor renomear para `server.ts` e criar o app.ts
+- No `package.json` adicionar os scripts
 
+```json
+"build": "npx tsc",
+"start": "node dist/server.js",
+"dev": "nodemon src/server.ts",
+```
 
+---
 
+```typescript
+// server.ts
+import app from './app'
+import {AppDataSource} from "./data-source";
 
+const PORT = process.env.PORT || 3001;
 
+AppDataSource.initialize()
+    .then(() => {
+        console.log('Data Source has been initialized!');
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+    })
+    .catch((error) => {
+        console.error('Error during Data Source initialization:', error);
+    });
+```
 
+---
 
+```typescript
+// app.ts
+import express, {Application} from "express"
+import {AppDataSource} from "./data-source"
+import cors from "cors"
+import routerUsuario from "./routes/usuario"
 
+const app: Application = express()
+app.use(express.json())
+app.use(cors())
 
+app.use("/api", routerUsuario)
+
+export default app
+```
+
+---
+
+```typescript
+//E o model do usuário?
+import {Entity, Column, PrimaryGeneratedColumn} from "typeorm"
+
+@Entity()
+export class Usuario {
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column()
+    nome: string
+
+    @Column({ unique: true })
+    email: string
+
+    @Column()
+    password: string
+}
+```
+
+---
+
+```typescript
+// controller do usuário
+import {Request, Response} from "express"
+import {AppDataSource} from "../data-source"
+import {Usuario} from "../models/usuario"
+import dotenv from "dotenv"
+
+dotenv.config()
+
+export const addUsuario = async (req: Request, res: Response) => {
+    try {
+        const username: string = req.body.email
+        if (!username) {
+            return res.status(400).json({ error: 'email é obrigatório' })
+        }
+        const usuario: Usuario[] = AppDataSource.getRepository(Usuario).create(req.body)
+        const results: Usuario[] = await AppDataSource.getRepository(Usuario).save(usuario)
+        return res.status(200).send(results)
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao inserir Usuario' })
+    }
+}
+```
+
+---
+
+```typescript
+
+export const getUsuarios = async (req: Request, res: Response) => {
+    try {
+        const results: Usuario[] = await AppDataSource.getRepository(Usuario).find()
+        return res.status(200).send(results)
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao inserir Usuario' })
+    }
+}
+```
+
+---
+
+```typescript
+export const updateUsuario = async (req: Request, res: Response) => {
+    try {
+        const id: number = +req.params.id
+        if (!id) {
+            return res.status(400).json({ error: 'id não encontrado' })
+        }
+        const usuario: Usuario = await AppDataSource.getRepository(Usuario).findOneBy({ id: id })
+        if (!usuario) {
+            return res.status(400).json({ error: 'usuário inválido' })
+        }
+
+        AppDataSource.getRepository(Usuario).merge(usuario, req.body)
+        const results: Usuario = await AppDataSource.getRepository(Usuario).save(usuario)
+        return res.status(200).send(results)
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao atualizar Usuario' })
+    }
+}
+```
+
+---
+
+```typescript
+export const deleteUsuario = async (req: Request, res: Response) => {
+    try {
+        const id: number = +req.params.id
+        if (!id) {
+            return res.status(400).json({error: 'usuário não encontrado'})
+        }
+        const results = await AppDataSource.getRepository(Usuario).delete(id)
+        return res.status(204).send(results)
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao deletar Usuario' })
+    }
+}
+
+```
+
+---
+
+```typescript
+export const getUsuario = async (req: Request, res: Response) => {
+    try {
+        const id: number = +req.params.id
+        if (!id) {
+            return res.status(400).json({error: 'usuário não encontrado'})
+        }
+        const results = await AppDataSource.getRepository(Usuario).findOneBy({id: id})
+        return res.status(200).send(results)
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao buscar Usuario' })
+    }
+}
+```
 
 
 
