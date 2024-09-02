@@ -1251,12 +1251,162 @@ child: TextFormField(
 ```
 
 ---
+layout: two-cols
+---
+
+## Consumo de API
+
+Vamos começar a trabalhar com uma API, sendo uma das abordagens mais utilizadas atualmente. Para trabalhar com API's 
+REST, vamos usar a lib `HTTP`. `flutter pub add http`
+
+```dart
+class User {
+  final int? id;
+  final String name;
+  final String email;
+  final String password;
+
+  User({
+   this.id,
+   this.name,
+   this.email,
+   this.password,
+  });
+```
+
+::right::
+
+```dart 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'nome': nome,
+      'email': email,
+      'senha': senha,
+    };
+  }
+  
+  factory Usuario.fromJson
+  (Map<String, dynamic> json) {
+    return Usuario(
+      id: json['id']?.toString(),
+      nome: json['nome'] ?? '',
+      email: json['email'] ?? '',
+      senha: json['senha'] ?? '',
+    );
+  }
+}
+````
+
+---
+
+```dart
+Future<List<Usuario>> fetchUsuarios() async {
+ try {
+   final response = await http.get(Uri.parse('https://66c52515b026f3cc6cf1886c.mockapi.io/api/colors/usuarios'));
+   if (response.statusCode == 200) {
+     List<dynamic> data = json.decode(response.body);
+     if (data is List) {
+       return data.map((item) {
+         return Usuario.fromJson(item);
+       }).toList();
+     } else {
+       throw Exception('Formato inesperado dos dados');
+     }
+   } else {
+     throw Exception('Falha na requisição: ${response.statusCode}');
+   }
+ } catch (error) {
+   print('Erro ao buscar os dados: $error');
+   throw Exception('Erro ao buscar os dados da API.');
+ }
+}
+```
+
+<!-- 
+late Future<List<Usuario>> _usuarios;
+
+@override
+void initState() {
+ super.initState();
+ _usuarios = fetchUsuarios();
+}
+-->
+
+---
+
+```dart
+body: FutureBuilder<List<Usuario>>(
+  future: fetchUsuarios(),
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return Center(child: CircularProgressIndicator());
+    } else if (snapshot.hasError) {
+      return Center(child: Text('Erro: ${snapshot.error}'));
+    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+      return Center(child: Text('Nenhum usuário encontrado.'));
+    } else {
+      List<Usuario> usuarios = snapshot.data!;
+      return ListView.builder(
+        itemCount: usuarios.length,
+        itemBuilder: (context, index) {
+          return Card(
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            child: ListTile(
+              leading: CircleAvatar(
+                child: Text(usuarios[index].nome?.substring(0, 1) ?? '?'),
+              ),
+              title: Text(usuarios[index].nome ?? 'Sem Nome'),
+              subtitle: Text(usuarios[index].email ?? 'Sem Email'),
+              onTap: () {
+                // Navega para a tela de edição ao clicar no card
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        EditUsuarioPage(usuario: usuarios[index]),
+                  ),);},),);},);}},),);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 ---
+
+
+<!--
 
 ## Persistência local
 
@@ -1311,7 +1461,7 @@ class User {
 }
 ````
 
----
+-->
 
 
 

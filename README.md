@@ -14,4 +14,9 @@ To start the slide show:
 
 `npm run build web_dev_I_1.md`
 
+
+## PM2
+
+`pm2 start npx --name "slidev" -- slidev ~/repos/slides/typescript.md --remote=teste`
+
 Learn more about Slidev on [documentations](https://sli.dev/).

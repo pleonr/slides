@@ -322,28 +322,6 @@ linguagem de programação, trabalhando com objetos que representam seus dados.
 ![](/typeorm.png)
 
 ---
-
-Mapeamento: você define classes em seu código que correspondem às tabelas em seu banco de dados. 
-As propriedades da classe são mapeadas para as colunas da tabela. O ORM essencialmente cria um modelo de como 
-seus objetos de dados e tabelas de banco de dados se relacionam entre si, permitindo que você execute operações 
-CRUD (Criar, Ler, Atualizar, Excluir) em seus dados usando métodos em sua linguagem de programação. 
-
-Por exemplo, para criar um novo registro, você criaria um objeto da classe correspondente, preencheria suas 
-propriedades e usaria um método ORM para persisti-lo no banco de dados.
-
-```ts
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
-@Entity()
-export class User {
-    @PrimaryGeneratedColumn()
-    id: number
-    @Column()
-    firstName: string
-    @Column()
-    age: number
-}
-```
----
 layout: two-cols
 ---
 
@@ -368,6 +346,28 @@ e escritas à mão.
 
 ---
 
+Mapeamento: você define classes em seu código que correspondem às tabelas em seu banco de dados. 
+As propriedades da classe são mapeadas para as colunas da tabela. O ORM essencialmente cria um modelo de como 
+seus objetos de dados e tabelas de banco de dados se relacionam entre si, permitindo que você execute operações 
+CRUD (Criar, Ler, Atualizar, Excluir) em seus dados usando métodos em sua linguagem de programação. 
+
+Por exemplo, para criar um novo registro, você criaria um objeto da classe correspondente, preencheria suas 
+propriedades e usaria um método ORM para persisti-lo no banco de dados.
+
+```ts
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+@Entity()
+export class User {
+    @PrimaryGeneratedColumn()
+    id: number
+    @Column()
+    firstName: string
+    @Column()
+    age: number
+}
+```
+---
+
 ## TypeOrm
 
 TypeORM é uma biblioteca ORM que utiliza JavaScript ou TypeScript. Ele preenche a lacuna entre o mundo orientado
@@ -377,6 +377,16 @@ Você define classes em seu código, decoradas com anotações especiais, para r
 tabelas de banco de dados. Essas classes são chamadas de “entidades” em TypeORM. As propriedades da classe são mapeadas
 para as colunas na tabela do banco de dados. TypeORM essencialmente cria um mapeamento entre seus objetos de código 
 e o esquema do banco de dados.
+
+- @Entity(): Define uma classe como uma entidade do banco de dados. Cada instância dessa classe representará uma linha em uma tabela do banco de dados.
+- @PrimaryGeneratedColumn(): Marca uma propriedade como a chave primária
+- @Column(): Define uma coluna na tabela correspondente à entidade.
+
+```typescript
+@Column({ type: "varchar", length: 100, unique: true })
+email: string;
+```
+
 
 ---
 
@@ -417,10 +427,10 @@ MyProject
 
 ### RE-criando
 
-Vamos adaptar o projeto typeorm para ser nossa API. Precisamos instalar as dependências e algumas outras configurações.
+Vamos adaptar o projeto typeorm para ser nossa API. Precisamos instalar as dependências e algumas outras configurações. 
+Aqui está o link para o repositório no [github](https://github.com/65375/api-typescript) com o projeto configurado.
 
-- `tsconfig.json`: Adicionar `"esModuleInterop": true` talvez, vamos testar. é uma flag para permitir adicionar
-commomjs modules em um projeto com ES6.
+- `tsconfig.json`: Adicionar `"esModuleInterop": true`, é uma flag para permitir adicionar commonjs modules em um projeto com ES6.
 - `npm install`: Instalar os modulos, "cors, dotenv, express" e os tipos "@types/cors, @types/express"
 - Criar o arquivo `.env` e adicionar as credênciais de banco.
 - No `data-source.ts` adicionar o dotenv e usar as variáveis de ambiente `import dotenv from "dotenv"`.
@@ -431,67 +441,6 @@ commomjs modules em um projeto com ES6.
 "build": "npx tsc",
 "start": "node dist/server.js",
 "dev": "nodemon src/server.ts",
-```
-
----
-
-```typescript
-// server.ts
-import app from './app'
-import {AppDataSource} from "./data-source";
-
-const PORT = process.env.PORT || 3001;
-
-AppDataSource.initialize()
-    .then(() => {
-        console.log('Data Source has been initialized!');
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.error('Error during Data Source initialization:', error);
-    });
-```
-
----
-
-```typescript
-// app.ts
-import express, {Application} from "express"
-import {AppDataSource} from "./data-source"
-import cors from "cors"
-import routerUsuario from "./routes/usuario"
-
-const app: Application = express()
-app.use(express.json())
-app.use(cors())
-
-app.use("/api", routerUsuario)
-
-export default app
-```
-
----
-
-```typescript
-//E o model do usuário?
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm"
-
-@Entity()
-export class Usuario {
-    @PrimaryGeneratedColumn()
-    id: number
-
-    @Column()
-    nome: string
-
-    @Column({ unique: true })
-    email: string
-
-    @Column()
-    password: string
-}
 ```
 
 ---
@@ -523,7 +472,6 @@ export const addUsuario = async (req: Request, res: Response) => {
 ---
 
 ```typescript
-
 export const getUsuarios = async (req: Request, res: Response) => {
     try {
         const results: Usuario[] = await AppDataSource.getRepository(Usuario).find()
