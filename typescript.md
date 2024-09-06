@@ -431,7 +431,7 @@ Vamos adaptar o projeto typeorm para ser nossa API. Precisamos instalar as depen
 Aqui está o link para o repositório no [github](https://github.com/65375/api-typescript) com o projeto configurado.
 
 - `tsconfig.json`: Adicionar `"esModuleInterop": true`, é uma flag para permitir adicionar commonjs modules em um projeto com ES6.
-- `npm install`: Instalar os modulos, "cors, dotenv, express" e os tipos "@types/cors, @types/express"
+- `npm install`: Instalar os modulos, "cors, dotenv, express" e os tipos "@types/cors, @types/express, @types/node"
 - Criar o arquivo `.env` e adicionar as credênciais de banco.
 - No `data-source.ts` adicionar o dotenv e usar as variáveis de ambiente `import dotenv from "dotenv"`.
 - O `index.ts` vai ser o nosso servidor renomear para `server.ts` e criar o app.ts
@@ -540,8 +540,32 @@ export const getUsuario = async (req: Request, res: Response) => {
 }
 ```
 
+---
 
+## Mapeamento de Relações
 
+Usamos as seguintes anotações para definir os relacionamentos entre entidades.
+
+- `@OneToOne()`: Um para um.
+- `@ManyToOne()`: Muitos para um.
+- `@OneToMany()`: Um para muitos.
+- `@ManyToMany()`: Muitos para muitos.
+
+```typescript
+@OneToMany(() => Partida, (partida) => partida.campeonato)
+partidas: Partida[];
+```
+
+Também usamos o `@JoinColumn()` junto com @OneToOne() ou @ManyToOne() para indicar que 
+essa coluna deve armazenar a chave estrangeira da outra entidade.
+
+```typescript
+@ManyToOne(() => Campeonato)
+@JoinColumn({ name: "campeonato_id" })
+campeonato: Campeonato;
+```
+
+<!--__dirname+"/entity/**/*.{js,ts}"-->
 
 ---
 

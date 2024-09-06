@@ -1254,192 +1254,67 @@ child: TextFormField(
 layout: two-cols
 ---
 
-## Consumo de API
-
-Vamos começar a trabalhar com uma API, sendo uma das abordagens mais utilizadas atualmente. Para trabalhar com API's 
-REST, vamos usar a lib `HTTP`. `flutter pub add http`
+Podemos verificar o estaod dos `validators` do form, para então prosseguir com a lógica dele. 
 
 ```dart
-class User {
-  final int? id;
-  final String name;
-  final String email;
-  final String password;
-
-  User({
-   this.id,
-   this.name,
-   this.email,
-   this.password,
-  });
+Padding(
+padding: const EdgeInsets.all(10.0),
+child: TextFormField(
+  initialValue: nome,
+  onSaved: (value) => nome = value ?? '',
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Insira um nome';
+    }
+    return null;
+  },
+),
+),
 ```
 
 ::right::
 
-```dart 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'nome': nome,
-      'email': email,
-      'senha': senha,
-    };
-  }
-  
-  factory Usuario.fromJson
-  (Map<String, dynamic> json) {
-    return Usuario(
-      id: json['id']?.toString(),
-      nome: json['nome'] ?? '',
-      email: json['email'] ?? '',
-      senha: json['senha'] ?? '',
-    );
-  }
-}
-````
-
----
+No caso abaixo se todos os 
+campos do form estiverem válidos podemos chamar o método `save` que vai excecutar
+o `onSaved` de cada elemento.
 
 ```dart
-Future<List<Usuario>> fetchUsuarios() async {
- try {
-   final response = await http.get(Uri.parse('https://66c52515b026f3cc6cf1886c.mockapi.io/api/colors/usuarios'));
-   if (response.statusCode == 200) {
-     List<dynamic> data = json.decode(response.body);
-     if (data is List) {
-       return data.map((item) {
-         return Usuario.fromJson(item);
-       }).toList();
-     } else {
-       throw Exception('Formato inesperado dos dados');
-     }
-   } else {
-     throw Exception('Falha na requisição: ${response.statusCode}');
-   }
- } catch (error) {
-   print('Erro ao buscar os dados: $error');
-   throw Exception('Erro ao buscar os dados da API.');
- }
-}
-```
+final _formKey = GlobalKey<FormState>();
 
-<!-- 
-late Future<List<Usuario>> _usuarios;
-
-@override
-void initState() {
- super.initState();
- _usuarios = fetchUsuarios();
-}
--->
-
----
-
-```dart
-body: FutureBuilder<List<Usuario>>(
-  future: fetchUsuarios(),
-  builder: (context, snapshot) {
-    if (snapshot.connectionState == ConnectionState.waiting) {
-      return Center(child: CircularProgressIndicator());
-    } else if (snapshot.hasError) {
-      return Center(child: Text('Erro: ${snapshot.error}'));
-    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-      return Center(child: Text('Nenhum usuário encontrado.'));
-    } else {
-      List<Usuario> usuarios = snapshot.data!;
-      return ListView.builder(
-        itemCount: usuarios.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            child: ListTile(
-              leading: CircleAvatar(
-                child: Text(usuarios[index].nome?.substring(0, 1) ?? '?'),
-              ),
-              title: Text(usuarios[index].nome ?? 'Sem Nome'),
-              subtitle: Text(usuarios[index].email ?? 'Sem Email'),
-              onTap: () {
-                // Navega para a tela de edição ao clicar no card
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        EditUsuarioPage(usuario: usuarios[index]),
-                  ),);},),);},);}},),);
+updateUsuario() async {
+  if(_formKey.currentState!.validate()) {
+    _formKey.currentState!.save();
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-<!--
-
-## Persistência local
-
-Além do sharedPreferences que usamos para armazenar pequenas quantidades de informações pode ser necessário trabalhar
-com um banco de dados mais robusto... Uma opção é a utilização do SqLite através da biblioteca
-[sqflite](https://pub.dev/packages/sqflite).
-
-Vamos começar adicionando as dependências `sqflite` e `path`. 
-
-Depois seguindo uma arquitetura baseada em MVC vamos criar um modelo para os dados persistidos.
 
 ---
 layout: two-cols
 ---
 
-```dart
-class User {
-  final int? id;
-  final String name;
-  final String email;
-  final String password;
+## Consumo de API
 
-  User({
-   this.id,
-   this.name,
-   this.email,
-   this.password,
+Vamos começar a trabalhar com uma API, sendo uma das abordagens mais utilizadas atualmente. Primeiro 
+vamos criar um modelo do usuário, para isso `usuario.dart` na pasta models ou entity... 
+
+```dart
+class Usuario {
+  String? id;
+  String? nome;
+  String? email;
+  String? senha;
+
+  Usuario({
+    this.id,
+    this.nome,
+    this.email,
+    this.senha,
   });
 ```
 
 ::right::
 
-```dart 
+```dart
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -1448,9 +1323,9 @@ class User {
       'senha': senha,
     };
   }
-  
-  factory Usuario.fromJson
-  (Map<String, dynamic> json) {
+
+  factory Usuario.fromJson(
+    Map<String, dynamic> json) {
     return Usuario(
       id: json['id']?.toString(),
       nome: json['nome'] ?? '',
@@ -1459,27 +1334,183 @@ class User {
     );
   }
 }
-````
+```
 
+---
+
+Para trabalhar com API's REST, vamos usar a lib `HTTP`. Instalamos usando o `flutter pub add http`.
+Para começar vamos listar os usuários que vem da API.
+
+```dart
+Future<List<Usuario>> _futureUsuarios = Future.value([]);
+  
+@override
+void initState() {
+  super.initState();
+  _loadUsuarios();
+}
+
+void _loadUsuarios() {
+  setState(() {
+    _futureUsuarios = getUsuarios();
+  });
+}
+```
+
+---
+
+O médoto `getUsuarios` vai buscar na API a lista de usuários.
+
+```dart{all|1|3|4|5-10|all}
+Future<List<Usuario>> getUsuarios() async {
+  try {
+    String url ='https://mockapi.io/api/usuarios';
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      List<dynamic> data = json.decode(response.body);
+      return data.map((item) {
+        return Usuario.fromJson(item);
+      }).toList();
+    } else {
+      throw Exception('Falha na requisição: ${response.statusCode}');
+    }
+  } catch (e) {
+    throw Exception('Erro ao buscar os dados da API.');
+  }
+}
+```
+
+---
+
+```dart
+ FutureBuilder(
+  future: _futureUsuarios,
+  builder: (context, snapshot) {
+    if (snapshot.hasData) {
+      List<Usuario> dados = snapshot.data!;
+      return ListView.builder(
+        itemCount: dados.length,
+        itemBuilder: (context, index) {
+          return Card(...)
+        }
+      );
+    } else {
+      return Center(child: CircularProgressIndicator());
+    }
+  },
+),
+```
+
+<!--
+return Card(
+  child: ListTile(
+    onTap: () => {
+      Navigator.push(context,
+        MaterialPageRoute(
+          builder: (context) =>
+              EditUsuarioPage(usuario: dados[index]),
+        ),
+      ).then((_) => _loadUsuarios())
+    },
+  ),
+)
 -->
 
+---
+
+```dart
+//Update
+final response = await http.put(
+  Uri.parse('https://mockapi.io/api/usuarios/${widget.usuario?.id}'),
+  headers: {'Content-Type': 'application/json'},
+  body: json.encode(usuarioParaSalvar.toJson()),
+);
+```
+
+```dart
+//Remove
+final response = await http.delete(
+  Uri.parse('https://mockapi.io/api/usuarios/${widget.usuario?.id}')
+);
+```
+
+---
+
+## Push Notifications
+
+Push Notifications são uma forma de comunicação com os usuários, podendo enviar mensagens mesmo que o aplicativo esteja fechado,
+é possível também mandar para usuários específicos ou um grupo de usuários de acordo com a necessidade.
+
+Para isso vamos usar a plataforma do [`Firebase`](https://firebase.google.com/), lá vamos criar um projeto para gerênciar todo o resto. 
+O Firebase fornece uma biblioteca para facilitar a instalação chamada [firebase-cli](https://firebase.google.com/docs/cli?hl=pt-br#install-cli-mac-linux)
+A instalação é de acordo com o SO. 
+
+Após a instalação podemos efetuar login no firebase usando o terminal. Isso vai abrir uma janela para autenticação. 
+
+```shell
+firebase login
+```
+
+---
+
+Com o projeto criado no firebase vamos listar os projetos e inicializar o projeto do firebase no projeto local.
+
+```shell
+ firebase projects:list
+ firebase init
+```
+
+Precisamos adicionar também as bibliotecas do firebase:
+
+```shell
+ flutter pub add firebase_core
+ flutter pub add firebase_messaging
+```
+
+E então vamos configurar
+
+```shell
+dart pub global activate flutterfire_cli
+flutterfire configure 
+```
+
+Depois vamos alterar o main para trabalhar com notificações, adicionar o `import 'dart:io'`
+
+---
 
 
+```dart
+WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+); // Solicita permissão para o aplicativo
+final notificationSettings = await FirebaseMessaging.instance.requestPermission(provisional: true);
+// Listener para mensagens recebidas enquanto o app está em foreground
+FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+  print('Message data: ${message.data}');
+  if (message.notification != null) {
+    print('Message also contained a notification: ${message.notification}');
+  }
+});// Listener para quando a mensagem é clicada e o app estava em background
+FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+  print('A new onMessageOpenedApp event was published!');
+  // Handle the message and navigate to a specific screen, if needed.
+}); // Verifica se o app foi iniciado por uma mensagem
+RemoteMessage? initialMessage = await FirebaseMessaging.instance.getInitialMessage();
+if (initialMessage != null) {
+  print('App opened by a notification: ${initialMessage.data}');
+}
+runApp(const MyApp());
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--
+  if (Platform.isIOS) {
+    final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
+  } else if (Platform.isAndroid) {
+    String? token = await FirebaseMessaging.instance.getToken();
+    print("FCM Token: $token");
+  }
+-->
 
 
 
@@ -1536,6 +1567,7 @@ build/app/outputs/flutter-apk/app.apk
 
 
 ---
+
 
 https://docs.flutter.dev
 
