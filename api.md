@@ -24,12 +24,133 @@ export:
 
 ---
 
+# API's e Microserviços
+
+
+---
+
+## Arquitetura de Software
+
+A arquitetura de Software define a estrutura organizacional dos sistemas de software, definindo como os componentes
+interagem e são desenvolvidos, com uma arquitetura bem definida podemos prever a escalabilidade, manutenção, flexibilidade e desempenho de uma aplicação.
+
+![](/softwarearch.png)
+
+---
+layout: piramede
+---
+
+::center::
+
+### Arquitetura Monolítica
+
+Um sistema monolítico é aquele em que todos os componentes estão unidos em uma única aplicação. Todas as funcionalidades estão integradas em um único código-fonte.
+Isso fornece o desenvolvimento e implantação centralizados, onde a aplicação inteira é construída, testada e implantada como uma única unidade.
+
+::left::
+
+##### Vantagens
+
+- Simplicidade: Fácil de desenvolver e testar no início.
+- Menos sobrecarga de comunicação: Não há necessidade de gerenciar muitas interações entre serviços diferentes.
+- Ideal para projetos pequenos ou em fase inicial.
+
+::right::
+
+##### Desvantagens
+
+- Dificuldade de escalabilidade: Difícil escalar partes específicas da aplicação.
+- Manutenção complexa: À medida que a aplicação cresce, torna-se difícil de manter e modificar.
+- Implantação mais arriscada: Pequenas mudanças requerem a reimplantação do sistema inteiro.
+
+---
+layout: piramede
+---
+
+::center::
+
+### SOA - Arquitetura Orientada a Serviços
+
+A SOA é uma abordagem arquitetural onde a funcionalidade é dividida em serviços reutilizáveis, que podem ser acessados de forma independente. 
+Esses serviços se comunicam usando protocolos padronizados, como SOAP ou REST. 
+
+Normalmente utiliza serviços independentes onde cada serviço desempenha uma função específica e pode ser reutilizado por diferentes aplicações, utilizando a rede para comunicação.
+
+::left::
+
+##### Vantagens
+
+- Reutilização de serviços: A lógica pode ser usada em diferentes sistemas, reduzindo duplicação de código.
+- Facilidade de integração: Permite integração com sistemas legados e heterogêneos.
+- Escalabilidade: Componentes podem ser escalados individualmente.
+
+::right::
+
+##### Desvantagens
+
+- Sobrecarga de comunicação: A comunicação entre serviços pode adicionar latência.
+- Complexidade na governança: O gerenciamento centralizado e controle de versões de serviços podem ser difíceis.
+
+---
+layout: piramede
+---
+
+::center::
+
+### Arquitetura de Microservices
+
+A arquitetura de Microservices é uma evolução da SOA, mas com uma abordagem mais descentralizada. 
+Cada microserviço pode ser aplicação independente com seu próprio ciclo de vida, banco de dados e linguagem.
+
+::left::
+
+##### Vantagens
+
+- Escalabilidade e Flexibilidade: Serviços podem ser escalados e desenvolvidos de forma independente.
+- Resiliência: Se um microserviço falhar, o restante do sistema pode continuar funcionando.
+- Ciclos de desenvolvimento mais rápidos: Cada equipe pode trabalhar em serviços independentes.
+
+::right::
+
+##### Desvantagens
+
+- Complexidade: A comunicação entre microserviços, o monitoramento e a implantação de múltiplos serviços exigem ferramentas e práticas avançadas.
+- Gerenciamento de dados: A coordenação entre diferentes bancos de dados pode ser problemática.
+
+---
+
+#### Resumo
+
+|      **Aspecto**     |                 _Monolito_                 |               _SOA_              |          _Microservices_          |
+|:--------------------:|:------------------------------------------:|:--------------------------------:|:---------------------------------:|
+| **Tamanho da aplicação** | Única e grande aplicação                   | Serviços grandes e reutilizáveis | Serviços pequenos e independentes |
+| **Escalabilidade**       | Limitada                                   | Média                            | Alta                              |
+| **Desenvolvimento**      | Simples no início, difícil conforme cresce | Moderadamente complexo           | Complexo desde o início           |
+| **Comunicação**          | Interna e direta                           | Protocolos padrão (SOAP, REST)   | APIs leves (REST, gRPC)           |
+| **Governança**           | Centralizada                               | Controlada centralmente          | Descentralizada                   |
+
+
+---
+layout: two-cols
+---
+
 ## API's
 
 Uma API(*Application programming interface*) é uma forma de comunicação entre computadores e componentes.
 
 Em 1940 os cientistas britânicos Maurice Wilkes e David Wheeler trabalhavam em um sistema de catálogo de bibliotecas 
 de notas, que eram perfuradas para montar um sistema(*punched cards*). Hoje em dia tal organização seria chamada de API.
+
+![](/punchcards.jpg)
+
+::right::
+
+![](/Sir-Maurice-Vincent-Wilkes.webp)
+
+
+---
+layout: two-cols
+---
 
 Porém, foi em 1990 que o termo API foi definido como "*um conjunto de serviços disponíveis para um programador executar
 determinadas tarefas*", foi cunhado por Carl Malamud.
@@ -39,22 +160,34 @@ na Universidade Comunitária de Irvine delineou a transferência de estado repre
 ideia de uma "interface de programação de aplicativos baseada em rede" que Fielding contrastou com a tradicional
 "baseada em biblioteca" APIs.
 
+::right::
+
+![](/CarlRoy.png)
+
 ---
 
-## Estilos de arquitetura
+### Web API's
 
+Na década de 1990, a necessidade de comunicação entre diferentes sistemas online começou a aumentar. Empresas começaram a perceber que permitir a integração entre seus sistemas e os de terceiros era uma maneira de ampliar o alcance de seus serviços. 
+
+- SOAP (Simple Object Access Protocol): Criado em 1998, foi um dos primeiros protocolos para APIs baseadas na web. Ele usava XML para comunicação e permitia que diferentes sistemas pudessem se comunicar por meio da internet.
+
+Nos anos 2000, o desenvolvimento web explodiu, e junto com isso, as APIs começaram a evoluir rapidamente para suportar a comunicação entre sistemas distribuídos. As APIs REST (Representational State Transfer), introduzidas por Roy Fielding em 2000, se tornaram um padrão devido à sua simplicidade, uso de HTTP e maior compatibilidade com a web moderna.
+
+- REST: Ao contrário de SOAP, que era mais complexo e pesado, REST utilizava os métodos HTTP (GET, POST, PUT, DELETE) e URLs como identificadores de recursos.
+
+<!-- 
 Existem diversos tipos de API's, como sempre a melhor sulução é ... *depende*{style="color: green;"}.
-
 Aqui vamos abordar os 6 estilos de arquitetura de API's mais utilizados e seus pontos fracos e fortes.
 
-<br>
+As APIs surgiram principalmente para atender às seguintes necessidades:
 
-- SOAP
-- GraphQL
-- gRPC
-- WebSocket
-- Webhook
-- REST
+- Reutilização de Código: A reutilização de funcionalidades já existentes entre programas economiza tempo e esforço no desenvolvimento.
+- Integração de Sistemas: Conforme os sistemas se tornaram mais complexos, as APIs foram necessárias para que diferentes plataformas pudessem se comunicar e colaborar.
+- Escalabilidade e Modulação: Com a evolução das arquiteturas, como microserviços, as APIs permitiram que sistemas fossem construídos de maneira modular e escalável.
+- Expansão de Negócios: Empresas perceberam que, ao oferecer APIs para terceiros, podiam criar ecossistemas que expandiam seu alcance e inovação.
+-->
+
 
 ---
 layout: piramede
@@ -210,12 +343,11 @@ layout: piramede
 ### REST
 
 REST(*Representational State Transfer*), não é uma tecnologia ou protocolo específico, mas sim um estilo
-arquitetônico para construção de serviços web.
+arquitetural para construção de serviços web.
 
 Definido em 2000 por Roy Thomas Fielding, o REST define um conjunto de princípios que promovem simplicidade,
 escalabilidade e interoperabilidade. Pense nisso como um conjunto de diretrizes que os desenvolvedores
 seguem para criar APIs bem estruturadas e eficientes.
-
 
 ::left::
 
@@ -239,19 +371,16 @@ seguem para criar APIs bem estruturadas e eficientes.
 
 ---
 
-#### Conceitos
-<br>
+#### Princípios
 
-- Baseado em recursos: tudo o que é acessível por meio da API é considerado um recurso,
-  identificado por URLs exclusivos.
-- Métodos padrão: usa métodos HTTP como GET, POST, PUT e DELETE para interagir com recursos.
-- Stateless: Cada solicitação contém todas as informações necessárias para o servidor processá-la,
-  evitando gerenciamento complexo de sessões.
-- Arquitetura cliente-servidor: separa claramente clientes (aplicativos que fazem solicitações)
-  e servidores (processamento de solicitações e envio de respostas).
-- Armazenável em cache: as respostas podem ser armazenadas em cache para melhorar o desempenho.
-- Sistema em camadas: os intermediários podem lidar com solicitações e respostas, adicionando flexibilidade.
-- Código sob demanda: os servidores podem enviar código executável aos clientes (opcional).
+O estilo REST é baseado em alguns princípios arquiteturais fundamentais, que devem ser seguidos para que uma API seja considerada "RESTful". 
+`Simplicity`, `Scalability`, `Interoperability`, `Maintainability`
+Como analogia imagine que o REST é a planta de uma construção. RESTful é quando a construção é feita seguindo a planta.
+
+- Simplicidade: fácil de entender e implementar devido à sua estrutura clara e uso de métodos padrão.
+- Escalabilidade: o design sem estado permite que as APIs lidem com volumes de tráfego alto com eficiência.
+- Interoperabilidade: promove a comunicação entre diversos aplicações e plataformas.
+- Manutenção: a clara separação de preocupações facilita a atualização e a manutenção de APIs.
 
 <!--
 Simplicity: Easy to understand and implement due to its clear structure and use of standard methods.
@@ -262,12 +391,44 @@ Maintainability: Clear separation of concerns makes APIs easier to update and ma
 
 ---
 
-#### RESTful
+<img class="m-auto -z-5 left-0 top-0 right-0 bottom-0 max-w-full max-h-full absolute" src="/apisPrinciples.webp"/>
 
-Você pode definir uma API como RESTful quando ela segue as especificações do REST.
 
-Como analogia imagine que o REST é a planta de uma construção. RESTful é quando a construção
-é feita seguindo a planta.
+---
+
+#####  Stateless (Sem Estado)
+A comunicação entre o cliente e o servidor em uma API RESTful deve ser stateless, ou seja, sem estado.  Cada requisição HTTP do cliente ao servidor deve conter todas as informações necessárias para que o servidor entenda e processe a requisição, sem depender de um contexto armazenado entre as requisições.
+
+O servidor não mantém informações sobre requisições anteriores (sem sessões de estado). Toda requisição é independente e autossuficiente. Isso melhora a escalabilidade e a confiabilidade, já que o servidor não precisa se preocupar em gerenciar o estado do cliente, o que torna mais fácil distribuir as requisições entre vários servidores.
+
+##### Cacheable (Cacheável)
+As respostas de uma API REST devem ser cacheáveis. Ou seja, quando apropriado, as respostas das requisições podem ser armazenadas em cache pelos clientes (ou por intermediários Reddis*), para evitar requisições repetidas ao servidor.
+
+O servidor deve informar através de cabeçalhos HTTP se a resposta pode ser armazenada em cache e por quanto tempo. O cache melhora a performance e reduz a carga no servidor. Ao permitir que as respostas sejam armazenadas em cache, reduz-se a latência da rede e a carga no servidor, tornando o sistema mais eficiente.
+
+---
+
+##### Layered System (Sistema em Camadas)
+O REST permite que a arquitetura seja organizada em camadas. Isso significa que entre o cliente e o servidor podem existir intermediários (por exemplo, proxies, gateways, ou balanceadores de carga, sistemas de mensageria), que manipulam as requisições sem o cliente ou o servidor final estarem cientes dessas camadas intermediárias.
+
+O cliente só se comunica com a "camada" imediatamente à sua frente e não precisa saber se há mais camadas no sistema.
+Camadas intermediárias podem ser usadas para melhorar a escalabilidade, segurança e desempenho, promovendo uma arquitetura mais flexível e escalável, permitindo que o sistema seja dividido em várias partes, cada uma com sua função específica (como balanceamento de carga, autenticação, etc.).
+
+##### Code on Demand (Código sob Demanda)
+Esse é um princípio opcional no REST, onde o servidor pode fornecer código executável (como scripts JavaScript) para que o cliente execute. Isso permite que o comportamento do cliente seja estendido dinamicamente, sem precisar atualizar o próprio cliente.
+
+---
+
+##### Uniform Interface (Interface Uniforme)
+
+A interface REST define uma interface uniforme entre o cliente e o servidor, o que significa que todas as interações com os recursos do sistema ocorrem de maneira padronizada. Esse princípio é o coração do estilo REST e é o que torna a API simples e previsível.
+
+Os quatro principais elementos da interface uniforme são:
+
+- Identificação de Recursos: Cada recurso é identificado por uma URL única.
+- Manipulação de Recursos através de Representações: Os clientes interagem com os recursos por meio de suas "representações" (por exemplo, JSON, XML), e não diretamente.
+- Mensagens Auto-descritivas: Cada requisição e resposta contém informações suficientes para que o cliente ou servidor saiba como processá-las sem contexto adicional.
+- HATEOAS (Hypermedia as the Engine of Application State): O cliente deve ser capaz de navegar entre os recursos da API dinamicamente através de links fornecidos nas respostas
 
 ---
 
@@ -340,7 +501,7 @@ plataforma.
 
 ::right::
 
-#### Métodos HTTP
+#### Métodos HTTP (aka Verbos)
 
 Deve ficar claro que as APIs da Web fazem solicitações com padrões repetíveis para servidores. Uma solicitação é
 enviada de um aplicativo de software para outro aplicativo de software que avalia a solicitação e, em seguida, 
@@ -348,31 +509,43 @@ responde devolvendo alguma informação conforme o endpoint e método utilizado.
 
 ---
 
-##### GET
+<img class="m-auto -z-5 left-0 top-0 right-0 bottom-0 max-w-full max-h-full absolute" src="/httpverbs.jpg"/>
 
-GET o método de solicitação é usado ao solicitar uma resposta que fornece um recurso. Utilizado para buscar informações.
+
+---
+
+- GET{style="color: green;"} esse método é usado ao solicitar uma resposta que fornece um recurso. Utilizado para buscar informações.
 Pode ou não utilizar parâmetros para isso.
 
-##### POST
-
-A variável POST O método envia dados com a solicitação. Pode parecer estranho que uma "solicitação" envie dados, 
+- POST{style="color: green;"} método utilizado para enviar dados com a solicitação. Pode parecer estranho que uma "solicitação" envie dados, 
 mas a ideia é que fazer a solicitação da API é solicitar ao endpoint — o software receptor — que aceite a solicitação e,
 no caso de um POST, para também aceitar os dados que estão sendo enviados. 
 Os dados enviados são normalmente gravados em um armazenamento de dados, como um banco de dados ou arquivo.
 
+- PUT{style="color: green;"} esse método também envia dados, mas se os dados que estão sendo enviados 
+já existirem no endpoint, uma PUT atualizará os dados existentes substituindo-os.
+
+- DELETE{style="color: green;"} método utilizado para remover um recurso especificado na solicitação.
+
 ---
 
-##### PUT
+#### [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP) Status Code
 
-A variável PUT o método de solicitação é semelhante a POST como envia dados, mas se os dados que estão sendo enviados 
-já existirem no endpoint, uma PUT atualizará os dados existentes substituindo-os. A POST não atualiza, ele simplesmente 
-envia, então vários POST as solicitações podem criar vários registros dos dados enviados, em vez de atualizar qualquer 
-registro existente.
+Ao retornar uma response para uma requisição retornamos um [HTTP](https://http.dog/200) `Status Code` que é utilizado para identificar o que aconteceu com a requisição.
 
-##### DELETE
+| Status code               | Meaning                                                                                   |
+|---------------------------|-------------------------------------------------------------------------------------------|
+| 200 OK                    | Request was successful.                                                                   |
+| 301 Moved Permanently     | For SEO purposes when a page has been moved and all link equity should be passed through. |
+| 401 Unauthorized          | Server requires authentication.                                                           |
+| 403 Forbidden             | Client authenticated but does not have permissions to view resource.                      |
+| 404 Not Found             | Page not found because no search results or may be out of stock.                          |
+| 500 Internal Server Error | Server side error. Usually due to bugs and exceptions thrown on the server side code.     |
+| 503 Server Unavailable    | Server side error. Usually due to a platform hosting, overload and maintenance issue.     |
 
-A variável DELETE o método de solicitação remove um recurso especificado na solicitação, como se clicássemos em um
-link para excluir totalmente nosso perfil de conta.
+---
+
+<img class="m-auto -z-5 left-0 top-0 right-0 bottom-0 max-w-full max-h-full absolute" src="/httpstatuscode.png"/>
 
 ---
 layout: two-cols
@@ -402,7 +575,7 @@ Quais os contras?
 layout: two-cols
 ---
 
-## OpenAPI
+### OpenAPI
 
 A especificação OpenAPI fornece um padrão formal para descrever APIs HTTP.
 Isso permite que as pessoas entendam como funciona uma API, gerem código de cliente e criem testes.
@@ -432,3 +605,9 @@ https://editor.swagger.io/
 https://experienceleague.adobe.com/pt-br/docs/platform-learn/data-collection/server-api/introduction
 
 https://www.linkedin.com/pulse/navigating-api-landscape-top-8-architectural-styles-2023-patel/
+
+https://aws.amazon.com/pt/compare/the-difference-between-soap-rest/
+
+https://www.saurabhmisra.dev/rest-architectural-constraints/
+
+https://blog.devgenius.io/the-art-of-rest-apis-a-beginners-journey-through-api-space-1975dc954e54

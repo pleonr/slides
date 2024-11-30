@@ -23,17 +23,38 @@ export:
 
 ---
 
-## Design de Software
+## Arquitetura de Software
 
-O design de software é a ponte entre a compreensão de um problema e a construção de uma solução de software. Trata-se 
+A arquitetura de software é a ponte entre a compreensão de um problema e a construção de uma solução de software. Trata-se 
 de traduzir requisitos e ideias em um modelo que os desenvolvedores possam usar para codificar de maneira eficaz.
 
 - Prever e definir: É o processo de conceituar como resolver um problema com software, definindo sua estrutura, 
 componentes e interações.
 - Equilibrar metas e restrições: envolve considerar fatores como funcionalidade, desempenho, escalabilidade, 
 capacidade de manutenção e orçamento.
-- Múltiplas abordagens: Existem diferentes abordagens de design, cada uma com seus próprios pontos fortes e fracos.
-Os mais comuns incluem design orientado a objetos, design baseado em componentes e arquitetura de microsserviços.
+- Múltiplas abordagens: Existem diferentes abordagens de arquitetura, cada uma com seus próprios pontos fortes e fracos.
+Os mais comuns incluem Architetura baseada e componentes, camadas, cliente-servidor, microserviços e orientada a eventos.
+
+
+<!--
+
+1. Component-Based Architecture: This approach involves breaking down a system into modular components, each responsible for specific functionalities. These components interact through well-defined interfaces, promoting reusability and maintainability.
+
+2. Layered Architecture: In a layered architecture, the system is divided into distinct layers, with each layer responsible for a specific aspect of functionality. This separation of concerns simplifies development and allows for easier maintenance and scalability.
+
+3. Client-Server Architecture: In this model, the system is divided into client and server components, with clients making requests to servers for resources or services. This architecture enables distributed computing and facilitates scalability by allowing for the distribution of workload across multiple servers.
+
+4. Microservices Architecture: A relatively modern approach, microservices architecture involves breaking down a system into a collection of small, independently deployable services. Each service is responsible for a specific business function and communicates with other services via well-defined APIs. This architecture promotes flexibility, scalability, and resilience.
+
+5. Event-Driven Architecture: In an event-driven architecture, components within a system communicate by producing and consuming events. This asynchronous communication model enables loose coupling between components and supports scalability and fault tolerance.
+
+1. Modularity: Breaking down a system into smaller, self-contained modules promotes reusability, maintainability, and testability.
+2. Abstraction: Abstracting away implementation details and focusing on high-level concepts facilitates understanding and promotes flexibility.
+3. Encapsulation: Encapsulating data and behavior within modules prevents unauthorized access and reduces the risk of unintended side effects.
+4. Separation of Concerns: Dividing a system into distinct components, each responsible for a specific aspect of functionality, simplifies development and maintenance.
+5. Scalability: Designing a system to accommodate increasing workload or user base without sacrificing performance or reliability is essential for long-term success.
+6. Flexibility: Building a system that can adapt to changing requirements or environments ensures its longevity and relevance.
+-->
 
 ---
 
@@ -46,10 +67,6 @@ As etapas mais comuns consistem em:
 - Projeto detalhado: Especificando o funcionamento interno de cada componente e suas interações.
 - Implementação: os desenvolvedores traduzem o design em código.
 - Teste e refinamento: Validação do design em relação aos requisitos e iteração com base no feedback.
-
----
-
-## Benefícios
 
 Existe vantagem em toda essa burocrácia?
 

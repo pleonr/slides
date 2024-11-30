@@ -78,10 +78,6 @@ GPS, etc. Eles são escritos em linguagens específicas da plataforma (JavaKotli
 ao JavaScript por meio da ponte.
 -->
 
----
-
-<img src="/atwoodslaw.jpg" class="m-auto rounded " />
-
 
 ---
 src: ./emuladores.md
@@ -139,7 +135,7 @@ Usando a ferramenta do Expo podemos adicionar um app ao dispositivo que vai ger�
 Esse app está disponível para Android e IOS.
 
 ```shell
-nxp expo start
+npx expo start
 ```
 
 ::right::
@@ -161,6 +157,76 @@ O expo vai criar uma estrutura semelhante a essa
 - app.js: configurações do projeto
 - babel.config.js: configurações para interpretação do javascript
 - assets: pasta para adicionar resources
+
+---
+layout: two-cols
+---
+
+## Componentes principais
+
+Os principais componentes nativos do react native estão listados abaixo.
+
+### View
+
+É equivalente ao `<div>` sendo usada para agrupar componentes.
+
+```javascript
+import React from 'react'
+import { View, Text } from 'react-native'
+
+const App = () => (
+  <View>
+    <Text>Hello</Text>
+  </View>
+)
+export default App
+```
+
+::right::
+
+### Text
+
+Usando para renderizar texto.
+
+```javascript
+<Text style={
+  { fontSize: 20, color: 'blue' }
+}>
+  Olá, mundo!
+</Text>
+```
+
+### Image
+
+Carrega e exibe imagens, seja da web ou locais.
+
+```javascript
+import { Image } from 'react-native';
+
+<Image
+  source={{ uri: 'http://i.com/img.png' }}
+  style={{ width: 100, height: 100 }}
+/>
+```
+
+---
+layout: two-cols
+---
+
+### ScrollView
+
+Utilizado para adicionar scroll a uma view.
+
+```javascript
+import { ScrollView } from 'react-native'
+import { Text } from 'react-native'
+
+<ScrollView>
+  <Text>Item 1</Text>
+  <Text>Item 2</Text>
+  <Text>Item 3</Text>
+</ScrollView>
+```
 
 ---
 
@@ -241,31 +307,71 @@ const styles = StyleSheet.create({
 ```
 
 ---
+
+## Migração para o expo sdk 52.
+
+Com a nova versão do react native o expo lançou a versão 52 do seu sdk. Com isso será necessário atualizar a versão do sdk do projeto. 
+Para isso precisamos instalar a última versão do expo
+
+```shell
+npm install expo@latest
+```
+
+Depois precisamos atualizar as dependências
+```shell
+npx expo install --fix
+```
+
+---
 layout: two-cols
 ---
 
+## Gerar Build
 
-## Navigation
-
-Para fazer a navegação entre páginas no RN podemos usar o "React Navigation", uma biblioteca que permite criar e
-gerenciar rotas entre diferentes telas de um aplicativo. Ele oferece suporte para diversos tipos de navegação, navegação
-com pilha (stack navigation) e navegação de abas (tab navigation), gavetas (drawer navigation) entre outras.
-
-### Instalação
+Podemos gerar uma versão fechada de um projeto usando o expo, através da ferramenta EAS CLI, que é a ferramenta da Expo para build e deploy. 
+Instale-o globalmente no seu sistema:
 
 ```shell
-npm install @react-navigation/native
-npm install @react-navigation/stack
-npm install react-native-screens 
-npm install react-native-safe-area-context
+npm install -g eas-cli
+
 ```
+
+Configure o EAS no projeto
+Dentro do diretório do seu projeto, inicialize o EAS:
+
+```shell
+eas build:configure
+```
+
+Este comando cria um arquivo eas.json no projeto. Escolha a opção Managed Workflow, se você usa o Expo de forma padrão. Autentique-se no Expo
+
+```shell
+npx expo login
+```
+
 
 ::right::
 
+```json
+{
+  "expo": {
+    "name": "MeuApp",
+    "slug": "meu-app",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.seuprojeto.meuapp",
+      "versionCode": 1
+    }
+  }
+}
+```
 
+Depois disso inicie o processo de build
 
-
-
+```shell
+eas build --platform
+  android --profile preview
+```
 
 
 

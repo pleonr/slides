@@ -6,9 +6,9 @@ layout: image-right
 <br><br><br>
 {{ $slidev.configs.author }}
 
-<div class="abs-br m-6">
+<!--<div class="abs-br m-6">
 	<img src="/qrcode.png" class="h-15" />
-</div>
+</div>-->
 
 <div class="abs-bl m-6 opacity-50 display: flex">
 	<a class="social" href="https://github.com/pleonr" target="_blank" >

@@ -105,11 +105,51 @@ atualizar o DOM real, reduzindo a necessidade de recarregamentos.
 
 ---
 
-![](/virtualdoomreact.webp)
+### Virtual DOM
+
+O Virtual DOM é uma representação DOM real na memória. Quando o estado de um componente muda,
+o React não manipula o DOM diretamente. O seguinte processo ocorre:
+
+- O React cria uma cópia virtual do DOM (Virtual DOM)
+- As atualizações são feitas primeiro nesse Virtual DOM
+- O React então compara o Virtual DOM com a versão anterior (diffing)
+- Após essa comparação, o React calcula a menor quantidade de alterações necessárias para transformar o DOM real para refletir o Virtual DOM.
+- Só então o React atualiza o DOM real com essas mudanças específicas, evitando re-renderizações desnecessárias.
+
+---
+
+#### Renderização
+
+O processo de renderização do React funciona principalmente em três etapas:
+
+
+1. **Renderização Inicial**
+Quando você carrega uma aplicação React pela primeira vez, o componente raiz (normalmente App.js) é renderizado.
+O React cria o Virtual DOM com base nos componentes JSX que você definiu.
+Em seguida, o React transforma esse Virtual DOM em HTML e aplica ao DOM real do navegador.
+2. **Mudanças no Estado ou Props**
+Cada vez que ocorre uma mudança de estado ou props em um componente:
+O React cria um novo Virtual DOM refletindo o estado atualizado.
+Ele compara o novo Virtual DOM com o anterior, identificando as diferenças (essa fase é chamada de diffing).
+Com base nas diferenças encontradas, o React aplica somente as mudanças mínimas ao DOM real.
+3. **Reconciliação**
+O processo de reconciliação é o mecanismo que o React usa para decidir o que precisa ser atualizado no DOM real. Ele envolve duas etapas principais:
+- Diffing: Comparação entre o antigo e o novo Virtual DOM.
+- Patching: Aplicação das mudanças necessárias no DOM real.
+
+<!--
+Melhor performance: Ao minimizar a quantidade de operações diretas no DOM, o React melhora o desempenho da aplicação.
+Atualizações eficientes: O processo de reconciliação permite que o React atualize apenas os elementos que realmente mudaram.
+Desenvolvimento mais fácil: Como os desenvolvedores não precisam manipular o DOM diretamente, o código React tende a ser mais simples e declarativo.
+-->
+
 
 
 ---
-layout: two-cols
+layout: image
+image: /virtualdoomreact.webp
+---
+
 ---
 
 ### Next.js
@@ -123,6 +163,7 @@ Para instalar o Nextjs:
 
 ```shell
 npm install -g nextjs
+npx create-next-app@latest
 ```
 
 <br>
@@ -134,6 +175,32 @@ npm install -g nextjs
 ![](/nextjsapp.png)
 
 ---
+layout: two-cols
+---
+
+![](/nextnew.png)
+
+::right::
+
+- public: pasta para assets e recursos staticos
+- src/pages: cada arquivo aqui será interpretado como uma rota na aplicação
+- _app.tsx: Inicializa todas as páginas e permite personalizar o comportamento global.
+- _document.tsx: Personaliza o HTML e o body que é renderizado no servidor.
+- index.tsx: A página inicial da sua aplicação (rota /).
+- next.config.js	Arquivo de configuração Next.js
+- package.json	Dependências e scripts do projeto
+- .eslintrc.json	Arquivo de configuração ESLint
+- next-env.d.ts	Arquivo de configuração TypeScript para Next
+- tsconfig.json	Arquivo de configuração  TypeScript
+
+
+---
+
+- `_app.tsx` é responsável por inicializar as páginas do Next, aqui podemos incluir layout global como header e footer ou wrappers que devem aparecer em todas as páginas e incluir CSS global definindo estilos que serão aplicados em toda a aplicação.
+
+- `_document.tsx` é utilizado para modificar a estrutura básica do documento HTML que é enviado ao cliente. Ele é carregado apenas no servidor, e você pode usá-lo para personalizar o HTML e o body da aplicação, usado inserir fontes ou scripts externos, adicionar links de fontes ou incluir scripts que precisam estar no documento HTML. E também para incluir metadados globais, como favicon, tags meta, etc.
+
+---
 
 ### Componentes
 
@@ -141,13 +208,68 @@ Um componente é um bloco de código reutilizável e independente, que divide a 
 
 ![](/componentes-react.png)
 
+--- 
+
+### CSS
+
+O Next pode adicionar por padrão o Tailwind, mas podemos usar outras bibliotecas. Vamos utilizar o [ReactBootstrap](https://react-bootstrap.netlify.app/).
+
+A instalação requer dois pacotes npm `react-bootstrap` e `bootstrap`.
+
+```shell
+npm install react-bootstrap
+npm install bootstrap
+```
+
+E para utilizar o react bootstrap em todo o projeto chamamos precisamos invocar o css do bootstrap no app:
+
+```typescript
+// _app.tsx
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "@/styles/globals.css"
+```
+
+---
+
+### Criando o componente de navegação
+
+```typescript
+import Link from 'next/link'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+
+const NavbarTop = () => {
+  return (
+    <Navbar bg="dark" data-bs-theme="dark" fixed="top">
+      <Container>
+        <Navbar.Brand>
+          <Link href="/">Home</Link>
+        </Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link as={Link} href="/partidas" passHref>
+            Partidas
+          </Nav.Link>
+        </Nav>
+      </Container>
+      <Navbar.Collapse className="justify-content-end">
+          <Nav>
+            <Nav.Link href="#link">Logoff</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+    </Navbar>
+  )
+}
+export default NavbarTop
+```
+
+
 ---
 
 ### Componentes de classe
 
 Os **componentes de classes** têm acesso a recursos adicionais, como o ciclo de vida do componente. 
-Isso permite que os desenvolvedores controlem o comportamento do componente em diferentes estágios, `componentDidMount`, 
-`componentDidUpdate`, and `componentWillUnmount`
+Isso permite que os desenvolvedores controlem o comportamento do componente em diferentes estágios, `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`
 
 Eles também têm suporte nativo ao gerenciamento de estado usando o objeto `state`. Isso permite que os desenvolvedores 
 armazenem e atualizem o estado interno do componente de forma fácil e intuitiva. 
@@ -155,6 +277,8 @@ armazenem e atualizem o estado interno do componente de forma fácil e intuitiva
 Esses componentes precisavam de um método render() para poder retornar o JSX.
 
 ```jsx
+import React, { Component } from 'react'
+
 class Welcome extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
@@ -768,6 +892,121 @@ routerUsuario.get("/usuarios/listar", Auth.hasAuthorization ,getUsuarios)
 ```
 
 ![](/postman-jwt.png)
+
+---
+layout: image-right
+image: /migrations.jpg
+---
+
+## Migrations
+
+No contexto do TypeORM com Express, migrations são uma ferramenta para versionar e aplicar mudanças no banco de dados de forma controlada, sem a necessidade de manipular as tabelas ou SQL diretamente. Uma migration permite que você crie, altere ou remova tabelas e colunas, o que facilita o gerenciamento de versões e a colaboração em equipe.
+
+As migrations são criadas com comandos que especificam o que deve ser alterado no banco de dados, como adicionar ou modificar colunas. 
+Quando executada, uma migration aplica as alterações especificadas. O TypeORM mantém um controle das migrations executadas, garantindo que cada uma seja aplicada apenas uma vez.
+As migrations podem ser revertidas, restaurando o estado do banco de dados ao estado anterior.
+
+---
+
+
+```typescript
+npx typeorm migration:create ./src/migrations/AlterUserPasswordColumn
+
+import { MigrationInterface, QueryRunner, TableColumn } from "typeorm";
+export class AlterPasswordColumnTypeTimestamp implements MigrationInterface {
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`ALTER TABLE "user" ALTER COLUMN "password" DROP NOT NULL`)
+        await queryRunner.query(`ALTER TABLE "user" ALTER COLUMN "password" TYPE varchar USING "password"::varchar`)
+        await queryRunner.query(`UPDATE "user" SET "password" = 'default_password' WHERE "password" IS NULL`)
+        await queryRunner.query(`ALTER TABLE "user" ALTER COLUMN "password" SET NOT NULL`)
+    }
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`ALTER TABLE "user" ALTER COLUMN "password" DROP NOT NULL`)
+        await queryRunner.query(`ALTER TABLE "user" ALTER COLUMN "password" TYPE integer USING "password"::integer`)
+    }
+}
+npm run build
+npx typeorm migration:run -d ./build/src/data-source.js
+npx typeorm migration:revert 
+```
+
+<!--
+Alterar o data source migrations: [__dirname+"/migrations/*.{js,ts}"],, falar da tabela migrations e da replicação para bancos...
+
+Quando você executa uma migration que altera o tipo da coluna (password de int para varchar), o comportamento depende do banco de dados em uso. No PostgreSQL, por exemplo, a conversão automática de dados entre tipos pode ocorrer, mas há algumas considerações:
+
+Dados Existentes: Se a coluna password já contém dados do tipo int, o banco de dados tenta fazer a conversão desses valores automaticamente para o tipo varchar. Assim, o valor 1234 (inteiro) seria convertido para "1234" (texto). Essa conversão normalmente ocorre sem problemas, desde que os dados no tipo int possam ser representados como varchar.
+
+Conversões Problemáticas: Em alguns casos, especialmente quando você faz uma conversão para tipos incompatíveis, pode haver erros ou perda de dados. Mas, no caso de int para varchar, essa conversão é geralmente segura, já que qualquer número pode ser representado como texto sem perda de informação.
+
+Reversão da Migration: No método down, a migração altera o tipo de volta para int. No entanto, isso só funcionará se todos os valores da coluna puderem ser convertidos novamente em números inteiros. Caso você tenha dados que não sejam representáveis como números, isso resultará em um erro de conversão.
+
+Para evitar problemas com dados que não podem ser revertidos para int, você pode verificar os dados na coluna antes de executar o down ou definir uma lógica de fallback, se possível.
+-->
+
+---
+
+## Seeders
+
+Seeders são funções que populam o banco de dados com dados iniciais ou de exemplo. Diferente das migrations, eles não alteram a estrutura do banco, mas sim inserem dados para uso em desenvolvimento, testes ou como dados iniciais na aplicação. No TypeORM, seeders não são nativamente suportados como migrations, mas podemos configurar seeders manualmente utilizando scripts específicos.
+
+Edite o `package.json` e adicione um script para executar as seeds:
+
+```json
+"scripts": {
+    "seed": "ts-node src/seeders/seed.ts"
+}
+```
+
+Vamos criar uma pasta chamada seeders, e dentro dela vamos adicionar os arquivos e após isso podemos utilizar o comando `npm run seed` para executar as seeds. 
+Adicione a biblioteca [faker](https://fakerjs.dev/) para gerar dados "randomicos"
+
+```shell
+npm install @faker-js/faker
+```
+
+---
+
+```typescript
+import { getRepository } from "typeorm";
+import { User } from "../entities/user";
+import { faker } from "@faker-js/faker";
+
+export class UserSeed {
+    public static async seed(): Promise<void> {
+        if (!appDataSource.isInitialized) {
+            await appDataSource.initialize();
+        }        
+        const userRepository = appDataSource.getRepository(User)
+        const userCount = 100;
+        for (let i = 0; i < userCount; i++) {
+            const user = userRepository.create({
+                name: faker.person.fullName(),
+                email: faker.internet.email(),
+                password: i,
+            });
+            await userRepository.save(user);
+        }
+        console.log("Users seeded successfully with Faker data!");
+    }
+}
+```
+
+---
+
+```typescript
+import { UserSeed } from "./userSeed";
+
+const seed = async () => {
+    await UserSeed.seed();
+};
+
+seed().then(() => {
+    console.log("Seeding completed successfully.");
+}).catch((error) => {
+    console.error("Seeding failed:", error);
+});
+```
 
 ---
 layout: two-cols
