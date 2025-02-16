@@ -1,0 +1,30 @@
+{
+    "slidev.preview-sync": true,
+    "slidev.include": [
+        "**/slides.md",
+        "typescript.md",
+        "messagebrokers.md",
+        "mobile_dev_II_1.md",
+        "git.md",
+        "pern.md",
+        "html.md",
+        "react-native.md",
+        "css.md",
+        "javascript.md",
+        "flutter.md",
+        "api.md",
+        "software_design.md",
+        "kotlin_1.md",
+        "brief_history_web.md",
+        "nodejs.md",
+        "docker.md",
+        "cover.md",
+        "microservices_communication.md",
+        "emuladores.md",
+        "solid.md",
+        "sd.md",
+        "microservices_monitoring.md",
+        "pages/multiple-entries.md",
+        "algoritmos.md"
+    ]
+}

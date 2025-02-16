@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timer-circle-container {
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+            position: relative;
+        }
+
+        .timer-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .timer-circle.pause-btn {
+            background-color: #666;
+        }
+
+        .timer-circle.start-btn {
+            background-color: #2e86c1;
+        }
+
+        .circle-icon {
+            font-size: 30px;
+            color: white;
+        }
+
+        .time-display {
+            width: 100px;
+            height: 50px;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            margin: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="timer-circle-container">
+        <div class="timer-circle pause-btn">
+            <span class="circle-icon">Parar</span>
+        </div>
+    </div>
+    <div class="time-display">
+        <span class="time">00:00:00</span>
+    </div>
+    <div class="timer-circle-container">
+        <div class="timer-circle start-btn">
+            <span class="circle-icon">Continuar</span>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
