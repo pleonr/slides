@@ -379,7 +379,7 @@ layout: two-cols
 
 ---
 
-<img class="m-auto -z-5 bottom-0 right-0 left-0 max-w-full max-h-full absolute" style="background-color: white" src="/internet_growth.png"/>
+<img class="m-auto -z-5 bottom-0 right-0 left-0 max-w-full max-h-full" style="background-color: white" src="/internet_growth.png"/>
 
 <!--
 https://growthchart.weebly.com/

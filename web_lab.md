@@ -258,7 +258,7 @@ layout: two-cols
 
 ::right::
 
-<img class="m-auto -z-5 bottom-0 right-0 left-0 max-w-full max-h-full absolute" style="background-color: white" src="/hobbit.jpg"/>
+<img class="m-auto -z-5 bottom-0 right-0 left-0 max-w-full max-h-full" src="/hobbit.jpg"/>
 
 ---
 layout: two-cols
@@ -333,7 +333,7 @@ Exemplo: **13 (decimal) → ? (binário)**
 
 ---
 
-<img class="m-auto -z-5 bottom-0 top-0 right-0 left-0 max-w-full max-h-full absolute" style="background-color: white" src="/binary.png"/>
+<img class="m-auto -z-5 bottom-0 top-0 right-0 left-0 max-w-full max-h-full" src="/binary.png"/>
 
 ---
 layout: two-cols

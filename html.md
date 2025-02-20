@@ -24,27 +24,27 @@ export:
 
 ## HTML
 
-*Hypertext Markup Language*, ou simplesmente HTML, é uma linguagem de marcação utilizada para representar informação na 
-Web. Nasceu juntamente com o conceito da Web e hoje, conjuntamente às linguagens `JavaScript` e `CSS`, compõe as bases para 
+*Hypertext Markup Language*, ou simplesmente HTML, é uma linguagem de marcação utilizada para representar informação na
+Web. Nasceu juntamente com o conceito da Web e hoje, conjuntamente às linguagens `JavaScript` e `CSS`, compõe as bases para
 o desenvolvimento de soluções frontend neste ecossistema.
 
 Desde seu desenvolvimento, em 1989, a linguagem HTML foi passando por diversas revisões, que culminaram com o lançamento
-de novas versões da linguagem. Atualmente está em uso a versão 5, motivo pelo qual é comum encontrar citações à 
+de novas versões da linguagem. Atualmente está em uso a versão 5, motivo pelo qual é comum encontrar citações à
 linguagem como HTML5.
 
-Antes de propriamente iniciarmos nosso estudo na linguagem HTML5, precisamos entender os atores principais da Web e 
-como eles se comunicam. Obviamente faremos uma simplificação da arquitetura, enfatizando o papel do `web browser` ou 
+Antes de propriamente iniciarmos nosso estudo na linguagem HTML5, precisamos entender os atores principais da Web e
+como eles se comunicam. Obviamente faremos uma simplificação da arquitetura, enfatizando o papel do `web browser` ou
 navegador e do `web server`.
 
-Observe o diagrama a seguir. Nele representamos um cliente estabelecendo comunicação com um servidor. O cliente envia 
-uma requisição - uma solicitação de recurso - que é recepcionada pelo servidor e devolvida ao cliente por meio de uma 
+Observe o diagrama a seguir. Nele representamos um cliente estabelecendo comunicação com um servidor. O cliente envia
+uma requisição - uma solicitação de recurso - que é recepcionada pelo servidor e devolvida ao cliente por meio de uma
 resposta. Esse modelo de arquitetura distribuída é chamada `client/server` e define em alto nível como ocorre a
 comunicação entre web browsers (clientes) e web servers (servidores).
 
 ---
 
 Nesta troca de mensagens está sendo utilizado o protocolo HTTP (Hypertext Transfer Protocol), que por sua vez transporta
-documentos HTML quando recursos são retornados ao cliente. Logo, grande parte da informação que trafega na Web é 
+documentos HTML quando recursos são retornados ao cliente. Logo, grande parte da informação que trafega na Web é
 representada em HTML.
 
 O HTML é um dos pilares da Web, junto ao protocolo HTTP e o conceito de URI. Define-se como uma linguagem de marcação,
@@ -53,8 +53,8 @@ ou seja, uma representação de documento em que adicionamos marcas de significa
 O conceito de `hipertexto` é essencial à compreensão do HTML. De forma simples, entendemos como hipertexto um conjunto de
 nós (palavras, imagens, vídeos, áudios, documentos) que possuem ligações entre si.
 
-A linguagem HTML tornou-se um padrão de referência a partir de 1997, graças ao trabalho da W3C. Isso garantiu à 
-tecnologia interoperabilidade em diferentes plataformas e meios de acesso. A especificação corrente da linguagem está 
+A linguagem HTML tornou-se um padrão de referência a partir de 1997, graças ao trabalho da W3C. Isso garantiu à
+tecnologia interoperabilidade em diferentes plataformas e meios de acesso. A especificação corrente da linguagem está
 disponível no portal da [W3C](https://www.w3.org/){style="color: grey"} de forma pública.
 
 ---
@@ -89,8 +89,8 @@ layout: two-cols
 
 ## Conceitos Básicos
 
-A linguagem HTML5 é composta por um conjunto de `tags` (ou elementos). Cada tag serve a um propósito, 
-atribuindo um significado(*semântica*) ao conteúdo envolvido. Quando aplicadas a um documento, a tag é aberta e 
+A linguagem HTML5 é composta por um conjunto de `tags` (ou elementos). Cada tag serve a um propósito,
+atribuindo um significado(*semântica*) ao conteúdo envolvido. Quando aplicadas a um documento, a tag é aberta e
 fechada, ficando o conteúdo em meio. Observe a sintaxe de escrita:
 
 Abertura da tag: colocamos o nome da tag entre os símbolos de `<` `>`
@@ -104,7 +104,7 @@ Fechamento da tag: colocamos uma `/` na frente do nome da tag
 
 ::right::
 
-A tag `p`, por exemplo, é utilizada para demarcar parágrafos em um documento HTML. 
+A tag `p`, por exemplo, é utilizada para demarcar parágrafos em um documento HTML.
 Logo, qualquer conteúdo entre a abertura e o fechamento da tag compreende o conteúdo de um parágrafo. Observe:
 
 ```html
@@ -131,7 +131,7 @@ Define um parágrafo com id `par01` e uma classe com o valor vermelho.
 <br>
 
 - `<html>` Chamada de root tag, corresponde ao elemento que envolve todo documento.
-As demais tags devem ser descendentes diretas ou indiretas de `<html>`. Espera-se que sigam apenas o 
+As demais tags devem ser descendentes diretas ou indiretas de `<html>`. Espera-se que sigam apenas o
 elemento `<head>` e o elemento `<body>`. Autores tem encorajado a utilização do atributo `lang` dentro da tag `html`
 para indicar a sintetizadores de voz qual a língua do documento.
 
@@ -147,7 +147,7 @@ Dentro da tag `<head>` podemos definir os seguintes descendentes(*opcionais*):
 - `<meta>`: Permite definir metadados que não podem ser especificados em outras tags.
 - `<base`: Define a URL inicial do documento para efeitos de navegação.
 - `<title>`: Metadado que define o título do documento ou seu nome. No máximo uma ocorrência é permitida.
-- `<link>`: Permite especificar as relações entre o documento e outro recurso externo. Utilizado especialmente 
+- `<link>`: Permite especificar as relações entre o documento e outro recurso externo. Utilizado especialmente
 para vincular folhas de estilo. O endereço do recurso vinculado fica no atributo href. Já o atributo rel indica o
 tipo de relacionamento estabelecido, que deve considerar um conjunto de opções definidas pela linguagem.
 - `<style>`: Permite incluir regras de estilo ao documento.
@@ -213,7 +213,7 @@ url: /tags3.html
 ---
 
 - `<q>`: Demarca citações curtas, apresentadas em meio a outro conteúdo.
-- `<quote>`: Utilizado para especificar o título de um trabalho (livro, programa de computador, artigo, etc.). 
+- `<quote>`: Utilizado para especificar o título de um trabalho (livro, programa de computador, artigo, etc.).
 Não devemos utilizar para envolver nomes de autores, somente o título da obra.
 - `<blockquote>`: Demarca citações longas.
 - `<cite>`: Utilizado para especificar o título de um trabalho (livro, programa de computador, artigo, etc.).
@@ -225,7 +225,7 @@ layout: iframe-right
 url: /tags4.html
 ---
 
-No HTML5 temos a possibilidade de utilizar seis níveis de títulos. Para isso, temos disponíveis as tags 
+No HTML5 temos a possibilidade de utilizar seis níveis de títulos. Para isso, temos disponíveis as tags
 `<h1>`,`<h2>`,`<h3>`,`<h4>`,`<h5>` e `<h6>`. Títulos `<h1>` são os de maior importância, e na medida que o número
 aumenta, a relevância do título diminui. Veja um exemplo de documento contendo quatro níveis de títulos.
 
@@ -235,8 +235,8 @@ url: /tags5.html
 ---
 
 As listas são utilizadas para elencar itens de forma ordenada ou não. Para cada caso, temos a disposição uma
-tag diferente: se o objetivo é utilizar uma lista ordenada, então utilizaremos `<ol>` e, caso haja interesse em uma 
-lista não ordenada, então devemos usar `<ul>`. Quando os elementos da lista, para ambos os casos, utilizamos a tag 
+tag diferente: se o objetivo é utilizar uma lista ordenada, então utilizaremos `<ol>` e, caso haja interesse em uma
+lista não ordenada, então devemos usar `<ul>`. Quando os elementos da lista, para ambos os casos, utilizamos a tag
 `<li>`.
 
 ---
@@ -246,8 +246,8 @@ layout: two-cols
 ## Hiperlynks
 
 A capacidade da linguagem HTML de expressar relacionamentos entre documentos certamente é um dos fatores-chave para o
-sucesso da web. Os hiperlinks, como chamamos estas ligações, constituem vias que ligam um documento a outro, contido 
-no mesmo site ou em sites diferentes, através de palavras, imagens, vídeos e outras coisas. Esse emaranhado de vias 
+sucesso da web. Os hiperlinks, como chamamos estas ligações, constituem vias que ligam um documento a outro, contido
+no mesmo site ou em sites diferentes, através de palavras, imagens, vídeos e outras coisas. Esse emaranhado de vias
 levou ao termo web, ou seja, uma grande teia de informação, cujo caminho a ser seguido depende unicamente das escolhas
 do usuário.
 
@@ -260,7 +260,7 @@ Para que a tag `<a>` seja considerada um hiperlink, o atributo `href` deve estar
 Ao clicar sobre o objeto que representa o hiperlink (texto, imagem, etc), o navegador irá transportar o
 usuário até o recurso informado.
 
-O atributo `target` do elemento `<a>` é `target`, especifica ao navegador onde o recurso deverá 
+O atributo `target` do elemento `<a>` é `target`, especifica ao navegador onde o recurso deverá
 ser apresentado (contexto do navegador).
 
 - `_blank`: Abre o recurso em nova janela ou aba.
@@ -289,7 +289,7 @@ Não apenas recursos obtidos via protocolo HTTP podem ser informados no atributo
     <meta charset="utf-8">
   </head>
   <body>
-    <p>Blog 
+    <p>Blog
       <a href="www.leon.dev.br">Leon</a>
       <a href="#teste">Leon</a>
       <a href="./doc.pdf">Leon</a>
@@ -303,7 +303,7 @@ Não apenas recursos obtidos via protocolo HTTP podem ser informados no atributo
 
 ## Imagens
 
-Em termos de código, utilizamos o elemento `<img>` para incorporar imagens ao HTML5. Os atributos obrigatórios são 
+Em termos de código, utilizamos o elemento `<img>` para incorporar imagens ao HTML5. Os atributos obrigatórios são
 `src` e `alt`. O primeiro deles indica o caminho para o arquivo, que pode ser absoluto ou relativo.
 
 Já o atributo `alt` contém uma descrição textual que será exibida pela navegador em substituição à imagem, caso
@@ -329,9 +329,9 @@ no código que segue.
   <body>
       <img src="https://www.caminho.com/para/a/imagem.jpg"
            alt="Imagem" width="300" height="500">
-      
+
       <figure>
-          <img src="https://www.caminho.com/para/a/imagem.jpg" 
+          <img src="https://www.caminho.com/para/a/imagem.jpg"
                alt="Imagem com legenda"
                width="300" height="500" />
           <figcaption>Galáxia de Andrômeda: Wikipédia</figcaption>
@@ -345,14 +345,14 @@ no código que segue.
 ## Tabelas
 
 A elemento `<table>` é utilizado para delimitar a tabela. Como descendentes, podemos indicar o cabeçalho, conteúdo e
-rodapé através das elementos `<thead>`, `<tbody>` e `<tfoot>`, respectivamente. Estes elementos não são obrigatórios 
+rodapé através das elementos `<thead>`, `<tbody>` e `<tfoot>`, respectivamente. Estes elementos não são obrigatórios
 e são aplicadas para adicionar semântica ao conteúdo da tabela.
 
 Efetivamente, os dados da tabela estão contidos nas células de dados, criadas a partir do elemento `<td>`, organizadas
 em linhas especificadas a partir do elemento `<tr>`. Para células que representam cabeçalhos, podemos utilizar o
 elemento `<th>` para diferenciar das células de dados.
 
-Os atributos `rowspan` e `colspan`, ao aplicar rowspan, indicamos que uma célula se projeta pela quantidade 
+Os atributos `rowspan` e `colspan`, ao aplicar rowspan, indicamos que uma célula se projeta pela quantidade
 de linhas informada, enquanto que colspan indica a quantidade de colunas.
 
 ---
@@ -434,7 +434,7 @@ url: /table3.html
 
 <br>
 
-- `<article>`: Representa um trecho de conteúdo independente, autocontido, que pode ser distribuído sem o restante da 
+- `<article>`: Representa um trecho de conteúdo independente, autocontido, que pode ser distribuído sem o restante da
 página.
 - `<section>`: Indica uma seção genérica de conteúdo.
 - `<aside>`: Seção de conteúdo tangencialmente relacionado ao seu entorno, o qual poderia ser removido sem representar
@@ -478,14 +478,14 @@ seleção, botões de opção, botões de envio, etc...
 
 ---
 
-Dois atributos importantes da tag `<form>` são: 
+Dois atributos importantes da tag `<form>` são:
 - **ação**: Especifica a URL do programa que irá manipular os dados enviados (geralmente um script do lado do servidor).
 - **método**: define como os dados do formulário são enviados ao servidor. Existem dois métodos principais:
-  - *GET*: acrescenta os dados do formulário ao URL como pares de valores-chave (visíveis na barra de endereço e 
-  tem limitações no tamanho dos dados). 
+  - *GET*: acrescenta os dados do formulário ao URL como pares de valores-chave (visíveis na barra de endereço e
+  tem limitações no tamanho dos dados).
   - *POST*: Envia os dados como parte do corpo da solicitação HTTP (não visível na URL e sem limites de tamanho).
 
-O navegador coleta os dados de todos os elementos do formulário na tag `<form>`. Isso inclui o atributo name do elemento 
+O navegador coleta os dados de todos os elementos do formulário na tag `<form>`. Isso inclui o atributo name do elemento
 e o valor inserido pelo usuário. A solicitação HTTP é enviada ao servidor especificado no atributo action.
 
 
@@ -509,14 +509,14 @@ Um elemento `<input>` pode ser exibido de várias maneiras, dependendo do atribu
 Mas existem muitos outros com diversas funcionalidades
 
 
-| `<input type="button">`         | `<input type="reset">`    | `<input type="search">` | 
+| `<input type="button">`         | `<input type="reset">`    | `<input type="search">` |
 |----------------------------------|----------------------------|--------------------------|
-| `<input type="checkbox">`       | `<input type="image">`    | `<input type="submit">` | 
-| `<input type="color">`          | `<input type="month">`    | `<input type="tel">`    | 
-| `<input type="date">`           | `<input type="number">`   | `<input type="text">`   | 
-| `<input type="datetime-local">` | `<input type="password">` | `<input type="time">`   | 
-| `<input type="email">`          | `<input type="radio">`    | `<input type="url">`    | 
-| `<input type="file">`           | `<input type="range">`    | `<input type="week">`   | 
+| `<input type="checkbox">`       | `<input type="image">`    | `<input type="submit">` |
+| `<input type="color">`          | `<input type="month">`    | `<input type="tel">`    |
+| `<input type="date">`           | `<input type="number">`   | `<input type="text">`   |
+| `<input type="datetime-local">` | `<input type="password">` | `<input type="time">`   |
+| `<input type="email">`          | `<input type="radio">`    | `<input type="url">`    |
+| `<input type="file">`           | `<input type="range">`    | `<input type="week">`   |
 
 ---
 
