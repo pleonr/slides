@@ -94,7 +94,7 @@ Em 1854 o inglês George Boole publica “An Investigation of the Laws of Though
 
 ---
 layout: image-right
-image: /AlanTuring.jpg
+image: /AlanTuring.png
 ---
 
 ### Alan Turing

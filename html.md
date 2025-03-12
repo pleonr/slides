@@ -213,7 +213,6 @@ url: /tags3.html
 ---
 
 - `<q>`: Demarca citações curtas, apresentadas em meio a outro conteúdo.
-- `<quote>`: Utilizado para especificar o título de um trabalho (livro, programa de computador, artigo, etc.).
 Não devemos utilizar para envolver nomes de autores, somente o título da obra.
 - `<blockquote>`: Demarca citações longas.
 - `<cite>`: Utilizado para especificar o título de um trabalho (livro, programa de computador, artigo, etc.).

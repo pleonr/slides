@@ -8,7 +8,6 @@ drawings:
   persist: false
 image: /side-logo.png
 selectable: true
-colorSchema: dark
 title: Algoritmos e Programação I
 author: Pablo Leon Rodrigues
 export:
