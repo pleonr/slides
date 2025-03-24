@@ -1063,7 +1063,7 @@ Para reduzir os problemas causados pelo desvio de relógios e melhorar a coorden
 #### **Protocolos de Sincronização de Tempo**
 
 - Protocolo de Tempo de Rede (NTP - Network Time Protocol): amplamente utilizado na Internet para sincronizar relógios com precisão de milissegundos.
-- Protocolo de Tempo de Cristian: baseia-se na comunicação com um servidor confiável que fornece a hora correta.
+- Protocolo de Tempo de Christian: baseia-se na comunicação com um servidor confiável que fornece a hora correta.
 - Protocolo de Tempo de Berkeley: usado quando não há uma fonte externa confiável, sincronizando os relógios baseando-se na média dos tempos dos computadores da rede.
 
 
@@ -1204,6 +1204,62 @@ Processo 1 recebeu mensagem. Novo relógio: 6
 
 ---
 
+### Problema dos dois Generais
+
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/two-generals.png"/>
+
+---
+
+### Problema dos dois Generais
+
+Imagine dois generais (General A e General B) que comandam exércitos separados e precisam atacar um inimigo em conjunto para terem sucesso. Eles estão posicionados em montanhas opostas, com o inimigo em um vale entre eles.
+
+A única forma de comunicação entre os generais é por meio de mensageiros, que precisam atravessar o vale inimigo para entregar as mensagens. No entanto, esses mensageiros podem ser capturados, impedindo que a mensagem chegue ao destino.
+
+Para que o ataque seja bem-sucedido, ambos os generais precisam atacar exatamente ao mesmo tempo. Se um atacar sem o outro, o exército inimigo derrotará o general solitário.
+
+O problema surge porque nenhum dos generais pode ter certeza absoluta de que sua mensagem foi recebida pelo outro. Mesmo que um general envie uma mensagem com a ordem de ataque e o outro responda confirmando o recebimento, não há garantia de que essa confirmação também chegue com sucesso. Isso cria um ciclo infinito de confirmações, sem que um consenso definitivo possa ser alcançado.
+
+---
+
+#### Implicações em Sistemas Distribuídos
+
+O problema dos dois generais exemplifica um desafio fundamental em sistemas distribuídos: a dificuldade de alcançar um consenso confiável em uma rede não confiável. Isso tem implicações diretas para:
+
+- Protocolos de Comunicação: Em redes distribuídas, pacotes de dados podem ser perdidos, corrompidos ou atrasados, tornando difícil garantir que todas as partes envolvidas tenham o mesmo estado da informação.
+- Consistência de Dados: Em bancos de dados distribuídos, garantir que todas as réplicas tenham exatamente os mesmos dados no mesmo momento é um problema semelhante ao dos dois generais.
+- Confirmação de Mensagens: Em sistemas de mensagens distribuídas, como filas de mensagens e comunicação entre servidores, garantir que uma mensagem foi recebida e processada corretamente é um desafio.
+
+---
+
+Embora o problema dos dois generais seja matematicamente impossível de resolver com 100% de certeza, na prática, soluções aproximadas são usadas, como:
+
+- Protocolos de confirmação de recebimento (ex.: TCP, que retransmite pacotes perdidos).
+- Algoritmos de consenso como Paxos e Raft, usados em sistemas distribuídos para alcançar acordos de forma confiável mesmo em redes instáveis.
+- Timeouts e retries para mitigar falhas de comunicação.
+
+
+---
+
+### Erro, Falha e Defeito
+
+- Erro: É uma discrepância entre o comportamento esperado e o comportamento real de um sistema. Um erro pode ser resultado de um defeito e pode levar a uma falha.
+- Defeito (Bug): É uma imperfeição no design, implementação ou operação do sistema. Um defeito pode levar à ocorrência de um erro em determinadas circunstâncias.
+- Falha: Ocorre quando um erro afeta o funcionamento do sistema, tornando-o incapaz de fornecer o serviço esperado.
+
+A relação entre esses conceitos pode ser vista da seguinte maneira: um defeito pode causar um erro, e um erro pode levar a uma falha caso não seja tratado adequadamente.
+
+---
+
+Os Modelos de Falhas são utilizados em sistemas distribuídos para definir, classificar e entender como as falhas podem ocorrer e se manifestar. Eles são essenciais para a análise dos efeitos das falhas e para o desenvolvimento de sistemas tolerantes a falhas.
+
+- Falhas por Omissão – Ocorrem quando um componente do sistema falha ao executar uma operação esperada, como a não entrega de uma mensagem ou a ausência de resposta de um serviço.
+- Falhas Arbitrárias – Incluem comportamentos inesperados e imprevisíveis, como respostas erradas ou funcionamento incorreto.
+- Falhas de Temporização – Acontecem quando um sistema distribuído síncrono não consegue respeitar os prazos estabelecidos para resposta.
+- Modelo de Falhas de Cristian – Uma abordagem para entender e lidar com falhas no tempo de execução de sistemas distribuídos.
+
+---
+
 ### Falhas por Omissão e Arbitrárias
 
 | Parada<br>por falha       | Processo             | O processo para e permanece parado. Outros processos podem detectar esse estado.                                                               |
@@ -1216,6 +1272,51 @@ Processo 1 recebeu mensagem. Novo relógio: 6
 
 ---
 
+### Byzantine Generals
+
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/byzantine.webp"/>
+
+---
+
+Imagine um grupo de generais bizantinos que precisam coordenar um ataque a um inimigo. Eles se comunicam apenas por meio de mensageiros, mas alguns generais podem ser traidores e enviar informações erradas. O objetivo do grupo leal é decidir em conjunto se devem atacar ou recuar, garantindo que todos os generais leais tomem a mesma decisão, independentemente da ação dos traidores.
+
+O desafio está no fato de que:
+
+- Os generais não podem confiar totalmente na comunicação, pois mensagens podem ser adulteradas ou contraditórias.
+- Alguns generais podem mentir deliberadamente para confundir os outros.
+- O consenso precisa ser alcançado mesmo na presença dessas falhas.
+- O problema dos generais bizantinos demonstra que, sem um protocolo adequado, é impossível alcançar um consenso confiável em um sistema distribuído quando há agentes maliciosos.
+
+
+---
+
+#### Falha Bizantina em Sistemas Distribuídos
+
+Em um sistema distribuído real, uma falha bizantina pode se manifestar das seguintes formas:
+
+- Um nó da rede pode enviar mensagens diferentes para diferentes partes do sistema, causando inconsistências.
+- Um servidor pode processar requisições de maneira incorreta, retornando dados errados ou contraditórios.
+- Mensagens podem ser corrompidas por erro de software ou hardware, gerando informações incoerentes.
+- Ataques de segurança, como a introdução de nós maliciosos em uma rede peer-to-peer, podem comprometer a confiabilidade do sistema.
+
+---
+
+Podemos mitigar o problema da falha Bizantine utilizando as seguintes abordagens:
+
+1. Algoritmos de Consenso Tolerantes a Falhas Bizantinas
+  São protocolos projetados para permitir que um sistema atinja um consenso mesmo na presença de nós maliciosos ou falhos. Exemplos incluem:
+  - PBFT (Practical Byzantine Fault Tolerance) – Um algoritmo que permite que sistemas distribuídos continuem funcionando corretamente, desde que menos de 1/3 dos nós sejam bizantinos.
+  - Algoritmo de Paxos Bizantino – Uma versão modificada do Paxos que lida com falhas arbitrárias.
+  - Algoritmo de consenso do Bitcoin (Proof-of-Work) – Baseado em mineração, ele tolera até 50% de nós maliciosos.
+2. Redundância e Replicação
+  Execução redundante: Múltiplas cópias do mesmo processo são executadas e comparadas para detectar anomalias.
+  Votação majoritária: Se vários nós independentes chegam a um consenso sobre um resultado, ele pode ser considerado confiável.
+3. Criptografia e Assinaturas Digitais
+  Uso de assinaturas digitais para garantir que as mensagens não sejam adulteradas durante a transmissão.
+  Hashing e verificação de integridade para garantir a autenticidade dos dados.
+
+---
+
 ### Falhas de Temporização
 
 - Aplicáveis a sistemas distribuídos síncronos
@@ -1224,11 +1325,11 @@ Processo 1 recebeu mensagem. Novo relógio: 6
 | Relógio    | Processo | O relógio local do processo ultrapassa os limites de sua taxa de desvio em relação ao tempo físico. |
 |------------|:--------:|:---------------------------------------------------------------------------------------------------:|
 | Desempenho | Processo |              O processo ultrapassa os limites do intervalo de tempo entre duas etapas.              |
-| Desempenho | Canal    |                  A transmissão de uma mensagem demora mais do que o limite deﬁnido.                 |
+| Desempenho | Canal    |                  A transmissão de uma mensagem demora mais do que o limite deﬁnido.                |
 
 ---
 
-### Modelo de Falhas de Cristian
+### Modelo de Falhas de Christian
 
 É uma abordagem para caracterizar e detectar falhas em sistemas distribuídos baseada em premissas temporais. Nesse modelo, pressupõe-se que os processos podem falhar de forma definitiva (crash-stop) e que existe um limite superior conhecido para atrasos nas comunicações e respostas. Assim, se um processo não responder dentro desse tempo previamente estipulado, o sistema o considera como tendo falhado.
 
@@ -1236,7 +1337,7 @@ Processo 1 recebeu mensagem. Novo relógio: 6
 - Dependência de limites temporais: o modelo supõe que é possível definir um tempo máximo de resposta (timeout) baseado em características conhecidas da rede e do processamento. Se esse tempo for excedido, o processo é marcado como inoperante.
 - Detecção baseada em timeouts: essa estratégia permite que os sistemas distribuídos identifiquem e isolem falhas, facilitando a implementação de mecanismos de tolerância, mesmo que a determinação exata do “momento” da falha seja complexa em ambientes assíncronos.
 
-O modelo de falhas de Cristian fornece uma base para projetar mecanismos de detecção de falhas em sistemas distribuídos, contando com a existência de limites temporais que permitam distinguir entre atrasos normais e a real inatividade de um processo.
+O modelo de falhas de Christian fornece uma base para projetar mecanismos de detecção de falhas em sistemas distribuídos, contando com a existência de limites temporais que permitam distinguir entre atrasos normais e a real inatividade de um processo.
 
 ---
 
@@ -1300,11 +1401,14 @@ layout: two-cols
 - Garante que cada processo conheça a identidade do remetente
 - Fornece privacidade, integridade e impede reordenação ou reprodução de mensagens
 
+
 ---
 layout: two-cols
 ---
 
 #### Negação de Serviço (DoS)
+
+Um ataque DDoS é um tipo de ataque que visa interromper as operações normais de um servidor, serviço ou rede alvo inundando-o com tráfego de internet. Sobrecarregado com tráfego, o servidor ou rede não consegue mais lidar com solicitações normais, o que faz com que ele fique significativamente mais lento ou trave completamente.
 
 - Denial of Service (DoS)
 - Caracterizado por inúmeras solicitações e transmissões contínuas
@@ -1323,22 +1427,38 @@ layout: two-cols
   - Análise rigorosa do código
 
 <!-- guerra javascript apple
+-->
 
- Ataque à Estônia (2007)
+---
+
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/ddos.jpg"/>
+
+<!--
+Distributed Denial-of-Service (DDoS)
+
+Ataque à Estônia (2007)
 Em 2007, a Estônia foi alvo de uma série de ataques DDoS que paralisaram serviços governamentais, bancários e de mídia. Esses ataques, considerados pioneiros em escala nacional, demonstraram como questões políticas e geopolíticas podem desencadear ataques cibernéticos coordenados.
 
-• Ataque à Spamhaus (2013)
+Ataque à Spamhaus (2013)
 A organização Spamhaus, que combate o envio de spam na internet, sofreu um dos maiores ataques DDoS já registrados. Utilizando técnicas de amplificação, o ataque gerou um volume de tráfego que ultrapassou centenas de gigabits por segundo, evidenciando a capacidade de sobrecarregar redes e serviços críticos.
 
-• Ataque à Dyn (2016)
+Ataque à Dyn (2016)
 Um dos episódios mais impactantes, esse ataque utilizou a botnet Mirai – que explorava dispositivos IoT mal protegidos – para atingir o provedor de DNS Dyn. Como consequência, diversos serviços populares, como Twitter, Netflix e Reddit, enfrentaram indisponibilidade, demonstrando a interdependência das infraestruturas online.
 
-• Ataque ao GitHub (2018)
+Ataque ao GitHub (2018)
 Neste caso, o GitHub foi atingido por um ataque recorde que explorou servidores Memcached para amplificar o tráfego, alcançando picos de 1,35 terabits por segundo. Apesar da rápida mitigação pelo provedor, o episódio serviu como alerta para as novas técnicas de amplificação que podem ser utilizadas em ataques DDoS.
 
 Esses exemplos ressaltam não só a evolução técnica e o aumento da escala dos ataques DDoS, mas também a necessidade contínua de desenvolver mecanismos de defesa robustos para proteger sistemas e serviços críticos na era digital.
-
 -->
+
+---
+
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/ddos.avif"/>
+
+---
+
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/ddos-02.avif"/>
+
 ---
 
 
@@ -1351,5 +1471,11 @@ Wiser, Mark. The Computer for 21 Century. SIGMOBILE Mob. Comput. Commun. Rev., 1
 BDC NETWORK. Taking Full Advantage of Smart Building Technology. Disponível em: https://www.bdcnetwork.com/video/taking-full-advantage-smart-building-technology. Acesso em: 1 fev. 2025.
 
 BRAINVIRE. The Future of Mobile Computing. Disponível em: https://www.brainvire.com/The-future-of-mobile-computing/. Acesso em: 1 fev. 2025.
+
+NORTON. DDoS Attacks. Disponível em: https://us.norton.com/blog/emerging-threats/ddos-attacks. Acesso em: 1 fev. 2025.
+
+SKETCHPLANATIONS. The Two Generals' Problem. Disponível em: https://sketchplanations.com/the-two-generals-problem. Acesso em: 1 fev. 2025.
+
+
 
 Material adaptado do Professor Marcelo Trindade Rebonatto

@@ -110,19 +110,22 @@ Logo, qualquer conteúdo entre a abertura e o fechamento da tag compreende o con
 ```html
 <p>Aqui está um novo parágrafo!</p>
 ```
+<br>
+
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/anatomyhtml1.png"/>
+
 
 ---
 
 As tags podem conter atributos, que são propriedades que customizam/modificam comportamentos ou associam valores
 específicos aos elementos. Assim como os nomes de tags, os atributos são pré-definidos, não podemos inventar novos.
-
 Os atributos são informados na abertura da tag, por meio do seu nome, símbolo e o respectivo valor entre aspas duplas.
 
 ```html
 <p id="par01" class="vermelho" style="font-size:1.3rem">Aqui está um novo parágrafo!</p>
 ```
 
-Define um parágrafo com id `par01` e uma classe com o valor vermelho.
+<img class="m-auto -z-5 bottom-0 top-0 right-0 max-w-full max-h-full" style="background-color: white" src="/anatomyhtml.png"/>
 
 ---
 
