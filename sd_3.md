@@ -8,7 +8,6 @@ drawings:
   persist: false
 image: /side-logo.png
 selectable: true
-colorSchema: dark
 title: Ubiquitous Computing, Clouds, IoT e Smart Environments
 author: Pablo Leon Rodrigues
 export:
@@ -442,6 +441,29 @@ As mensagens são entregues aos assinantes de forma assíncrona, o que significa
 precisam estar disponíveis ao mesmo tempo para que a comunicação ocorra.
 
 Vamos implementar um exemplo de pub/sub com o protocolo amqp usando a biblioteca `pika` e o `rabbitmq`
+
+---
+layout: two-cols
+---
+
+### Exemplo de distribuição
+
+Em um sistema Pub/Sub (Publicador/Assinante), o padrão `fanout` é uma forma de distribuição de mensagens onde uma única mensagem publicada é enviada para múltiplos assinantes.
+
+- O publicador envia uma mensagem para um tópico.
+- Todos os assinantes daquele tópico recebem uma cópia da mensagem.
+- Isso acontece independentemente do número de assinantes.
+
+::right::
+
+Por que o nome "fanout"?
+Imagine um leque (fan) se abrindo: uma única origem (mensagem publicada) se espalha para vários destinos (assinantes). Por isso, chamamos de "fanout".
+
+Por exemplo, um sensor de temperatura publica dados em um tópico sensores/temperatura. Mas três sistemas diferentes assinam esse tópico:
+
+- Um para armazenar no banco de dados.
+- Outro para gerar alertas.
+- Outro para exibir em um painel.
 
 ---
 

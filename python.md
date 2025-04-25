@@ -8,7 +8,6 @@ drawings:
   persist: false
 image: /side-logo.png
 selectable: true
-colorSchema: dark
 title: Python
 author: Pablo Leon Rodrigues
 export:
@@ -828,6 +827,70 @@ match codigo:
 
 
 <img src="/flutter-13.svg" class="block m-auto max-h-115 rounded" />
+
+---
+layout: two-cols
+---
+
+Agora vamos utilizar um editor com mais opções e ferramentas. O [Visual Studio Code](https://code.visualstudio.com/) é um Ambiente de Desenvolvimento Integrado(**Integrated Development Environment - IDE**) da Micrsoft que em partes é open source.
+É a ide mais utilizada no [mundo](https://survey.stackoverflow.co/2024/technology#most-popular-technologies-new-collab-tools).
+
+<img src="/vscode.png" class="block m-auto max-h-80 rounded" />
+
+::right::
+
+✅ 1. Instalar o VS Code
+- Baixe e instale o Visual Studio Code:
+- https://code.visualstudio.com/
+
+✅ 2. Instalar o Python
+- Baixe e instale o Python
+- https://www.python.org/downloads/
+- Marque a opção "Add Python to PATH" durante a instalação.
+
+✅ 3. Instalar a extensão do Python no VS Code
+- Vá em Extensões (Ctrl+Shift+X).
+- Busque por Python (desenvolvida pela Microsoft) e instale.
+
+---
+layout: two-cols
+---
+
+Agora precisamos criar um `venv`. venv é o módulo padrão do Python (desde a versão 3.3) para criar ambientes virtuais isolados.
+Ele permite que você tenha um ambiente Python separado para cada projeto, com suas próprias bibliotecas e dependências.
+
+📦 1. Criar o ambiente
+No terminal, dentro da pasta do seu projeto:
+
+```bash
+python -m venv venv
+```
+Isso cria uma pasta chamada venv com tudo que é necessário.
+
+::right::
+
+🚀 2. Ativar o ambiente
+
+- Windows:
+```bash
+.\venv\Scripts\activate
+```
+
+- Linux/macOS:
+```bash
+source venv/bin/activate
+```
+
+Quando ativado, você verá algo assim no terminal:
+```bash
+(venv) C:\Users\seu-usuario\meu-projeto>
+```
+
+- Selecionar o interpretador Python
+Pressione Ctrl+Shift+P para abrir a paleta de comandos. Digite "Python: Select Interpreter".
+ (deve mostrar `./venv/bin/python` ou `.\venv\Scripts\python.exe`).
+
+
 
 ---
 layout: two-cols

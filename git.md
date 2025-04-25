@@ -26,7 +26,7 @@ layout: two-cols
 
 ## Git
 
-Git é um sistema de controle de versionamento [criado](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README) em 7 de Abril de 2005 por [Linus Torvalds](https://github.com/torvalds). 
+Git é um sistema de controle de versionamento [criado](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README) em 7 de Abril de 2005 por [Linus Torvalds](https://github.com/torvalds).
 Ele é mantido por [Junio Hamano](https://github.com/gitster).
 
 ![](/juniohamano.jpeg)
@@ -41,19 +41,19 @@ GIT - the stupid content tracker
 
 "git" can mean anything, depending on your mood.
 
- - random three-letter combination that is pronounceable, and not 
+ - random three-letter combination that is pronounceable, and not
    actually used by any common UNIX command.  The fact that it is a
    mispronunciation of "get" may or may not be relevant.
- - stupid. contemptible and despicable. simple. Take your pick from the 
+ - stupid. contemptible and despicable. simple. Take your pick from the
    dictionary of slang.
  - "global information tracker": you're in a good mood, and it actually
-   works for you. Angels sing, and a light suddenly fills the room. 
+   works for you. Angels sing, and a light suddenly fills the room.
  - "goddamn idiotic truckload of sh*t": when it breaks
 
-This is a stupid (but extremely fast) directory content manager.  It  
+This is a stupid (but extremely fast) directory content manager.  It
 doesn't do a whole lot, but what it _does_ do is track directory
 contents efficiently.
- 
+
 Initialize Git on a folder, making it a Repository
 Git now creates a hidden folder to keep track of changes in that folder
 When a file is changed, added or deleted, it is considered modified
@@ -108,7 +108,7 @@ Ainda temos as opções:
 - `git add -u` adiciona modificações e remoções, sem novos arquivos
 
 <!--
-git status --short 
+git status --short
 ?? - Untracked files
 A - Files added to stage
 M - Modified files
@@ -133,7 +133,7 @@ commit fe1c6bcbe4bce74c6d75e74da97cfaf8ed0057bf (HEAD -> main, origin/main, orig
 Author: pleonr <pablo.leonrodrigues@gmail.com>
 Date:   Mon Jun 3 10:04:57 2024 -0300
 
-    First Hello World!  
+    First Hello World!
 ```
 
 `origin` é o nome padrão do repositório remoto, `HEAD` é um ponteiro para o commit atual no repositório local.
@@ -142,29 +142,48 @@ que originou o repositório.
 denominado `origin`.
 
 <!--
-- Gerencie projetos com Repositórios(`repositories`) 
-- Clone(`clone`) um projeto para trabalhar em uma cópia local 
-- Controle e rastreie alterações com preparação(`staging`) e confirmação(`commit`) 
+- Gerencie projetos com Repositórios(`repositories`)
+- Clone(`clone`) um projeto para trabalhar em uma cópia local
+- Controle e rastreie alterações com preparação(`staging`) e confirmação(`commit`)
 - Branch(`branch`) and Merge(`merge`) para permitir o trabalho em diferentes partes e versões de um projeto
-- Extraia(`pull`) a versão mais recente do projeto para uma cópia local 
+- Extraia(`pull`) a versão mais recente do projeto para uma cópia local
 - Envie(`push`) atualizações locais para o projeto principal
 -->
 
 ---
 
+- Acesse: [github.com](https://github.com)
+- Clique em **New Repository**
+- Dê um nome, defina como público/privado e crie
+
+## 4. Associar Repositório Local ao GitHub
+
+```bash
+git remote add origin https://github.com/SEU_USUARIO/NOME-DO-REPO.git
+```
+
+## 5. Enviar para o GitHub
+
+```bash
+git push -u origin main
+```
+
+
+---
+
 ## git log
 
-Para verificar o histórico do repositório podemos utilizar o `git log`. 
+Para verificar o histórico do repositório podemos utilizar o `git log`.
 
 ```shell
 commit fe1c6bcbe4bce74c6d75e74da97cfaf8ed0057bf (HEAD -> main, origin/main, origin/HEAD)
 Author: pleonr <pablo.leonrodrigues@gmail.com>
 Date:   Mon Jun 3 10:04:57 2024 -0300
 
-    First Hello World!  
+    First Hello World!
 ```
 
-Porém, o log fica um pouco "extenso", podemos melhorar como o log é mostrado 
+Porém, o log fica um pouco "extenso", podemos melhorar como o log é mostrado
 usando algumas flags como `decorate` e `pretty format`.
 
 ```shell
@@ -179,11 +198,11 @@ layout: two-cols
 
 ## git branch
 
-Uma branch é um ponteiro móvel leve para um commit. As branchs são usadas para desenvolver recursos, corrigir bugs ou experimentar novas ideias isoladamente de outros 
+Uma branch é um ponteiro móvel leve para um commit. As branchs são usadas para desenvolver recursos, corrigir bugs ou experimentar novas ideias isoladamente de outros
 trabalhos realizados no mesmo repositório.
 
 Você pode criar uma nova branch usando o comando `git branch branch-name`. Isso cria um novo ponteiro para o
-commit atual. Qualquer nome pode ser utilizado, mas é uma boa prática indicar a utilidade da branch em seu nome, facilitando 
+commit atual. Qualquer nome pode ser utilizado, mas é uma boa prática indicar a utilidade da branch em seu nome, facilitando
 a identificação e mantendo o repositório organizado.
 
 Você pode mudar para um branch diferente usando `git checkout -b branch-name` ou o comando mais recente
@@ -216,7 +235,7 @@ layout: two-cols
 <br>
 
 
-```shell    
+```shell
 git checkout main
 git branch feature-new
 git checkout feature-new
@@ -244,7 +263,7 @@ gitGraph
     checkout main
     merge feature-new
     commit
-    
+
 ```
 
 ---
@@ -265,8 +284,8 @@ Ele permite que qualquer usuário hospede uma página web para um repositório o
 
 ### Crie um repositório
 
-Vá para o GitHub e crie um novo repositório público chamado `nomedeusuário.github.io`, onde nomedeusuário é o seu 
-nome de usuário (ou nome da organização) no GitHub. 
+Vá para o GitHub e crie um novo repositório público chamado `nomedeusuário.github.io`, onde nomedeusuário é o seu
+nome de usuário (ou nome da organização) no GitHub.
 Se a primeira parte do repositório não corresponder exatamente ao seu nome de usuário, não funcionará!
 então certifique-se de acertar.
 
@@ -284,7 +303,7 @@ Vamos clonar esse repositório criado e trabalhar nele...
 git clone https://github.com/65375/65375.github.io
 ```
 
-Dentro dele vamos começar a criar a página que queremos. Adicionando HTML, CSS, Javascript e tudo que trabalhamos 
+Dentro dele vamos começar a criar a página que queremos. Adicionando HTML, CSS, Javascript e tudo que trabalhamos
 durante o semestre. Não esqueça de commitar...
 
 ```shell
@@ -314,7 +333,7 @@ git push -u origin main
 Aqui talvez seja necessário uma validação extra.. Caso seja necessário inserir o usuário e senha, talvez você encontre
 um erro dizendo que o github não permite alterações utilizando a senha do usuário.
 
-Para resolver isso vamos criar um personal token. Vá até `https://github.com/settings/profile` e procure a opção 
+Para resolver isso vamos criar um personal token. Vá até `https://github.com/settings/profile` e procure a opção
 [`Developer Settings`](https://github.com/settings/apps), provavelmente a última opção no menu lateral.
 
 

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.1.64",
-    "@slidev/cli": "^0.47.4",
+    "@slidev/cli": "^51.4.0",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "3.4.15"
