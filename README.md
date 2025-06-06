@@ -20,3 +20,5 @@ To start the slide show:
 `pm2 start npx --name "slidev" -- slidev ~/repos/slides/typescript.md --remote=teste`
 
 Learn more about Slidev on [documentations](https://sli.dev/).
+
+aqui vai da ruim
