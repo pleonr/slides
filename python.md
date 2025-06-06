@@ -72,7 +72,7 @@ Uma linguagem de programação é o meio pelo qual o programador expressa o algo
 
 - É um idioma com regras específicas usada para comunicar ao computador o que ele deve executar.
 - Cada linguagem tem sua sintaxe, semântica e recursos específicos, mas algumas suportam múltiplos paradigmas.
-- Exemplo: - Python suporta paradigmas imperativo, orientado a objetos e funcional. - C é mais focada no paradigma imperativo/procedural. - Haskell é fortemente funcional.
+- Python suporta paradigmas imperativo, orientado a objetos e funcional. - C é mais focada no paradigma imperativo/procedural. - Haskell é fortemente funcional.
 
 ---
 layout: image-right
@@ -581,7 +581,7 @@ Conforme você deve ter observado, o comando if avalia uma expressão lógica, c
 
 Operadores de comparação são usados para comparar valores e expressões, resultando em valores *booleanos* (True ou False) que indicam se a comparação é verdadeira ou falsa.
 
-| Operador  | Descrição                        | Exemplo       | Retorno |
+| Operador  | Descrição                        | Exemplo      | Retorno |
 |-----------|----------------------------------|--------------|---------|
 | `==`      | Igual a                          | `5 == 5`     | `True`  |
 | `!=`      | Diferente de                     | `5 != 3`     | `True`  |
@@ -889,6 +889,174 @@ Quando ativado, você verá algo assim no terminal:
 - Selecionar o interpretador Python
 Pressione Ctrl+Shift+P para abrir a paleta de comandos. Digite "Python: Select Interpreter".
  (deve mostrar `./venv/bin/python` ou `.\venv\Scripts\python.exe`).
+
+---
+
+## Coleções de dados
+
+As coleções de dados são estruturas fundamentais em programação utilizadas para armazenar e organizar múltiplos valores de maneira eficiente. Elas permitem a manipulação de grandes volumes de informação, possibilitando operações como inserção, remoção, pesquisa e iteração de elementos.
+
+Em Python, as coleções mais comuns são listas, tuplas, conjuntos e dicionários. As listas são estruturas ordenadas e mutáveis, permitindo a adição e remoção de elementos conforme necessário. Já as tuplas são semelhantes às listas, porém imutáveis, o que garante maior segurança e eficiência quando os dados não precisam ser alterados.
+
+Os conjuntos são coleções não ordenadas que não permitem elementos duplicados, sendo úteis para operações como união e interseção. Por outro lado, os qdicionários armazenam pares de chave e valor, possibilitando acesso rápido aos dados por meio de uma chave única, em vez de um índice numérico.
+
+Cada tipo de coleção possui características específicas que se adaptam a diferentes necessidades. O uso adequado dessas estruturas melhora o desempenho do código e facilita a manipulação de informações em diversas aplicações.
+
+---
+
+| Estrutura     | Definição | Características Principais | Exemplo |
+|---------------|-----------|----------------------------|---------|
+| Lista         | ordenada e mutável  | Permite duplicatas, indexada, mutável  | `[1, 2, 3, 4]` |
+| Tupla         | ordenada e imutável | Permite duplicatas, indexada, imutável | `(1, 2, 3, 4)` |
+| Conjunto(set) | não ordenada | Não permite duplicatas, não indexado, mutável | `{1, 2, 3, 4}` |
+| Dicionário    | não ordenada | Chaves únicas, valores mutáveis | `{"a": 1, "b": 2}`|
+
+---
+layout: two-cols
+---
+
+### Listas
+
+As listas são uma estrutura de dados versátil que permite armazenar coleções de itens em uma ordem específica.
+
+São mutáveis, o que significa que você pode adicionar, remover e modificar itens conforme necessário sem gerar uma cópia do objeto. Normalmente, as listas são utilizadas para armazenar dados de forma homogênea, ou seja, todos os items apresentam mesmo tipo. Contudo, é possível criar listas com elementos de tipos distintos, pois o Python não impõe a necessidade de homogeneidade.
+
+Para criar uma lista, podemos especificar os valores entre colchetes. Cada elemento deve ser separado dos demais com vírgulas. Caso a lista deva estar vazia, basta utilizar `[]`.
+
+::right::
+
+```python
+minha_lista = [1, 2, 3, 4, 5]
+outra_lista = ["teste1", "teste2"]
+```
+O acesso aos elementos se dá por meio de um índice numérico (inteiro), que começa SEMPRE em 0.
+O índice deve ser aplicado utilizando o operador de slicing ([]).
+
+```python
+print(minha_lista[0])
+print(outra_lista[2])
+```
+
+O mesmo se aplica ao modificar o valor de uma posição, basta atribuir ao índice desejado um novo valor.
+
+```python
+minha_lista[0] = 100
+print(minha_lista)
+```
+
+---
+layout: two-cols
+---
+
+As principais operações que podem ser realizadas com listas são:
+
+**Adição de elementos**: `append()`, `insert()` <br/>
+```python
+minha_lista = [1,2,3,4]
+minha_lista.append(5)
+minha_lista.insert(0,0)
+minha_lista.insert(5,6)
+```
+
+**Remoção de elementos**: `remove()`, `pop()` <br/>
+
+```python
+minha_lista = [1,2,3,4]
+minha_lista.remove(0)
+minha_lista.pop()
+```
+
+**Ordenação**: `sort()` <br/>
+**Reversão**: `reverse()` <br/>
+**Concatenação**: `+` <br/>
+
+::right::
+
+Já em termos de funções, relacionam-se às listas as funções:
+
+`minha_lista = [1,2,3,4]`
+
+`len()`: Retorna o número de elementos em uma lista. <br/>
+```python
+len(minha_lista)
+```
+
+`sum()`: Retorna a soma de todos os elementos em uma lista. <br/>
+```python
+sum(minha_lista)
+```
+
+`max()` e `min()`: máximo e mínimo em uma lista. <br/>
+```python
+min(minha_lista)
+max(minha_lista)
+```
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+```python
+
+```
+
+```python
+
+```
+
+
+
 
 
 

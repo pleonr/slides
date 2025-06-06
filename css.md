@@ -74,7 +74,7 @@ url: /style.html
 A linguagem CSS3 fornece, basicamente, um vasto conjunto de propriedades de estilo, funções e outras construções que
 podemos utilizar para modificar algum aspecto da aparência dos elementos HTML5.
 
-Uma propriedade de estilo é definida por um nome e um valor. Por exemplo, se desejamos justificar determinado texto, 
+Uma propriedade de estilo é definida por um nome e um valor. Por exemplo, se desejamos justificar determinado texto,
 podemos escrever o seguinte trecho de código:
 
 <pre class="pre">
@@ -84,25 +84,25 @@ podemos escrever o seguinte trecho de código:
 </pre>
 
 A propriedade chama-se text-align e seu valor foi configurado para justify, o qual indica que o texto deve ser
-justificado. Ao final, é necessário colocar `;`. Um mesmo elemento pode receber diversas configurações de estilo 
+justificado. Ao final, é necessário colocar `;`. Um mesmo elemento pode receber diversas configurações de estilo
 através do uso de diferentes propriedades.
 
 ---
 
 ## Incorporar
 
-A incorporação de código CSS3 a documentos HTML5 pode ser realizada de três formas distintas: 
+A incorporação de código CSS3 a documentos HTML5 pode ser realizada de três formas distintas:
 - arquivo externo
 - elemento`<style>`
 - atributo style (inline)
 
-Estilos inline são aqueles que acompanham o elemento, sendo definidos no atributo style. Devem ser utilizados com 
+Estilos inline são aqueles que acompanham o elemento, sendo definidos no atributo style. Devem ser utilizados com
 cautela, pois são difíceis de alterar quando aparecem em grande quantidade no documento. É o caso do elemento `h1`
 do documento apresentado na sequência. Perceba que o estilo se aplica somente ao elemento.
 
 ```html {all|4|all}
 <!DOCTYPE html>
-<html>    
+<html>
     <body>
         <h1 style="color:blue;text-align:center;">Titulo</h1>
     </body>
@@ -111,7 +111,7 @@ do documento apresentado na sequência. Perceba que o estilo se aplica somente a
 
 ---
 
-Quando utilizamos o elemento `<style>` temos maior flexibilidade na aplicação dos estilos, diferentemente do modo 
+Quando utilizamos o elemento `<style>` temos maior flexibilidade na aplicação dos estilos, diferentemente do modo
 inline, podemos aplicar o mesmo estilo a vários elementos do documento por meio de regras. O elemento `<style>` deve
 ser adicionado dentro de `<head>` e todas as regras de estilo devem ser escritas como conteúdo do elemento.
 
@@ -135,9 +135,9 @@ ser adicionado dentro de `<head>` e todas as regras de estilo devem ser escritas
 
 ---
 
-A terceira forma, em que utilizamos a vinculação de um arquivo com regras de estilo ao documento é a mais utilizada. 
+A terceira forma, em que utilizamos a vinculação de um arquivo com regras de estilo ao documento é a mais utilizada.
 Isso porque, quando pensamos em um site, devemos considerar a existência de muitos documentos e, todos eles
-compartilhamento da mesma apresentação. Logo, ao deixarmos as regras de estilo em um único local, podemos facilmente 
+compartilhamento da mesma apresentação. Logo, ao deixarmos as regras de estilo em um único local, podemos facilmente
 compartilhá-las em todos os documentos sem a necessidade de repetir código.
 
 Para realizar a vinculação de um arquivo CSS ao documento devemos utilizar a tag `<link>`, que também deve estar
@@ -157,8 +157,8 @@ na `<head>`.
 
 ## Ordem de Relevância
 
-Em caso de mais de uma forma ser utilizada simultaneamente, a prioridade fica com as propriedades inline, seguidas 
-daquelas definidas para o documento na tag `<style>` e, por último, as regras oriundas dos arquivos incorporados via 
+Em caso de mais de uma forma ser utilizada simultaneamente, a prioridade fica com as propriedades inline, seguidas
+daquelas definidas para o documento na tag `<style>` e, por último, as regras oriundas dos arquivos incorporados via
 `<link>`.
 
 <br>
@@ -195,12 +195,12 @@ declaração finaliza com um `;` e que as declarações ficam envolvidas entre c
 layout: two-cols
 ---
 
-### Universal 
+### Universal
 Todo elemento da página irá receber o estilo. Utilizamos * como seletor.
 
 ```css
-* { 
-    margin: 0px;         
+* {
+    margin: 0px;
 }
 ```
 <br>
@@ -218,13 +218,13 @@ p {
 
 ### Id
 
-Todo elemento HTML possui um atributo chamado `id`. Este atributo é utilizado para identificar de forma única um elemento 
+Todo elemento HTML possui um atributo chamado `id`. Este atributo é utilizado para identificar de forma única um elemento
 no documento. Isso significa que dois elementos não podem compartilhar o mesmo valor em `id`. No CSS, podemos especificar
 um seletor para valores de `id` utilizando o caractere `#` acompanhado do valor de `id` correspondente.
 
 ```css
-#cabecalho { 
-    background-color: black;         
+#cabecalho {
+    background-color: black;
 }
 ```
 
@@ -233,15 +233,15 @@ um seletor para valores de `id` utilizando o caractere `#` acompanhado do valor 
 ### Classe
 
 Outro atributo global de elementos do HTML5 chama-se `class`. Diferentemente de `id`, diferentes elementos podem
-compartilhar do mesmo valor em class e, além disso, vários valores são aceitos, deixando-se um espaço entre eles. 
-Seletores baseados em classe são amplamente utilizados. Sua construção requer o uso do caractere ponto `.` acompanhado 
+compartilhar do mesmo valor em class e, além disso, vários valores são aceitos, deixando-se um espaço entre eles.
+Seletores baseados em classe são amplamente utilizados. Sua construção requer o uso do caractere ponto `.` acompanhado
 do nome da classe.
 
 Podemos deixar o seletor mais específico, associando com um seletor de elemento, como em `p.teste`. A interpretação,
 neste caso, é todo parágrafo que contém a classe teste.
 
 ```css
-.artigo { 
+.artigo {
     text-align: justify;
 }
 p.teste {
@@ -254,7 +254,7 @@ p.teste {
 ### Descendentes
 
 Utilizamos este tipo de seletor para aplicar estilos a elementos com base em seus elementos "pai". Podemos selecionar,
-por exemplo, todos os parágrafos (`<p>`) que são descendentes de artigos (`<article>`), desconsiderando os demais. 
+por exemplo, todos os parágrafos (`<p>`) que são descendentes de artigos (`<article>`), desconsiderando os demais.
 
 ```css
 article p {
@@ -270,21 +270,21 @@ elementos que são "filhos" diretos, devemos utilizar o símbolo `>`, conforme o
 ```css
 article > p {
     font-family: 'Roboto', sans-serif;
-}           
+}
 ```
 
 ---
 
 ### Elementos irmãos
 
-São seletores que consideram elementos de mesmo nível ("irmãos", pois são filhos do mesmo "pai"). Para aplicar um 
-estilo específico para o primeiro parágrafo (`<p>`) que segue um título de segundo nível (`<h2>`), 
+São seletores que consideram elementos de mesmo nível ("irmãos", pois são filhos do mesmo "pai"). Para aplicar um
+estilo específico para o primeiro parágrafo (`<p>`) que segue um título de segundo nível (`<h2>`),
 poderíamos utilizar o operador `+` que indica adjacência:
 
 ```css
-h2 + p { 
+h2 + p {
     font-family: 'Roboto', sans-serif;
-}           
+}
 ```
 
 <br>
@@ -303,8 +303,8 @@ h2 ~ p {
 
 São seletores utilizados para selecionar elementos que contenham um atributo específico sua definição.
 
-```css 
-a[href] { 
+```css
+a[href] {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -333,7 +333,7 @@ layout: two-cols
 
 ### Pseudo-Elementos
 
-São seletores que permitem estilizar partes de um elemento e não sua integralidade. Por exemplo, podemos 
+São seletores que permitem estilizar partes de um elemento e não sua integralidade. Por exemplo, podemos
 estilizar somente a primeira linha de um parágrafo através da regra a seguir.
 ```css
 p::first-line {
@@ -406,11 +406,11 @@ a:visited {
 | Seletor      | Exemplo           | Descrição                                        |
 |--------------|-------------------|--------------------------------------------------|
 | `:active`    | `a:active`        | Selects the active link                          |
-| `:disabled`  | `input:disabled`  | Selects every disabled `<input>` element         |         
+| `:disabled`  | `input:disabled`  | Selects every disabled `<input>` element         |
 | `:empty`     | `p:empty`         | Selects every `<p>` element that has no children |
-| `:enabled`   | `input:enabled`   | Selects every enabled `<input>` element          | 
+| `:enabled`   | `input:enabled`   | Selects every enabled `<input>` element          |
 | `:hover`     | `a:hover`         | Selects links on mouse over                      |
-| `:link`      | `a:link`          | Selects all unvisited links                      |              
+| `:link`      | `a:link`          | Selects all unvisited links                      |
 
 ---
 
@@ -429,7 +429,7 @@ div:not(.oculto) {
 
 O estilo definido com `id` possuí prioridade, seguido pela `classe` e por último por elemento.
 
-* Estilo definido com `id` = `#page { background-color: grey; }` 
+* Estilo definido com `id` = `#page { background-color: grey; }`
 * Estilo definido com `class` `.page { background-color: blue; }`
 * Estilo definido com `elemento` `body { background-color: red; }`
 
@@ -438,15 +438,15 @@ O estilo definido com `id` possuí prioridade, seguido pela `classe` e por últi
 ## Unidades de medida absolutas
 
 As medidas absolutas, como pixels (`px`), polegadas (`in`), centímetros (`cm`), etc., são especificadas com um valor
-fixo que não é afetado pelo ambiente ou contexto da página. Elas fornecem uma precisão absoluta e são consistentes 
+fixo que não é afetado pelo ambiente ou contexto da página. Elas fornecem uma precisão absoluta e são consistentes
 independentemente do dispositivo ou configuração de exibição.
 
-Isso significa que medidas absolutas resultam em elementos com tamanhos fixos e invariáveis, independentemente do 
+Isso significa que medidas absolutas resultam em elementos com tamanhos fixos e invariáveis, independentemente do
 tamanho da tela ou do navegador em que estão sendo exibidos. De modo geral, tal característica impõe problemas de
 adaptação em dispositivos com tamanhos de tela variados, especialmente em dispositivos móveis ou em layouts
 responsivos.
 
-No CSS3 temos a disposição diversas medidas absolutas, contudo a que utilizamos com maior frequência é o 
+No CSS3 temos a disposição diversas medidas absolutas, contudo a que utilizamos com maior frequência é o
 pixel (`px`).
 
 ```css
@@ -460,14 +460,14 @@ width: 300px;
 
 Diferentemente das absolutas, as medidas relativas, como `%` (porcentagem), `em` (relativo ao elemento pai),
 `rem` (relativo ao elemento raiz), `vw` (viewport width), vh (viewport height), etc...
-são dimensionadas com base em algum aspecto do ambiente de layout, como o tamanho da fonte, largura da tela ou 
+são dimensionadas com base em algum aspecto do ambiente de layout, como o tamanho da fonte, largura da tela ou
 tamanho do elemento pai.
 
-São muito utilizadas, pois elas se ajustam dinamicamente conforme o contexto, proporcionando uma melhor adaptação a 
+São muito utilizadas, pois elas se ajustam dinamicamente conforme o contexto, proporcionando uma melhor adaptação a
 diferentes dispositivos e ambientes de visualização. São fundamentais para criar layouts responsivos, onde os elementos
 se ajustam de acordo com o tamanho da tela, garantindo uma experiência consistente em dispositivos variados.
 
-Deste modo, ao usar medidas relativas, é possível manter proporções consistentes entre elementos em diferentes partes 
+Deste modo, ao usar medidas relativas, é possível manter proporções consistentes entre elementos em diferentes partes
 do layout, pois eles são dimensionados proporcionalmente em relação ao ambiente de exibição.
 
 ---
@@ -494,7 +494,7 @@ font-size: 1.2em;
 
 REM define o tamanho relativo à fonte do elemento raiz (normalmente o elemento `<html>`).
 ```css
-margin-left: 2rem;  
+margin-left: 2rem;
 ```
 
 ::right::
@@ -521,16 +521,16 @@ height: 80vmax;
 
 ## Cores
 
-Cores são um dos recursos mais importantes da linguagem CSS. Várias propriedades de estilo as utilizam, como àquelas 
+Cores são um dos recursos mais importantes da linguagem CSS. Várias propriedades de estilo as utilizam, como àquelas
 que modificam bordas, preenchimento de fundo, texto e sombras, por exemplo.
 
 Temos a disposição grande variedade de cores (mais de 16 milhões) e podemos especificá-las de várias formas.
 A mais simples é através do nome da cor, se a mesma constar no rol de cores suportadas pelo navegador e/ou
-predefinidas na especificação do CSS3. Embora simples, esta não costuma ser a forma mais adequada para definir 
+predefinidas na especificação do CSS3. Embora simples, esta não costuma ser a forma mais adequada para definir
 valor de cor.
 
-As outras opções que temos são código hexadecimal e as funções rgb, rgba, hsl e hlsa. Dentre todos, o código 
-hexadecimal é a opção mais comum, correspondendo a um conjunto de 6 caracteres iniciado com o símbolo #. Estes 
+As outras opções que temos são código hexadecimal e as funções rgb, rgba, hsl e hlsa. Dentre todos, o código
+hexadecimal é a opção mais comum, correspondendo a um conjunto de 6 caracteres iniciado com o símbolo #. Estes
 caracteres representam a quantidade de vermelho, verde e azul que irá compor a cor final.
 
 <!--
@@ -543,7 +543,7 @@ Red Green Blue
 layout: two-cols
 ---
 
-Cada canal de cor pode receber valores entre `00` (sem cor) a `ff` (cor cheia). Logo, o código `#000000` é branco, 
+Cada canal de cor pode receber valores entre `00` (sem cor) a `ff` (cor cheia). Logo, o código `#000000` é branco,
 enquanto que `#ffffff` indica a cor preta. Já para as funções rgb e rgba, a quantidade de cor de cada canal é definida
 no intervalo 0 e 255, no caso da rgba, um último valor entre 0.0 e 1.0 indicando a transparência aplicada.
 
@@ -563,7 +563,7 @@ body {
 }
 ```
 
-O outro modelo de cores suportado chama-se HSL (Hue-Saturation-Lightness), especificado por meio das funções `hsl` e 
+O outro modelo de cores suportado chama-se HSL (Hue-Saturation-Lightness), especificado por meio das funções `hsl` e
 `hlsa`. Novamente a função terminada com a permite especificar o canal alpha para transparência.
 
 ```css
@@ -583,7 +583,7 @@ layout: two-cols
 }
 </style>
 
-| Cor                                           | Nome    | Hex Code | RGB Code           | 
+| Cor                                           | Nome    | Hex Code | RGB Code           |
 |-----------------------------------------------|---------|----------|--------------------|
 | <mdi-square-rounded style="color:#FFFFFF;" /> | White   | #FFFFFF  | rgb(255, 255, 255) |
 | <mdi-square-rounded style="color:#C0C0C0;" /> | Silver  | #C0C0C0  | rgb(192, 192, 192) |
@@ -597,7 +597,7 @@ layout: two-cols
 
 ::right::
 
-| Cor                                           | Nome    | Hex Code | RGB Code           | 
+| Cor                                           | Nome    | Hex Code | RGB Code           |
 |-----------------------------------------------|---------|----------|--------------------|
 | <mdi-square-rounded style="color:#00FF00;" /> | Lime    | #00FF00  | rgb(0, 255, 0)     |
 | <mdi-square-rounded style="color:#008000;" /> | Green   | #008000  | rgb(0, 128, 0)     |
@@ -613,7 +613,7 @@ layout: two-cols
 
 ## Fontes
 
-A escolha de uma fonte é crucial para o sucesso de uma interface web, visto que está diretamente ligada à 
+A escolha de uma fonte é crucial para o sucesso de uma interface web, visto que está diretamente ligada à
 experiência de leitura do usuário.
 
 As propriedades de estilo que o CSS3 nos fornece para manipularmos fontes são `font-family`, `font-style`, `font-weight`,
@@ -629,13 +629,13 @@ layout: two-cols
 
 ### Font Family
 
-Especifica a família de fontes que o navegador deve utilizar para renderizar o texto. A propriedade aceita vários 
-valores separados por vírgula, indicando opções de fontes quando não for possível utilizar a anterior. Normalmente 
-finalizamos especificando uma das cinco famílias genérias de fonte disponíveis: `serif`, `sans-serif`, `monospace`, 
+Especifica a família de fontes que o navegador deve utilizar para renderizar o texto. A propriedade aceita vários
+valores separados por vírgula, indicando opções de fontes quando não for possível utilizar a anterior. Normalmente
+finalizamos especificando uma das cinco famílias genérias de fonte disponíveis: `serif`, `sans-serif`, `monospace`,
 `coursive` e `fantasy`.
 
 A família genérica deve ser utilizada para contornar a possibilidade do usuário não ter disponível em seu navegador
-as outras famílias listadas. Logo, nestes casos, o navegador conseguirá preservar o padrão tipográfico com outra 
+as outras famílias listadas. Logo, nestes casos, o navegador conseguirá preservar o padrão tipográfico com outra
 fonte semelhante disponível.
 
 No CSS existem cinco `font-family`, que o navegador pode utilizar para renderizar o texto.
@@ -679,8 +679,8 @@ p.italic {
 
 ### Font Weight
 
-Define o peso (intensidade de negrito) da fonte. Os valores podem ser `normal`, `bold`, `bolder`, `lighter`, `100, 
-200, 300, 400, 500, 600, 700, 800, 900` e `inherit`. Os valores numéricos indicam uma graduação de negrito. 
+Define o peso (intensidade de negrito) da fonte. Os valores podem ser `normal`, `bold`, `bolder`, `lighter`, `100,
+200, 300, 400, 500, 600, 700, 800, 900` e `inherit`. Os valores numéricos indicam uma graduação de negrito.
 O valor 400 equivale a normal enquanto o valor 700 é equivalente a bold.
 
 ::right::
@@ -705,7 +705,7 @@ layout: two-cols
 
 ### Font Variant
 
-Indica se o texto deve ser exibido ou não considerando apenas caracteres maiúsculos, utilizando a propriedade 
+Indica se o texto deve ser exibido ou não considerando apenas caracteres maiúsculos, utilizando a propriedade
 `small-caps`
 
 ```css
@@ -723,7 +723,7 @@ p.small {
 
 ### Font Size
 
-Permite especificar o tamanho da fonte, a partir de medidas relativas, como percentual, em, rem, etc ou medidas 
+Permite especificar o tamanho da fonte, a partir de medidas relativas, como percentual, em, rem, etc ou medidas
 absolutas como pixels.
 
 ```css
@@ -825,7 +825,7 @@ url: /google-fonts.html
 
 ### Google Fonts
 
-Se não quiser usar nenhuma das fontes padrão em HTML, você pode usar o Google Fonts. Eles são de uso gratuito e 
+Se não quiser usar nenhuma das fontes padrão em HTML, você pode usar o Google Fonts. Eles são de uso gratuito e
 têm mais de 1000 fontes para você escolher.
 
 ```html
@@ -902,20 +902,20 @@ layout: two-cols
 
 ## Box model
 
-O modelo de caixa CSS é um conceito fundamental no desenvolvimento web que determina como os elementos HTML são 
-exibidos e posicionados em uma página web. Essencialmente, ele divide cada elemento em uma caixa retangular 
+O modelo de caixa CSS é um conceito fundamental no desenvolvimento web que determina como os elementos HTML são
+exibidos e posicionados em uma página web. Essencialmente, ele divide cada elemento em uma caixa retangular
 com quatro componentes principais:
 
-- Conteúdo(*content*): Esta é a área central onde reside o conteúdo real do elemento, como texto, imagens ou formulários. 
+- Conteúdo(*content*): Esta é a área central onde reside o conteúdo real do elemento, como texto, imagens ou formulários.
 Você pode estilizar o conteúdo com propriedades como cor de fundo ou estilos de fonte.
 
 ::right::
 
 - Preenchimento(*padding*): Esta é uma área transparente que adiciona espaço ao redor do conteúdo. O preenchimento cria
-um buffer entre o conteúdo e a borda. 
-- Borda(*border*): Esta é a linha externa decorativa que envolve o conteúdo e o preenchimento. Você pode controlar o 
-estilo da borda (sólida, tracejada, pontilhada), espessura e cor. 
-- Margem(*margin*): É a área transparente fora da borda que cria um espaçamento entre o elemento e os demais elementos 
+um buffer entre o conteúdo e a borda.
+- Borda(*border*): Esta é a linha externa decorativa que envolve o conteúdo e o preenchimento. Você pode controlar o
+estilo da borda (sólida, tracejada, pontilhada), espessura e cor.
+- Margem(*margin*): É a área transparente fora da borda que cria um espaçamento entre o elemento e os demais elementos
 da página. As margens permitem melhor organização e capacidade de resposta nos layouts.
 
 ---
@@ -933,7 +933,7 @@ div {
 }
 ```
 
-O modelo de caixa CSS é essencialmente uma caixa que envolve cada elemento HTML. Consiste em: bordas, preenchimento, 
+O modelo de caixa CSS é essencialmente uma caixa que envolve cada elemento HTML. Consiste em: bordas, preenchimento,
 margens e o conteúdo real.
 
 ---
@@ -960,7 +960,7 @@ $$
 ```
 ::right::
 
-Para calcular a altura total do elemento(tel) usamos  
+Para calcular a altura total do elemento(tel) usamos
 
 $$
 tel = \begin{cases}
@@ -986,13 +986,13 @@ url: /pos-static.html
 
 ## Posicionamento
 
-O posicionamento CSS refere-se a como você controla o posicionamento dos elementos em uma página da web, 
-independentemente do fluxo normal do documento. Por padrão, os elementos aparecem um após o outro na ordem em que 
+O posicionamento CSS refere-se a como você controla o posicionamento dos elementos em uma página da web,
+independentemente do fluxo normal do documento. Por padrão, os elementos aparecem um após o outro na ordem em que
 são escritos no código HTML.
 
 ### **Estático** - *static*
-Este é o posicionamento padrão para todos os elementos. Os elementos são posicionados de acordo com o fluxo normal 
-do documento, o que significa que aparecem um após o outro na ordem em que são escritos no código HTML. 
+Este é o posicionamento padrão para todos os elementos. Os elementos são posicionados de acordo com o fluxo normal
+do documento, o que significa que aparecem um após o outro na ordem em que são escritos no código HTML.
 
 ```css
 div.static {
@@ -1008,9 +1008,9 @@ url: /pos-relative.html
 
 ### **Relativo** - *relative*
 
-Elementos com posicionamento relativo permanecem em sua posição normal no fluxo, mas você pode deslocá-los 
-usando propriedades como `top`, `right`, `bottom`, e `left`. Estas propriedades movem o elemento em relação à 
-sua posição original sem afetar o layout de outros elementos. 
+Elementos com posicionamento relativo permanecem em sua posição normal no fluxo, mas você pode deslocá-los
+usando propriedades como `top`, `right`, `bottom`, e `left`. Estas propriedades movem o elemento em relação à
+sua posição original sem afetar o layout de outros elementos.
 
 ```css
 div.relative {
@@ -1027,10 +1027,10 @@ url: /pos-absolute.html
 
 ### **Absoluto** - *absolute*
 
-Os elementos posicionados de forma absoluta são removidos do fluxo normal do documento e posicionados 
-em relação ao seu ancestral posicionado mais próximo (geralmente um elemento pai com posicionamento relativo ou 
-absoluto, ou a janela de visualização se nenhum ancestral estiver posicionado). Sua posição é determinada usando as 
-propriedades `top`, `right`, `bottom`, e `left` em relação ao bloco que o contém. 
+Os elementos posicionados de forma absoluta são removidos do fluxo normal do documento e posicionados
+em relação ao seu ancestral posicionado mais próximo (geralmente um elemento pai com posicionamento relativo ou
+absoluto, ou a janela de visualização se nenhum ancestral estiver posicionado). Sua posição é determinada usando as
+propriedades `top`, `right`, `bottom`, e `left` em relação ao bloco que o contém.
 
 ```css
 div.absolute {
@@ -1051,9 +1051,9 @@ url: /pos-fixed.html
 ### **Fixo** - *fixed*
 
 Os elementos posicionados fixos são semelhantes aos elementos posicionados de forma absoluta, mas são
-posicionados em relação à janela de visualização e não ao bloco que os contém. Isso significa que eles permanecem 
-no lugar mesmo quando a página é rolada. O posicionamento fixo é útil para elementos que você deseja que permaneçam 
-visíveis na tela o tempo todo, como barras de navegação ou menus laterais. 
+posicionados em relação à janela de visualização e não ao bloco que os contém. Isso significa que eles permanecem
+no lugar mesmo quando a página é rolada. O posicionamento fixo é útil para elementos que você deseja que permaneçam
+visíveis na tela o tempo todo, como barras de navegação ou menus laterais.
 
 ```css
 div.fixed {
@@ -1072,9 +1072,9 @@ url: /pos-stick.html
 
 ### **Grudento** - *stick*:
 
-O posicionamento fixo combina aspectos de posicionamento relativo e fixo. Os elementos com posicionamento 
-fixo são inicialmente posicionados em relação à sua posição normal no fluxo, mas aderem à borda do bloco que os contém 
-quando rolados além de um determinado ponto. O posicionamento fixo é útil para elementos que você deseja que
+O posicionamento stick combina aspectos de posicionamento relativo e fixo. Os elementos com posicionamento
+stick são inicialmente posicionados em relação à sua posição normal no fluxo, mas aderem à borda do bloco que os contém
+quando rolados além de um determinado ponto. O posicionamento stick é útil para elementos que você deseja que
 permaneçam visíveis até que sejam rolados, como cabeçalhos de coluna em uma tabela.
 
 ```css
@@ -1097,45 +1097,45 @@ A propriedade `display` especifica como o comportamento exibição do elemento. 
 | `display`    | Descrição                                                                                                                 |
 |--------------|---------------------------------------------------------------------------------------------------------------------------|
 | `inline`:    | Exibe um elemento como um elemento embutido (como `<span>`). Quaisquer propriedades de altura e largura não terão efeito. |
-| `block`:     | Exibe um elemento como um elemento de bloco (como `<p>`). Ele começa em uma nova linha e ocupa toda a largura             | 
-| `contents`:  | Faz o contêiner desaparecer, tornando os elementos filhos filhos do elemento no próximo nível acima no DOM                | 
-| `flex`:      | Exibe um elemento como um flex container em nível de bloco                                                                | 
+| `block`:     | Exibe um elemento como um elemento de bloco (como `<p>`). Ele começa em uma nova linha e ocupa toda a largura             |
+| `contents`:  | Faz o contêiner desaparecer, tornando os elementos filhos filhos do elemento no próximo nível acima no DOM                |
+| `flex`:      | Exibe um elemento como um flex container em nível de bloco                                                                |
 | `grid`:      | Exibe um elemento como um bloco- contêiner de grade de nível                                                              |
 | `none`:      | Remove o elemento completamente do DOM                                                                                    |
-	
+
 ---
 
 ## Flexbox
 
-Flexbox, também conhecido como CSS Flexible Box Layout, é um modelo amplamente utilizado para criar layouts 
+Flexbox, também conhecido como CSS Flexible Box Layout, é um modelo amplamente utilizado para criar layouts
 em páginas da web. Oferece uma maneira mais eficiente de organizar e distribuir elementos em um `container`,
 especialmente quando se trata de design responsivo e elementos com dimensões desconhecidas ou dinâmicas.
 
-O Flexbox funciona estabelecendo um elemento contêiner utilizando `display: flex` que abriga elementos filhos (flex items). 
+O Flexbox funciona estabelecendo um elemento contêiner utilizando `display: flex` que abriga elementos filhos (flex items).
 Esses itens flexíveis são dispostos ao longo de um único eixo (uma linha ou coluna), com propriedades
 controlando seu alinhamento, distribuição de espaço e comportamento de redimensionamento.
 
-- Flexibilidade: organize facilmente os elementos horizontal ou verticalmente e ajuste seu tamanho com base no espaço 
-disponível. 
-- Capacidade de resposta: os layouts Flexbox se adaptam bem a diferentes tamanhos de tela, tornando suas páginas da 
+- Flexibilidade: organize facilmente os elementos horizontal ou verticalmente e ajuste seu tamanho com base no espaço
+disponível.
+- Capacidade de resposta: os layouts Flexbox se adaptam bem a diferentes tamanhos de tela, tornando suas páginas da
 web responsivas.
 - Alinhamento: controle preciso sobre como os elementos são alinhados dentro do contêiner, tanto horizontal quanto
-verticalmente. 
+verticalmente.
 - Espaçamento: Gerencie a distribuição do espaço entre os elementos, permitindo espaços uniformes ou alocação flexível.
 
 ---
 layout: two-cols
 ---
 
-Para pensar no flex-box, podemos imaginar que num contêiner os elementos vão ser posicionados 
-em eixos `cross` e `main`. 
+Para pensar no flex-box, podemos imaginar que num contêiner os elementos vão ser posicionados
+em eixos `cross` e `main`.
 
 ![](/flex-box.png)
 
 
 ::right::
 
-Um elemento que recebe a propriedade `display: flex;` é chamado de `flex container`. E pode receber várias outras 
+Um elemento que recebe a propriedade `display: flex;` é chamado de `flex container`. E pode receber várias outras
 definições.
 
 Dentre elas temos:
@@ -1152,7 +1152,7 @@ layout: two-cols
 
 #### `flex-wrap`
 
-Por padrão, os flex items vão todos tentar se encaixar em uma só linha, usando `flex-wrap`podemos permitir 
+Por padrão, os flex items vão todos tentar se encaixar em uma só linha, usando `flex-wrap`podemos permitir
 que os ítens quebrem para uma linha seguinte conforme for necessário.
 
 - `nowrap` (padrão): todos os flex items ficarão em uma só linha
@@ -1175,13 +1175,13 @@ que os ítens quebrem para uma linha seguinte conforme for necessário.
 
 #### `flex-flow`
 
-A propriedade `flex-flow` é uma propriedade shorthand (uma mesma declaração inclui vários valores relacionados a mais 
-de uma propriedade) que inclui flex-direction e flex-wrap. E determina quais serão os eixos pricipal e transversal do 
+A propriedade `flex-flow` é uma propriedade shorthand (uma mesma declaração inclui vários valores relacionados a mais
+de uma propriedade) que inclui flex-direction e flex-wrap. E determina quais serão os eixos pricipal e transversal do
 container. O valor padrão é `row nowrap`.
 
 ```css
 .flex-container {
-    flex-flow: row nowrap 
+    flex-flow: row nowrap
         | row wrap
         | column nowrap
         | column wrap;
@@ -1198,7 +1198,7 @@ Podemos alinhar os elementos dentro do container na direção do eixo principal 
 
 #### `flex-start`
 
-Alinha da esquerda para a direita no main axis. 
+Alinha da esquerda para a direita no main axis.
 
 <div style="display: flex; justify-content: flex-start; background-color: lightgrey; border-radius: 5px;">
     <div class="flex-box-item" style="background-color: #73AD21;">1</div>
@@ -1248,8 +1248,8 @@ layout: two-cols
 <style>
     .item {
         margin: 5px;
-        border-radius: 5px; 
-        height:50px; 
+        border-radius: 5px;
+        height:50px;
         width: 50px;
     }
 </style>
@@ -1278,9 +1278,9 @@ Alinha os elementos deixando um espaço igual entre todos os elementos
 
 ::right::
 
-Também existem duas palavras-chave adicionais que você pode usar em conjunto com estes valores: `safe` e `unsafe`. 
-Safe garante que, independente da forma que você faça esse tipo de posicionamento, não seja possível "empurrar" um 
-elemento e fazer com que ele seja renderizado para fora da tela (por exemplo, acima do topo), de uma forma que faça 
+Também existem duas palavras-chave adicionais que você pode usar em conjunto com estes valores: `safe` e `unsafe`.
+Safe garante que, independente da forma que você faça esse tipo de posicionamento, não seja possível "empurrar" um
+elemento e fazer com que ele seja renderizado para fora da tela (por exemplo, acima do topo), de uma forma que faça
 com que o conteúdo seja impossível de movimentar com a rolagem da tela (o CSS chama isso de "perda de dados").
 
 ---
@@ -1427,7 +1427,7 @@ https://developer.mozilla.org/en-US/docs/Learn/CSS
 
 https://diegolusa.github.io/web
 
-https://dev.to/r4h33m/cmyk-and-rgb-hsv-and-hsl-introducing-the-chromatic-compendium-1d7 
+https://dev.to/r4h33m/cmyk-and-rgb-hsv-and-hsl-introducing-the-chromatic-compendium-1d7
 
 https://htmlcolorcodes.com/
 

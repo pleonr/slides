@@ -6,7 +6,7 @@ To start the slide show:
 - `npm run dev`
 - visit http://localhost:3030
 
-`npm run dev mobile_dev_II_1.md` 
+`npm run dev mobile_dev_II_1.md`
 
 `npm run dev web_dev_I_1.md`
 
@@ -20,5 +20,3 @@ To start the slide show:
 `pm2 start npx --name "slidev" -- slidev ~/repos/slides/typescript.md --remote=teste`
 
 Learn more about Slidev on [documentations](https://sli.dev/).
-
-aqui vai da ruim

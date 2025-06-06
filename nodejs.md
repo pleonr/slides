@@ -33,7 +33,7 @@ O Node.js executa o mecanismo JavaScript V8, o núcleo do Google Chrome, fora do
 Um aplicativo Node.js é executado em um único processo, sem criar um novo thread para cada
 solicitação. 
 
-O node possibilita criar código para o servidor usando a mesma linguagem(JavaScript) utilizada no lad do cliente.
+O node possibilita criar código para o servidor usando a mesma linguagem(JavaScript) utilizada no lado do cliente.
 
 O nodejs tem utiliza [package managers](https://nodejs.org/en/download/package-manager) para instalação do node. Além
 de existir binários para os principais SO's e a opção de compilar o código fonte.

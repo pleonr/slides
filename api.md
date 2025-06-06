@@ -22,10 +22,6 @@ export:
 
 <Toc maxDepth="3"></Toc>
 
----
-
-# API's e Microserviços
-
 
 ---
 
@@ -71,8 +67,8 @@ layout: piramede
 
 ### SOA - Arquitetura Orientada a Serviços
 
-A SOA é uma abordagem arquitetural onde a funcionalidade é dividida em serviços reutilizáveis, que podem ser acessados de forma independente. 
-Esses serviços se comunicam usando protocolos padronizados, como SOAP ou REST. 
+A SOA é uma abordagem arquitetural onde a funcionalidade é dividida em serviços reutilizáveis, que podem ser acessados de forma independente.
+Esses serviços se comunicam usando protocolos padronizados, como SOAP ou REST.
 
 Normalmente utiliza serviços independentes onde cada serviço desempenha uma função específica e pode ser reutilizado por diferentes aplicações, utilizando a rede para comunicação.
 
@@ -99,7 +95,7 @@ layout: piramede
 
 ### Arquitetura de Microservices
 
-A arquitetura de Microservices é uma evolução da SOA, mas com uma abordagem mais descentralizada. 
+A arquitetura de Microservices é uma evolução da SOA, mas com uma abordagem mais descentralizada.
 Cada microserviço pode ser aplicação independente com seu próprio ciclo de vida, banco de dados e linguagem.
 
 ::left::
@@ -138,7 +134,7 @@ layout: two-cols
 
 Uma API(*Application programming interface*) é uma forma de comunicação entre computadores e componentes.
 
-Em 1940 os cientistas britânicos Maurice Wilkes e David Wheeler trabalhavam em um sistema de catálogo de bibliotecas 
+Em 1940 os cientistas britânicos Maurice Wilkes e David Wheeler trabalhavam em um sistema de catálogo de bibliotecas
 de notas, que eram perfuradas para montar um sistema(*punched cards*). Hoje em dia tal organização seria chamada de API.
 
 ![](/punchcards.jpg)
@@ -168,7 +164,7 @@ ideia de uma "interface de programação de aplicativos baseada em rede" que Fie
 
 ### Web API's
 
-Na década de 1990, a necessidade de comunicação entre diferentes sistemas online começou a aumentar. Empresas começaram a perceber que permitir a integração entre seus sistemas e os de terceiros era uma maneira de ampliar o alcance de seus serviços. 
+Na década de 1990, a necessidade de comunicação entre diferentes sistemas online começou a aumentar. Empresas começaram a perceber que permitir a integração entre seus sistemas e os de terceiros era uma maneira de ampliar o alcance de seus serviços.
 
 - SOAP (Simple Object Access Protocol): Criado em 1998, foi um dos primeiros protocolos para APIs baseadas na web. Ele usava XML para comunicação e permitia que diferentes sistemas pudessem se comunicar por meio da internet.
 
@@ -176,7 +172,7 @@ Nos anos 2000, o desenvolvimento web explodiu, e junto com isso, as APIs começa
 
 - REST: Ao contrário de SOAP, que era mais complexo e pesado, REST utilizava os métodos HTTP (GET, POST, PUT, DELETE) e URLs como identificadores de recursos.
 
-<!-- 
+<!--
 Existem diversos tipos de API's, como sempre a melhor sulução é ... *depende*{style="color: green;"}.
 Aqui vamos abordar os 6 estilos de arquitetura de API's mais utilizados e seus pontos fracos e fortes.
 
@@ -217,8 +213,8 @@ e pode ser utilizado com qualquer linguagem ou sistema operacional.
 - Os serviços SOAP requerem mais largura de banda e recursos devido à sua natureza detalhada.
 - SOAP é menos adequado para integrações simples devido à sua complexidade.
 
-<!-- 
-ACID é um conceito que se refere às quatro propriedades de transação de um sistema de banco de dados: Atomicidade, 
+<!--
+ACID é um conceito que se refere às quatro propriedades de transação de um sistema de banco de dados: Atomicidade,
 Consistência, Isolamento e Durabilidade.
 
 - **Atomicidade**: Em uma transação envolvendo duas ou mais partes de informações discretas, ou a transação será
@@ -239,22 +235,22 @@ layout: piramede
 
 ### GraphQL
 
-[GraphQL](https://graphql.org/) é uma linguagem de consulta e manipulação de dados de código aberto para APIs. Ele permite que os clientes 
-especifiquem a estrutura dos dados necessários, permitindo que os servidores retornem com precisão os dados 
+[GraphQL](https://graphql.org/) é uma linguagem de consulta e manipulação de dados de código aberto para APIs. Ele permite que os clientes
+especifiquem a estrutura dos dados necessários, permitindo que os servidores retornem com precisão os dados
 solicitados.
 
 ::left::
 
 #### Prós{style="color: green;"}
 
-- GraphQL minimiza a sobrecarga de transferência de dados retornando apenas os dados solicitados. 
+- GraphQL minimiza a sobrecarga de transferência de dados retornando apenas os dados solicitados.
 - Permite buscar dados de vários recursos em uma única solicitação.
 
 ::right::
 
 #### Cons{style="color: red;"}
 
-- Complexidade: GraphQL tem uma curva de aprendizado acentuada devido à sua singularidade. 
+- Complexidade: GraphQL tem uma curva de aprendizado acentuada devido à sua singularidade.
 - Cache: as consultas GraphQL são mais difíceis de armazenar em cache no nível da rede devido à sua natureza não padronizada.
 
 ---
@@ -290,22 +286,22 @@ layout: piramede
 
 ### WebSocket
 
-[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) é um protocolo que fornece canais de 
-comunicação full-duplex em uma única conexão TCP. Ele permite que os servidores enviem atualizações em tempo 
+[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) é um protocolo que fornece canais de
+comunicação full-duplex em uma única conexão TCP. Ele permite que os servidores enviem atualizações em tempo
 real aos clientes, tornando-o ideal para aplicativos de bate-papo, jogos em tempo real e feeds ao vivo.
 
 ::left::
 
 #### Prós{style="color: green;"}
 
-- WebSocket fornece comunicação bidirecional em tempo real. 
+- WebSocket fornece comunicação bidirecional em tempo real.
 - Reduz a latência mantendo uma conexão aberta com o servidor.
 
 ::right::
 
 #### Cons{style="color: red;"}
 
-- WebSockets podem consumir muitos recursos, causando problemas de dimensionamento. 
+- WebSockets podem consumir muitos recursos, causando problemas de dimensionamento.
 - Pode exigir salvaguardas adicionais, pois ignora o modelo de segurança HTTP padrão.
 
 ---
@@ -323,14 +319,14 @@ aplicativos ou serviços sobre eventos específicos.
 
 #### Prós{style="color: green;"}
 
-- Tempo real: WebHooks permitem a entrega de dados em tempo real. 
+- Tempo real: WebHooks permitem a entrega de dados em tempo real.
 - Simples de usar: A configuração e execução de WebHooks são diretas.
 
 ::right::
 
 #### Cons{style="color: red;"}
 
-- Segurança: WebHooks requerem manuseio cuidadoso para evitar a exposição de dados confidenciais. 
+- Segurança: WebHooks requerem manuseio cuidadoso para evitar a exposição de dados confidenciais.
 - Não confiáveis: sem o tratamento adequado de erros, eles podem levar à perda de dados.
 
 
@@ -353,14 +349,14 @@ seguem para criar APIs bem estruturadas e eficientes.
 
 #### Prós{style="color: green;"}
 
-- REST é fácil de implementar e usar, com um mapeamento direto para o protocolo HTTP. 
+- REST é fácil de implementar e usar, com um mapeamento direto para o protocolo HTTP.
 - Os serviços RESTful funcionam automaticamente com proxies e gateways, melhorando a infraestrutura da Internet.
 
 ::right::
 
 #### Cons{style="color: red;"}
 
-- REST carece de um padrão definitivo, o que pode levar a ambigüidades no design da API. 
+- REST carece de um padrão definitivo, o que pode levar a ambigüidades no design da API.
 - APIs REST podem resultar em busca excessiva ou insuficiente de dados.
 
 
@@ -373,7 +369,7 @@ seguem para criar APIs bem estruturadas e eficientes.
 
 #### Princípios
 
-O estilo REST é baseado em alguns princípios arquiteturais fundamentais, que devem ser seguidos para que uma API seja considerada "RESTful". 
+O estilo REST(*REpresentational State Transfer*) é baseado em alguns princípios arquiteturais fundamentais, que devem ser seguidos para que uma API seja considerada "RESTful".
 `Simplicity`, `Scalability`, `Interoperability`, `Maintainability`
 Como analogia imagine que o REST é a planta de uma construção. RESTful é quando a construção é feita seguindo a planta.
 
@@ -425,7 +421,7 @@ A interface REST define uma interface uniforme entre o cliente e o servidor, o q
 
 Os quatro principais elementos da interface uniforme são:
 
-- Identificação de Recursos: Cada recurso é identificado por uma URL única.
+- Identificação de Recursos: Cada recurso é identificado por uma URL única. Uso consistente de verbo HTTP.
 - Manipulação de Recursos através de Representações: Os clientes interagem com os recursos por meio de suas "representações" (por exemplo, JSON, XML), e não diretamente.
 - Mensagens Auto-descritivas: Cada requisição e resposta contém informações suficientes para que o cliente ou servidor saiba como processá-las sem contexto adicional.
 - HATEOAS (Hypermedia as the Engine of Application State): O cliente deve ser capaz de navegar entre os recursos da API dinamicamente através de links fornecidos nas respostas
@@ -434,29 +430,29 @@ Os quatro principais elementos da interface uniforme são:
 
 #### Como funciona?
 
-Imagine duas aplicações comunicando-se por um garçom em um restaurante. O garçom atua como API, retransmitindo 
-seu pedido (pedido) para a cozinha (servidor) e trazendo sua comida (resposta). 
+Imagine duas aplicações comunicando-se por um garçom em um restaurante. O garçom atua como API, retransmitindo
+seu pedido (pedido) para a cozinha (servidor) e trazendo sua comida (resposta).
 
 - Cliente: O aplicativo que solicita informações ou executa uma ação.
 - Servidor: O sistema que fornece os dados ou funcionalidade.
-- API: O intermediário que traduz a solicitação do cliente em um formato que o servidor entende e devolve a 
+- API: O intermediário que traduz a solicitação do cliente em um formato que o servidor entende e devolve a
 resposta ao cliente.
 
-A comunicação geralmente acontece através de solicitações HTTP (como GET ou POST) e respostas (contendo dados 
+A comunicação geralmente acontece através de solicitações HTTP (como GET ou POST) e respostas (contendo dados
 como JSON ou XML). Pense nisso como uma conversa estruturada com comandos e respostas específicas.
 
 ---
 
 #### URL
 
-Ao acessar um endereço de uma api utilizamos uma URL(*Uniform resource locator*) para fazer a solicitação essa URL 
-utiliza partes que podemos identificar como "scheme", "authority, domain, path, query".  
+Ao acessar um endereço de uma api utilizamos uma URL(*Uniform resource locator*) para fazer a solicitação essa URL
+utiliza partes que podemos identificar como "scheme", "authority, domain, path, query".
 
 <pre class="pre">          <span style="color:rgb(0, 76, 178)">userinfo</span>       <span style="color:rgb(0, 177, 17)">host</span>      <span style="color:rgb(178, 111, 0)">port</span>
           <span style="color:rgb(0, 76, 178)">┌──┴───┐</span> <span style="color:rgb(0, 177, 17)">┌──────┴──────┐</span> <span style="color:rgb(178, 111, 0)">┌┴┐</span>
   https://john.doe@api.example.com:123/forum/?tag=networking&amp;order=newest
   <span style="color:rgb(178, 111, 0)">└─┬─┘</span>   <span style="color:rgb(176, 0, 177)">└─────────────┬────────────┘</span><span style="color:rgb(0, 76, 178)">└──┬──┘</span> <span style="color:rgb(0, 178, 17)">└────────────┬────────────┘</span>
-  <span style="color:rgb(178, 111, 0)">scheme</span>     <span style="color:rgb(176, 0, 177)">authority/domain/host</span>     <span style="color:rgb(0, 76, 178)">path</span>              <span style="color:rgb(0, 178, 17)"><span style="color:rgb(0, 178, 17)">query</span></span>         
+  <span style="color:rgb(178, 111, 0)">scheme</span>     <span style="color:rgb(176, 0, 177)">authority/domain/host</span>     <span style="color:rgb(0, 76, 178)">path</span>              <span style="color:rgb(0, 178, 17)"><span style="color:rgb(0, 178, 17)">query</span></span>
 </pre>
 
 ---
@@ -465,7 +461,7 @@ layout: two-cols
 
 ##### Esquema (*scheme*)
 
-A variável scheme também é chamado de protocol, com APIs da Web e geralmente é http(*HyperText Transfer Protocol*) ou 
+A variável scheme também é chamado de protocol, com APIs da Web e geralmente é http(*HyperText Transfer Protocol*) ou
 https. Determina o protocolo em que os recursos são transferidos de um servidor para um cliente.
 
 
@@ -494,9 +490,9 @@ layout: two-cols
 
 #### Endpoints
 
-Quando os programadores "usam" uma API da Web em seus programas, eles normalmente fazem solicitações para enviar ou 
-receber recursos. A documentação da API geralmente lista "endpoints" para essas solicitações, 
-por exemplo: *api.example.com:123/forum/*. Esse é o padrão ou "endpoint" específico da API de acesso a dados da 
+Quando os programadores "usam" uma API da Web em seus programas, eles normalmente fazem solicitações para enviar ou
+receber recursos. A documentação da API geralmente lista "endpoints" para essas solicitações,
+por exemplo: *api.example.com:123/forum/*. Esse é o padrão ou "endpoint" específico da API de acesso a dados da
 plataforma.
 
 ::right::
@@ -504,7 +500,7 @@ plataforma.
 #### Métodos HTTP (aka Verbos)
 
 Deve ficar claro que as APIs da Web fazem solicitações com padrões repetíveis para servidores. Uma solicitação é
-enviada de um aplicativo de software para outro aplicativo de software que avalia a solicitação e, em seguida, 
+enviada de um aplicativo de software para outro aplicativo de software que avalia a solicitação e, em seguida,
 responde devolvendo alguma informação conforme o endpoint e método utilizado.
 
 ---
@@ -517,15 +513,27 @@ responde devolvendo alguma informação conforme o endpoint e método utilizado.
 - GET{style="color: green;"} esse método é usado ao solicitar uma resposta que fornece um recurso. Utilizado para buscar informações.
 Pode ou não utilizar parâmetros para isso.
 
-- POST{style="color: green;"} método utilizado para enviar dados com a solicitação. Pode parecer estranho que uma "solicitação" envie dados, 
+- POST{style="color: green;"} método utilizado para enviar dados com a solicitação. Pode parecer estranho que uma "solicitação" envie dados,
 mas a ideia é que fazer a solicitação da API é solicitar ao endpoint — o software receptor — que aceite a solicitação e,
-no caso de um POST, para também aceitar os dados que estão sendo enviados. 
+no caso de um POST, para também aceitar os dados que estão sendo enviados.
 Os dados enviados são normalmente gravados em um armazenamento de dados, como um banco de dados ou arquivo.
 
-- PUT{style="color: green;"} esse método também envia dados, mas se os dados que estão sendo enviados 
+- PUT{style="color: green;"} esse método também envia dados, mas se os dados que estão sendo enviados
 já existirem no endpoint, uma PUT atualizará os dados existentes substituindo-os.
 
 - DELETE{style="color: green;"} método utilizado para remover um recurso especificado na solicitação.
+
+---
+
+Idempotência é uma propriedade matemática que, em APIs REST, significa que uma mesma operação pode ser executada várias vezes com o mesmo efeito no recurso.
+
+| Verbo | Finalidade                | Idempotente? | Exemplo de Uso               |
+|-------|----------------------------|--------------|-------------------------------|
+| `GET`    | **Ler** dados do recurso         | ✅ Sim        | `GET /usuarios/42` → busca usuário |
+| `POST`   | **Criar** um novo recurso        | ❌ Não        | `POST /usuarios` → cria novo usuário |
+| `PUT`    | **Atualizar** um recurso inteiro | ✅ Sim        | `PUT /usuarios/42` → atualiza completamente o usuário |
+| `PATCH`  | **Atualizar parcialmente**       | ❌ Depende    | `PATCH /usuarios/42` → altera só o nome, por exemplo |
+| `DELETE` | **Remover** um recurso           | ✅ Sim        | `DELETE /usuarios/42` → exclui o usuário |
 
 ---
 
@@ -580,9 +588,9 @@ layout: two-cols
 A especificação OpenAPI fornece um padrão formal para descrever APIs HTTP.
 Isso permite que as pessoas entendam como funciona uma API, gerem código de cliente e criem testes.
 
-- Informações: detalhes sobre a API, como nome, versão e informações de contato. 
+- Informações: detalhes sobre a API, como nome, versão e informações de contato.
 - Caminhos: define os diferentes endpoints (URLs) disponíveis e as operações permitidas (GET, POST,
-PUT, etc.) para cada endpoint. 
+PUT, etc.) para cada endpoint.
 - Parâmetros: especifica os dados que podem ser enviados ou recebidos da API
 - Respostas: especifica as respostas para cada operação, códigos de status e estruturas de dados.
 - Segurança: autenticação e autorização
